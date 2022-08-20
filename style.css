@@ -1,9 +1,12 @@
 body {
     background-color: red;
-    color: green;
-    
+    color: green;  
 }
 
 h1 {
     margin-top: 10rem;
+}
+
+h2 {
+    word-spacing: 12px;
 }
