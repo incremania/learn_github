@@ -10,7 +10,7 @@
 /* navbar styling */
 
 .navbar {
-    padding:  0.5rem 1rem;
+    padding:  0.5rem 1.5rem;
     height: auto;
     background-color: rgb(248, 249, 250);
     box-shadow: 0 0 3px rgb(141, 139, 139);
@@ -42,11 +42,11 @@
 
 .nav-container-div {
     background-color: transparent;
-    margin-top: 1rem;
     overflow: hidden;
     height: 0;
     transition: all 0.3s linear;
     width: 100%;
+    margin-left: -2rem;
 }
 .show-nav {
    overflow: visible;
@@ -63,7 +63,5 @@
 .nav-link {
     text-decoration: none;
     font-size: 22px;
-    color: rgb(187, 123, 27);
-    
-
+    color: rgb(187, 123, 27); 
 }

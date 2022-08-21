@@ -2,7 +2,7 @@ const toggleBtn = document.querySelector('.nav-toggle-btn')
 const navContainer = document.querySelector('.nav-container-div')
 const navbar = document.querySelector('.navbar')
 const links = document.querySelector('.nav-items')
-
+const p = document.querySelector('p')
 
 toggleBtn.addEventListener('click', function() {
     const containerHeight = navContainer.getBoundingClientRect().height
@@ -14,6 +14,7 @@ toggleBtn.addEventListener('click', function() {
     } else {
         navContainer.style.height = 0
     }
+   
 
     
 })
@@ -23,8 +24,13 @@ window.addEventListener('scroll', function() {
     
     const windowUsedHeight = window.pageYOffset
     if(windowUsedHeight > navHeight) {
+        p.style.marginTop = '110px'
       navbar.classList.add('fixed-nav')
+     
     } else {
         navbar.classList.remove('fixed-nav')
+        p.style.marginTop = '10px'
+        
     }
+
 })
