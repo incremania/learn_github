@@ -57,7 +57,6 @@
           class="form-control"
           id="formGroupExampleInput2"
           placeholder="input your email"
-         
         />
       </div>
       <div class="mb-3">
@@ -69,100 +68,103 @@
           placeholder="phone number"
         />
       </div>
-      <label for="">Select grant amount</label>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
-        />
-        <label class="form-check-label" for="flexRadioDefault1">
-          $20,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          checked
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          $30,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
-        />
-        <label class="form-check-label" for="flexRadioDefault1">
-          $50,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          checked
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          $70,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
-        />
-        <label class="form-check-label" for="flexRadioDefault1">
-          $100,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          checked
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          $150,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault1"
-        />
-        <label class="form-check-label" for="flexRadioDefault1">
-          $200,000
-        </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="flexRadioDefault"
-          id="flexRadioDefault2"
-          checked
-        />
-        <label class="form-check-label" for="flexRadioDefault2">
-          $500,000 and above
-        </label>
-      </div>
       <div class="mb-3">
+        <label for="">Select grant amount</label>
+
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1">
+            $20,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            $30,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1">
+            $50,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            $70,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1">
+            $100,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            $150,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault1"
+          />
+          <label class="form-check-label" for="flexRadioDefault1">
+            $200,000
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="flexRadioDefault"
+            id="flexRadioDefault2"
+            checked
+          />
+          <label class="form-check-label" for="flexRadioDefault2">
+            $500,000 and above
+          </label>
+        </div>
+      </div>
+      <div class="mb-3 age-div">
         <label for="first-name" class="form-label">Age:</label>
         <input
           type="date"
@@ -181,28 +183,21 @@
           maxlength="3"
         />
       </div>
-      <label for="credit-score"  class="form-label">Upload photo(selfie recommended):</label>
-      <input
-        type="file"
-        class="form-control"
-        id="file"
-        accept="image/*"
-      />
-
-      <div class="mb-3">
+      <div class="mb-3 file-div">
+        <label for="credit-score" class="form-label"
+          >Upload photo (selfie recommended):</label
+        >
+        <input type="file" class="form-control" id="file" accept="image/*" />
+      </div>
+      <div class="mb-3 text-area-div">
         <label for="credit-score" class="form-label"
           >Reason for grant application:</label
         >
+        <textarea name="reason" id="reason" cols="30" rows="5"></textarea>
       </div>
-        <textarea
-          name="reason"
-          id="reason"
-          cols="30"
-          rows="5" 
-        ></textarea>
+      <div class="mb-3 submit-div">
+        <button class="btn-dark btn-sm sign-up-btn">Apply for grant</button>
       </div>
-
-      <button class="btn-dark btn-sm">Apply for grant</button>
     </form>
   </body>
 </html>

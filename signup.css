@@ -36,3 +36,36 @@ section {
    text-align: center;
    color: rgb(160, 107, 37);
 }
+
+.age-div, .text-area-div {
+    margin-top: 12px;
+}
+
+@media screen and (min-width: 600px) {
+
+    .signup-form {
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 0 auto;
+    }
+
+    .mb-3 {
+        max-width: 300px;
+    }
+.sign-up-btn {
+    height: 3rem;
+  margin-top: 12rem;
+  margin-left:  auto;
+  width: 100%;
+}
+.age-div, .file-div  {
+    margin-top: -10rem;
+}
+
+.submit-div {
+    margin-top: -12rem;
+    width: 100%;
+}
+}
+
