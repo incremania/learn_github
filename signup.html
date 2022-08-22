@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="signup.css" />
   </head>
   <body>
+    <section>
+      <h2 class="signup-form-header">Grant application form</h2>
+      <img src="" alt="" />
+    </section>
     <form action="" class="signup-form">
       <div class="mb-3">
         <label for="first-name" class="form-label">First name:</label>
@@ -53,6 +57,7 @@
           class="form-control"
           id="formGroupExampleInput2"
           placeholder="input your email"
+         
         />
       </div>
       <div class="mb-3">
@@ -176,11 +181,25 @@
           maxlength="3"
         />
       </div>
+      <label for="credit-score"  class="form-label">Upload photo(selfie recommended):</label>
+      <input
+        type="file"
+        class="form-control"
+        id="file"
+        accept="image/*"
+      />
+
       <div class="mb-3">
         <label for="credit-score" class="form-label"
           >Reason for grant application:</label
         >
-        <textarea name="reason" id="reason" cols="38" rows="5"></textarea>
+      </div>
+        <textarea
+          name="reason"
+          id="reason"
+          cols="38"
+          rows="5" 
+        ></textarea>
       </div>
 
       <button class="btn-dark btn-sm">Apply for grant</button>
