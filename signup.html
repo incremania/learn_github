@@ -20,12 +20,30 @@
   <body>
     <form action="" class="signup-form">
       <div class="mb-3">
-        <label for="name" class="form-label">Name:</label>
+        <label for="first-name" class="form-label">First name:</label>
         <input
           type="text"
           class="form-control"
-          id="formGroupExampleInput"
+          id="first-name"
           placeholder="input your name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="last-name" class="form-label">Last name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="last-name"
+          placeholder="input your last name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="other-name" class="form-label">Other name:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="other-name"
+          placeholder="input your other name"
         />
       </div>
       <div class="mb-3">
@@ -37,8 +55,135 @@
           placeholder="input your email"
         />
       </div>
+      <div class="mb-3">
+        <label for="number" class="form-label">Phone number:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="formGroupExampleInput2"
+          placeholder="phone number"
+        />
+      </div>
+      <label for="">Select grant amount</label>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          $20,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          $30,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          $50,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          $70,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          $100,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          $150,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault1"
+        />
+        <label class="form-check-label" for="flexRadioDefault1">
+          $200,000
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="flexRadioDefault"
+          id="flexRadioDefault2"
+          checked
+        />
+        <label class="form-check-label" for="flexRadioDefault2">
+          $500,000 and above
+        </label>
+      </div>
+      <div class="mb-3">
+        <label for="first-name" class="form-label">Age:</label>
+        <input
+          type="date"
+          class="form-control"
+          id="first-name"
+          placeholder="input your name"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="credit-score" class="form-label">Credit score:</label>
+        <input
+          type="text"
+          class="form-control"
+          id="credit-score"
+          placeholder="input your credit score"
+          maxlength="3"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="credit-score" class="form-label"
+          >Reason for grant application:</label
+        >
+        <textarea name="reason" id="reason" cols="38" rows="5"></textarea>
+      </div>
 
-      <button class="btn-dark btn-sm">btn</button>
+      <button class="btn-dark btn-sm">Apply for grant</button>
     </form>
   </body>
 </html>
