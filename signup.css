@@ -33,10 +33,10 @@ label {
 }
 
 img {
-    width: auto;
-    height: 10rem;
+    width: 40rem;
+    height: 16rem;
     /* max-height: auto; */
-    object-fit:contain;
+    object-fit:cover;
    
 }
 
