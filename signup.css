@@ -33,8 +33,8 @@ label {
 }
 
 img {
-    width: 40rem;
-    height: 16rem;
+    width: auto;
+    height: 14rem;
     /* max-height: auto; */
     object-fit:cover;
    
@@ -63,5 +63,13 @@ section {
         max-width: 1000px;
         margin: 0 auto;
         padding:  0 2rem;
+    }
+
+    img {
+        width: 32rem;
+        height: 12rem;
+        /* max-height: auto; */
+        object-fit:repeat;
+       
     }
 }
