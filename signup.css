@@ -14,8 +14,24 @@ body {
 
 }
 
+nav {
+ display: flex;
+ justify-content: space-between;
+ background-color: #000;
+ background-color: rgb(160, 107, 37);
+ padding: 0 2rem;
+}
 
+.login-link, .nav-logo {
+    text-decoration: none;
+    font-size: 23px;
+    color: white;
 
+}
+
+.login-link:hover, .nav-logo:hover {
+    color: black;
+}
 
 label {
     font-weight: 700;
@@ -34,7 +50,7 @@ label {
 
 img {
     width: auto;
-    height: 14rem;
+    height: 12rem;
     /* max-height: auto; */
     object-fit:cover;
    
