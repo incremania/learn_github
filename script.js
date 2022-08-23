@@ -17,7 +17,8 @@ closeBtn.addEventListener('click', function() {
 
 contactBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    chatSupport.classList.toggle('hide-link')
+    chatSupport.classList.remove('hide-link')
+    
 })
 
 chats.forEach(chat => {
