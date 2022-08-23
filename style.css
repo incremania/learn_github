@@ -9,10 +9,12 @@
 
 /* navbar styling */
 
-.nav-header {
-    background: url(./images/2818.jpg);
-    height: 10rem;
-}
+/* .nav-header {
+    background: url(./images/index-img.jpg);
+    background-repeat: no-repeat;
+    
+    height: 18rem;
+} */
 .navbar {
     padding:  0.5rem 1.2rem;
     height: auto;
@@ -95,4 +97,62 @@
 
 .side-close-btn {
     margin-right: 1rem;
+}
+
+@media screen and (min-width: 700px) {
+    /* .navbar {
+        display: flex;
+    }
+    .side-bar{
+        position: unset;
+    }
+
+    .aside-head {
+        display: none;
+      
+    }
+
+    .nav-toggle-btn {
+        display: none;
+    }
+    
+    .side-bar {
+
+        transform: translate(0);
+        transition: all 0.3s linear;
+        margin-left: -2rem;
+        position: initial;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1rem;
+        background-color: #fff;
+    
+    } */
+
+    .nav-heading-div {
+        display: inline-block;
+    }
+
+    .navbar {
+        display: flex;
+    }
+
+    .side-bar {
+        transform: translate(0);
+        transition: all 0.3s linear;
+        margin-left: -2rem;
+        position: initial;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1rem;
+        background-color: #fff;
+        float: right;
+    
+    } 
+
+ .nav-header {
+    display: flex;
+ }
 }

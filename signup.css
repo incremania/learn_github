@@ -13,19 +13,18 @@ body {
 /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; */
 
 }
-.signup-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding:  0 3rem;
-}
+
+
 
 label {
     font-weight: 700;
 }
 
+
 .form-check-label {
     font-weight: 400;
 }
+
 
 .signup-form-header  {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -37,35 +36,21 @@ section {
    color: rgb(160, 107, 37);
 }
 
-.age-div, .text-area-div {
-    margin-top: 12px;
-}
 
-@media screen and (min-width: 600px) {
+  
 
+@media screen and (max-width: 768px) {
     .signup-form {
-        max-width: 900px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        /* max-width: 400px; */
         margin: 0 auto;
+        padding:  0 3rem;
     }
+}
 
-    .mb-3 {
-        max-width: 300px;
+@media screen and (min-width:769px) {
+    .signup-form {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding:  0 3rem;
     }
-.sign-up-btn {
-    height: 3rem;
-  margin-top: 12rem;
-  margin-left:  auto;
-  width: 100%;
 }
-.age-div, .file-div  {
-    margin-top: -10rem;
-}
-
-.submit-div {
-    margin-top: -12rem;
-    width: 100%;
-}
-}
-
