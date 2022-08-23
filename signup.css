@@ -50,8 +50,7 @@ label {
 
 img {
     width: auto;
-    height: 12rem;
-    /* max-height: auto; */
+    height: 10rem;
     object-fit:cover;
    
 }
@@ -61,8 +60,28 @@ section {
    color: rgb(160, 107, 37);
    margin-bottom: 2rem;
    width: 100%;
+   box-sizing: border-box;
+}
+.existed-user {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.existed-user a {
+ text-decoration: none;
 }
 
+.existed-user a:hover {
+    text-decoration: underline;
+    
+}
+
+.btn-success:active {
+transform: scale(0.98);
+}
+
+.hide-form {
+    display: none;
+}
 
   
 
@@ -89,3 +108,9 @@ section {
        
     }
 }
+
+
+.second-form {
+    padding: 2rem;
+}
+

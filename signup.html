@@ -42,204 +42,265 @@
         class="signup-image"
       />
     </section>
-    <form action="" class="signup-form row">
-      <div class="mb-3 col-md-6">
-        <label for="first-name" class="form-label">First name:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="first-name"
-          placeholder="input your name"
-          name="client-first-name"
-        />
-      </div>
+    <!-- first form // sign up form -->
+    <article class="first-form">
+      <form action="" class="signup-form row">
+        <div class="mb-3 col-md-6">
+          <label for="first-name" class="form-label">First name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="first-name"
+            placeholder="input your name"
+            name="client-first-name"
+          />
+        </div>
 
-      <div class="mb-3 col-md-6">
-        <label for="last-name" class="form-label">Last name:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="last-name"
-          placeholder="input your last name"
-          name="client-last-name"
-        />
-      </div>
+        <div class="mb-3 col-md-6">
+          <label for="last-name" class="form-label">Last name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="last-name"
+            placeholder="input your last name"
+            name="client-last-name"
+          />
+        </div>
 
-      <div class="mb-3 col-md-6">
-        <label for="other-name" class="form-label">Other name:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="other-name"
-          placeholder="input your other name"
-          name="client-other-name"
-        />
-      </div>
-      <div class="mb-3 col-md-6">
-        <label for="email" class="form-label">Email:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="email"
-          name="client-email"
-          placeholder="input your email"
-        />
-      </div>
+        <div class="mb-3 col-md-6">
+          <label for="other-name" class="form-label">Other name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="other-name"
+            placeholder="input your other name"
+            name="client-other-name"
+          />
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            name="client-email"
+            placeholder="input your email"
+          />
+        </div>
 
-      <div class="mb-3 col-md-6">
-        <label for="number" class="form-label">Phone number:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="number"
-          placeholder="phone number"
-          name="client-number"
-        />
-      </div>
-      <div class="mb-3 age-div col-md-6">
-        <label for="age" class="form-label">Age:</label>
-        <input
-          type="date"
-          class="form-control"
-          id="age"
-          placeholder="input your name"
-          name="client-age"
-        />
-      </div>
+        <div class="mb-3 col-md-6">
+          <label for="number" class="form-label">Phone number:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="number"
+            placeholder="phone number"
+            name="client-number"
+          />
+        </div>
+        <div class="mb-3 age-div col-md-6">
+          <label for="age" class="form-label">Age:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="age"
+            placeholder="input your name"
+            name="client-age"
+          />
+        </div>
 
-      <div class="mb-3">
-        <label for="">Select grant amount</label>
+        <div class="mb-3">
+          <label for="">Select grant amount</label>
 
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            value="20K"
-            id="twenty"
-          />
-          <label class="form-check-label" for="twenty"> $20,000 </label>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              value="20K"
+              id="twenty"
+            />
+            <label class="form-check-label" for="twenty"> $20,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="thirty"
+              checked
+              value="30k"
+            />
+            <label class="form-check-label" for="thirty"> $30,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="fifty"
+              value="50k"
+            />
+            <label class="form-check-label" for="fifty"> $50,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="seventy"
+              value="70k"
+            />
+            <label class="form-check-label" for="seventy"> $70,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="hundred"
+              value="100k"
+            />
+            <label class="form-check-label" for="hundred"> $100,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="one-fifty"
+              value="150k"
+            />
+            <label class="form-check-label" for="one-fifty"> $150,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="two-hundred"
+              value="200k"
+            />
+            <label class="form-check-label" for="two-hundred"> $200,000 </label>
+          </div>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="amout-selected"
+              id="five-hundred"
+              value="500k and above"
+            />
+            <label class="form-check-label" for="five-hundred">
+              $500,000 and above
+            </label>
+          </div>
         </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="thirty"
-            checked
-            value="30k"
-          />
-          <label class="form-check-label" for="thirty"> $30,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="fifty"
-            value="50k"
-          />
-          <label class="form-check-label" for="fifty"> $50,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="seventy"
-            value="70k"
-          />
-          <label class="form-check-label" for="seventy"> $70,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="hundred"
-            value="100k"
-          />
-          <label class="form-check-label" for="hundred"> $100,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="one-fifty"
-            value="150k"
-          />
-          <label class="form-check-label" for="one-fifty"> $150,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="two-hundred"
-            value="200k"
-          />
-          <label class="form-check-label" for="two-hundred"> $200,000 </label>
-        </div>
-        <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="amout-selected"
-            id="five-hundred"
-            value="500k and above"
-          />
-          <label class="form-check-label" for="five-hundred">
-            $500,000 and above
-          </label>
-        </div>
-      </div>
 
-      <div class="mb-3 col-md-6">
-        <label for="credit-score" class="form-label">Credit score:</label>
-        <input
-          type="text"
-          class="form-control"
-          id="credit-score"
-          placeholder="input your credit score"
-          maxlength="3"
-          name="credit-score"
-        />
-      </div>
-      <div class="mb-3 file-div col-md-6">
-        <label for="credit-score" class="form-label"
-          >Upload photo (selfie recommended):</label
-        >
-        <input
-          type="file"
-          class="form-control"
-          id="file"
-          accept="image/*"
-          name="photo"
-        />
-      </div>
-      <div class="col-6">
-        <label for="credit-score" class="form-label"
-          >Reason for grant application:</label
-        >
-        <textarea
-          name="reason"
-          id="reason"
-          cols="30"
-          rows="5"
-          name="application-reason"
-        ></textarea>
-      </div>
-      <div class="mb-3 submit-div col-12">
-        <a href="createaccount.html"
-          ><input
-            class="btn-success btn-lg w-100 sign-up-btn"
-            type="submit"
-            value="continue"
+        <div class="mb-3 col-md-6">
+          <label for="credit-score" class="form-label">Credit score:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="credit-score"
+            placeholder="input your credit score"
+            maxlength="3"
+            name="credit-score"
           />
-        </a>
-      </div>
-    </form>
+        </div>
+        <div class="mb-3 file-div col-md-6">
+          <label for="credit-score" class="form-label"
+            >Upload photo (selfie recommended):</label
+          >
+          <input
+            type="file"
+            class="form-control"
+            id="file"
+            accept="image/*"
+            name="photo"
+          />
+        </div>
+        <div class="col-6">
+          <label for="credit-score" class="form-label"
+            >Reason for grant application:</label
+          >
+          <textarea
+            name="reason"
+            id="reason"
+            cols="30"
+            rows="5"
+            name="application-reason"
+          ></textarea>
+        </div>
+        <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
+          <a href="createaccount.html"
+            ><input
+              class="btn-success btn-lg w-100 sign-up-btn"
+              type="submit"
+              value="apply for grant"
+            />
+          </a>
+        </div>
+        <div class="existed-user">
+          <a href="#" class="existed-user-link"
+            >Already have an account? sign in</a
+          >
+        </div>
+      </form>
+    </article>
+    <!-- second form -->
+    <main class="second-form hide-form">
+      <form action="" class="create-account-form">
+        <div class="mb-3 age-div">
+          <label for="email" class="form-label">Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="choose a login email"
+            name="login-email"
+            autofocus
+          />
+        </div>
+
+        <div class="mb-3 age-div">
+          <label for="password" class="form-label">password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="choose a password"
+            name="client-password"
+          />
+        </div>
+
+        <div class="mb-3 age-div">
+          <label for="password" class="form-label">password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="enter password again"
+            name="client-password"
+          />
+        </div>
+
+        <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
+          <a href="createaccount.html"
+            ><input
+              class="btn-success btn-lg w-100 sign-up-btn"
+              type="submit"
+              value="create a grant account"
+            />
+          </a>
+        </div>
+        <div class="existed-user">
+          <a href="#" class="existed-user-link"
+            >Already have an account? sign in</a
+          >
+        </div>
+      </form>
+    </main>
 
     <script src="signup.js"></script>
   </body>
