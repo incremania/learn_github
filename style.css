@@ -156,3 +156,7 @@
     display: flex;
  }
 }
+
+article  {
+    padding: 2rem 2rem;
+}
