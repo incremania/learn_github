@@ -160,3 +160,14 @@
 article  {
     padding: 2rem 2rem;
 }
+
+/* images stylying */
+.about-img-div {
+    width: 100%;
+    
+}
+
+.about-img-div img {
+    width: inherit;
+    height: 13rem;
+}
