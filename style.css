@@ -171,3 +171,32 @@ article  {
     width: inherit;
     height: 13rem;
 }
+
+/* contact support styling */
+
+.chat-support {
+    background-color: #fff;
+    width: fit-content;
+    margin: auto;
+    word-spacing: 10px;
+    transition: all 0.6s linear;
+
+}
+
+.whatsapp-one, .whatsapp-two {
+    color: green;
+}
+
+.chat {
+    cursor: pointer;
+}
+
+.whatsapp-one:hover, .whatsapp-two:hover {
+    color: rgb(67, 107, 67);
+    transform: scale(0.97);
+    transition: all 0.3s linear;
+}
+
+.hide-link {
+    display: none;
+}
