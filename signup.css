@@ -16,6 +16,7 @@ body {
 
 
 
+
 label {
     font-weight: 700;
 }
@@ -34,6 +35,7 @@ label {
 section {
    text-align: center;
    color: rgb(160, 107, 37);
+   margin-bottom: 2rem;
 }
 
 
