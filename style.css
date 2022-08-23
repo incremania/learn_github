@@ -171,7 +171,9 @@ article  {
     width: inherit;
     height: 13rem;
 }
-
+h2 {
+    margin-bottom: 1rem;
+}
 /* contact support styling */
 
 .chat-support {
