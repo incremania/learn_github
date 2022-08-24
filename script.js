@@ -4,6 +4,7 @@ const closeBtn = document.querySelector('.side-close-btn')
 const contactBtn = document.querySelector('.contact-support')
 const chatSupport = document.querySelector('.chat-support')
 const chats = document.querySelectorAll('chat')
+const navLinks = document.querySelectorAll('.nav-link')
 
 toggleBtn.addEventListener('click', function() {
     sideBar.classList.add('show-nav')
@@ -24,6 +25,12 @@ contactBtn.addEventListener('click', function(e) {
 chats.forEach(chat => {
     chat.addEventListener('click', function(e) {
         e.preventDefault()
+    })
+})
+
+navLinks.forEach(navLink => {
+    navLink.addEventListener('click', function() {
+        sideBar.classList.remove('show-nav')
     })
 })
 

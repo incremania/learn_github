@@ -1,0 +1,73 @@
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+height: 100vh;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    background-color: rgb(160, 107, 37);
+    padding: 0 2rem;
+    height: 2rem;
+    align-items: center;
+   
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+.login-form {
+    width: 80%;
+    margin: 0 auto;
+    
+}
+
+.existed-user {
+    text-align: center;
+}
+
+.forgot-password {
+    text-align: center;
+}
+
+.existed-user:hover, .forgot-password:hover {
+    text-decoration: underline;
+}
+
+.nav-logo {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.signup-link {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.img-div {
+    width: 100%;
+}
+
+.img-div img {
+    width: inherit;
+    height: 10rem;
+}
+
+.img-div h2 {
+    text-align: center;
+    color:rgb(187, 123, 27);
+    margin: 2rem 0;
+}
+

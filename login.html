@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo-div">
+        <a href="#" class="nav-logo">GRANT.GOV</a>
+      </div>
+      <i class="fa-solid fa-arrow-right-to-arc"></i>
+      <div class="signup-div">
+        <a href="signup.html" class="signup-link">
+          sign up
+          <span><i class="fa-solid fa-right-to-bracket"></i></span>
+        </a>
+      </div>
+    </nav>
+    <div class="img-div">
+      <h2>login to your dashboard</h2>
+      <img src="./images/signup-image.jpg" alt="" />
+    </div>
+    <section class="form-section">
+      <form action="#" class="login-form row">
+        <div class="mb-3 col-md-6">
+          <label for="mail" class="form-label">Email:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mail"
+            placeholder="enter mail"
+            name="client-login-mail"
+          />
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="password" class="form-label">Password:</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="enter password"
+            name="client-password"
+          />
+        </div>
+        <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
+          <a href="createaccount.html"
+            ><input
+              class="btn-success btn-lg w-100 sign-up-btn"
+              type="submit"
+              value="login"
+            />
+          </a>
+        </div>
+        <div class="existed-user">
+          <a href="#" class="existed-user-link"
+            >dont have an account? sign up</a
+          >
+        </div>
+        <div class="forgot-password">
+          <a href="#" class="existed-user-link">forgot password</a>
+        </div>
+      </form>
+    </section>
+  </body>
+</html>

@@ -48,7 +48,7 @@
 .side-bar {
     background-color: transparent;
     transform: translate(-100%);
-    transition: all 0.3s linear;
+    transition: all 0.5s linear;
     margin-left: -2rem;
     position: fixed;
     left: 0;
@@ -67,6 +67,7 @@
     margin-top: 1rem;
     border-bottom: 1px dotted black;
     padding-bottom: 0.3rem;
+    transition: all 0.5s linear;
 }
 
 
@@ -81,6 +82,17 @@
 .nav-link:hover {
     background-color: rgb(160, 142, 118);
     
+}
+.nav-img {
+    width: 100%;
+    
+
+}
+
+.nav-img img {
+    width: inherit;
+    height: 25rem;
+
 }
 .aside-head {
     display: flex;
@@ -158,7 +170,7 @@
 }
 
 article  {
-    padding: 2rem 2rem;
+    padding: 0.85rem 2rem;
 }
 
 /* images stylying */
@@ -178,6 +190,8 @@ article  {
 }
 h2 {
     margin-bottom: 1rem;
+    text-decoration: underline;
+    word-spacing: 1px;
 }
 /* contact support styling */
 
@@ -206,4 +220,8 @@ h2 {
 
 .hide-link {
     display: none;
+}
+
+.h2-bold {
+    font-weight: 700;
 }
