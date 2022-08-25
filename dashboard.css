@@ -1,0 +1,82 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+   
+}
+
+.user-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+
+.profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+article {
+    padding: 2rem 2rem;
+}
+
+.grant-id, .status {
+    margin: 2rem 0;
+}
+
+.greeting-text {
+    font-weight: 500;
+}
+
+.grant-status {
+    margin-left: 1rem;
+}
+
+
+
+main {
+    
+    padding: 0 2rem;
+}
+
+li {
+    list-style: none;
+}
+
+
+.hide-text {
+    /* display: none; */
+}
+
+.amount-won-div {
+    text-align: center;
+    border: 1px solid rgb(75, 80, 73);
+    margin: 2rem 0;
+    background-color: rgb(75, 80, 73);
+    padding: 10px;
+    color: #fff;
+    border-radius: 4px;
+   
+}
+
+/* .amount-text {
+font-weight: 700;
+font-size: 23px;
+} */
+.winning-message-div {
+    margin: 2rem 0;
+    line-height: 2;
+    background-color: white;
+    box-shadow: 0 0 4px rgb(146, 147, 148);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+

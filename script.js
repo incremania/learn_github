@@ -7,8 +7,7 @@ const chats = document.querySelectorAll('chat')
 const navLinks = document.querySelectorAll('.nav-link')
 
 toggleBtn.addEventListener('click', function() {
-    sideBar.classList.add('show-nav')
-    
+    sideBar.classList.add('show-nav') 
 })
 
 closeBtn.addEventListener('click', function() {
@@ -18,8 +17,7 @@ closeBtn.addEventListener('click', function() {
 
 contactBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    chatSupport.classList.remove('hide-link')
-    
+    chatSupport.classList.remove('hide-link') 
 })
 
 chats.forEach(chat => {

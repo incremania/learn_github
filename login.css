@@ -35,6 +35,7 @@ a {
 
 .forgot-password {
     text-align: center;
+    margin-top: 0.5rem;
 }
 
 .existed-user:hover, .forgot-password:hover {
@@ -71,3 +72,10 @@ a {
     margin: 2rem 0;
 }
 
+.form-section {
+    margin-top: 2rem;
+}
+
+.login-btn:active{
+    transform: scale(0.98);
+}
