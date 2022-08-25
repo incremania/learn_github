@@ -30,6 +30,14 @@ a {
     color: #fff;
 }
 
+.processing-div {
+    width: 100%;
+}
+
+.processing-img {
+    width: inherit;
+    height: 8rem;
+}
 body {
    
 }
