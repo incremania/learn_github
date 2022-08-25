@@ -21,11 +21,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 0.5rem;
 }
 
 article {
-    padding: 2rem 2rem;
+    padding: 2rem 0.3rem;
 }
 
 .grant-id, .status {
@@ -80,3 +80,12 @@ font-size: 23px;
     border-radius: 5px;
 }
 
+
+.grant-success-img-div {
+    width: 100%;
+    text-align: c;
+}
+
+.grant-success-img {
+    width: inherit;
+}
