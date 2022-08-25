@@ -22,13 +22,27 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
+    <nav>
+      <div class="logo-div">
+        <a href="index.html" class="nav-logo">GRANT.GOV</a>
+      </div>
+      <i class="fa-solid fa-arrow-right-to-arc"></i>
+      <div class="signup-div">
+        <a href="login.html" class="logout-link">
+          logout
+          <span><i class="fa-solid fa-right-to-bracket"></i></span>
+        </a>
+      </div>
+    </nav>
     <main>
       <header class="profile">
         <div class="profile-head-div">
           <img src="./images/IMG-20220822-WA0001.jpg" class="user-img" alt="" />
         </div>
         <div class="profile-logo-div">
-          <a href="#" class="profile-logo">GRANT.GOV</a>
+          <h4 class="grant-id">
+            GRANT ID: <span class="user-id">000000</span>
+          </h4>
         </div>
       </header>
 
@@ -38,9 +52,7 @@
             Hello <span class="firstname">firstname</span>
             <span class="lastname">lastname</span>,
           </h3>
-          <h4 class="grant-id">
-            GRANT ID: <span class="user-id">000000</span>
-          </h4>
+
           <div class="dashboard-div show-div">
             <p class="greeting-text">
               We are processing your application, you will get an email from us

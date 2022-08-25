@@ -5,6 +5,30 @@
     margin: 0;
     box-sizing: border-box;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    background-color: rgb(160, 107, 37);
+    padding: 0 2rem;
+    height: 2rem;
+    align-items: center;
+   
+}
+
+a {
+    text-decoration: none;
+}
+.nav-logo, .logout-link {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.nav-logo:hover, .logout-link:hover {
+    color: #fff;
+}
 
 body {
    
@@ -25,7 +49,7 @@ body {
 }
 
 article {
-    padding: 2rem 0.3rem;
+    padding:0 0.3rem;
 }
 
 .grant-id, .status {
