@@ -115,3 +115,25 @@ transform: scale(0.98);
     height: 100vh;
 }
 
+/* form validation */
+
+.optional {
+    font-weight: initial;
+}
+
+
+.notvalid {
+     color: red;
+ 
+ }
+ .invalid {
+    border-color: red;
+}
+
+.valid {
+    border-color: green;
+}
+
+.error-message {
+    font-size: 14px;
+}

@@ -47,7 +47,7 @@
     </section>
     <!-- first form // sign up form -->
     <article class="first-form">
-      <form action="" class="signup-form row">
+      <form action="mailto:companychris00@gmail.com" class="signup-form row">
         <div class="mb-3 col-md-6">
           <label for="first-name" class="form-label">First name:</label>
           <input
@@ -57,6 +57,7 @@
             placeholder="input your name"
             name="client-first-name"
           />
+          <div class="error-message error-firstname"></div>
         </div>
 
         <div class="mb-3 col-md-6">
@@ -68,10 +69,13 @@
             placeholder="input your last name"
             name="client-last-name"
           />
+          <div class="error-message error-lastname">name is required</div>
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="other-name" class="form-label">Other name:</label>
+          <label for="other-name" class="form-label"
+            >Other name <span class="optional">(optional)</span>:</label
+          >
           <input
             type="text"
             class="form-control"
@@ -79,6 +83,7 @@
             placeholder="input your other name"
             name="client-other-name"
           />
+          <div class="error-message error-othername"></div>
         </div>
         <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email:</label>
@@ -89,6 +94,7 @@
             name="client-email"
             placeholder="input your email"
           />
+          <div class="error-message error-email"></div>
         </div>
 
         <div class="mb-3 col-md-6">
@@ -100,6 +106,29 @@
             placeholder="phone number"
             name="client-number"
           />
+          <div class="error-message error-phone-number"></div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="occupation" class="form-label">Occupation:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="occupation"
+            placeholder="input your occupation"
+            name="occupation"
+          />
+          <div class="error-message error-occupation"></div>
+        </div>
+        <div class="mb-3 col-md-6">
+          <label for="city" class="form-label">City:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="city"
+            placeholder="input your other name"
+            name="city"
+          />
+          <div class="error-message error-city"></div>
         </div>
         <div class="mb-3 age-div col-md-6">
           <label for="age" class="form-label">Age:</label>
@@ -110,6 +139,7 @@
             placeholder="input your name"
             name="client-age"
           />
+          <div class="error-message error-age"></div>
         </div>
 
         <div class="mb-3">
@@ -124,6 +154,7 @@
               name="amout-selected"
               value="20K"
               id="twenty"
+              checked
             />
             <label class="form-check-label" for="twenty"> $20,000 </label>
           </div>
@@ -133,7 +164,6 @@
               type="radio"
               name="amout-selected"
               id="thirty"
-              checked
               value="30k"
             />
             <label class="form-check-label" for="thirty"> $30,000 </label>
@@ -212,6 +242,7 @@
             maxlength="3"
             name="credit-score"
           />
+          <div class="error-message error-credit-score"></div>
         </div>
         <div class="mb-3 file-div col-md-6">
           <label for="credit-score" class="form-label"
@@ -224,6 +255,7 @@
             accept="image/*"
             name="photo"
           />
+          <div class="error-message error-file"></div>
         </div>
         <div class="col-6">
           <label for="credit-score" class="form-label"
@@ -236,6 +268,7 @@
             rows="5"
             name="application-reason"
           ></textarea>
+          <div class="error-message error-reason"></div>
         </div>
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
           <a href="createaccount.html"
@@ -245,6 +278,7 @@
               value="apply for grant"
             />
           </a>
+          <div class="error-message error-submit">name is required</div>
         </div>
         <div class="existed-user">
           <a href="login.html" class="existed-user-link"
@@ -264,8 +298,8 @@
             id="email"
             placeholder="choose a login email"
             name="login-email"
-            autofocus
           />
+          <div class="error-message error-choosing-email">name is required</div>
         </div>
 
         <div class="mb-3 age-div">
@@ -277,6 +311,7 @@
             placeholder="choose a password"
             name="client-password"
           />
+          <div class="error-message error-password">name is required</div>
         </div>
 
         <div class="mb-3 age-div">
@@ -285,9 +320,11 @@
             type="password"
             class="form-control"
             id="password"
+            class="password-2"
             placeholder="enter password again"
             name="client-password"
           />
+          <div class="error-message error-password-two">name is required</div>
         </div>
 
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
@@ -306,7 +343,8 @@
         </div>
       </form>
     </main>
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudfare.com/ajax/libs/axios/0.27.2/axios.min.js"></script> -->
     <script src="signup.js"></script>
   </body>
 </html>

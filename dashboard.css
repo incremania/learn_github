@@ -22,7 +22,6 @@ a {
 .nav-logo, .logout-link {
     text-decoration: none;
     font-size: 20px;
-    font-weight: 700;
     color: #fff;
 }
 
@@ -61,6 +60,7 @@ body {
 
 article {
     padding:0 0.3rem;
+    margin-bottom: 5rem;
 }
 
 .grant-id, .status {
@@ -68,7 +68,7 @@ article {
 }
 
 .greeting-text {
-    font-weight: 500;
+    word-spacing: 2px;
     line-height: 2;
 }
 
