@@ -6,6 +6,8 @@
     box-sizing: border-box;
 }
 
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -122,11 +124,11 @@ transform: scale(0.98);
 }
 
 
-.notvalid {
+.invalid {
      color: red;
  
  }
- .invalid {
+ .invalid-border {
     border-color: red;
 }
 
@@ -136,4 +138,25 @@ transform: scale(0.98);
 
 .error-message {
     font-size: 14px;
+}
+.mb-3 {
+    position: relative;
+}
+
+.validation-icon {
+    position: absolute;
+    right: 1.2rem;
+    top: 2.6rem;
+    display: none;
+}
+.valid-border {
+    border-color: green;
+}
+.success-icon {
+   display: block;
+}
+
+.not-success-icon {
+    display: block;
+ 
 }

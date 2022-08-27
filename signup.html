@@ -46,8 +46,9 @@
       </div>
     </section>
     <!-- first form // sign up form -->
-    <article class="first-form">
-      <form action="mailto:companychris00@gmail.com" class="signup-form row">
+    <!-- <article class="first-form"> -->
+    <form action="mailto:companychris00@gmail.com" class="signup-form row">
+      <article class="first-form row">
         <div class="mb-3 col-md-6">
           <label for="first-name" class="form-label">First name:</label>
           <input
@@ -57,6 +58,14 @@
             placeholder="input your name"
             name="client-first-name"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-firstname"></div>
         </div>
 
@@ -69,7 +78,15 @@
             placeholder="input your last name"
             name="client-last-name"
           />
-          <div class="error-message error-lastname">name is required</div>
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
+          <div class="error-message error-lastname"></div>
         </div>
 
         <div class="mb-3 col-md-6">
@@ -83,6 +100,14 @@
             placeholder="input your other name"
             name="client-other-name"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-othername"></div>
         </div>
         <div class="mb-3 col-md-6">
@@ -94,6 +119,14 @@
             name="client-email"
             placeholder="input your email"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-email"></div>
         </div>
 
@@ -106,6 +139,14 @@
             placeholder="phone number"
             name="client-number"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-phone-number"></div>
         </div>
         <div class="mb-3 col-md-6">
@@ -117,6 +158,14 @@
             placeholder="input your occupation"
             name="occupation"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-occupation"></div>
         </div>
         <div class="mb-3 col-md-6">
@@ -128,6 +177,14 @@
             placeholder="input your other name"
             name="city"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-city"></div>
         </div>
         <div class="mb-3 age-div col-md-6">
@@ -139,6 +196,14 @@
             placeholder="input your name"
             name="client-age"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-age"></div>
         </div>
 
@@ -242,6 +307,14 @@
             maxlength="3"
             name="credit-score"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-credit-score"></div>
         </div>
         <div class="mb-3 file-div col-md-6">
@@ -255,6 +328,14 @@
             accept="image/*"
             name="photo"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-file"></div>
         </div>
         <div class="col-6">
@@ -268,14 +349,22 @@
             rows="5"
             name="application-reason"
           ></textarea>
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-reason"></div>
         </div>
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
-          <a href="createaccount.html"
+          <a href=""
             ><input
-              class="btn-success btn-lg w-100 sign-up-btn"
-              type="submit"
-              value="apply for grant"
+              class="btn-success btn-lg w-100 continue"
+              type="button"
+              value="continue"
             />
           </a>
           <div class="error-message error-submit">name is required</div>
@@ -285,21 +374,29 @@
             >Already have an account? sign in</a
           >
         </div>
-      </form>
-    </article>
-    <!-- second form -->
-    <main class="second-form hide-form">
-      <form action="" class="create-account-form">
+      </article>
+      <!-- </article> -->
+      <!-- second form -->
+      <main class="second-form hide-form">
+        <!-- <form action="dashboard.html" class="create-account-form"> -->
         <div class="mb-3 age-div">
           <label for="email" class="form-label">Email:</label>
           <input
             type="email"
             class="form-control"
-            id="email"
+            id="login-email"
             placeholder="choose a login email"
             name="login-email"
           />
-          <div class="error-message error-choosing-email">name is required</div>
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
+          <div class="error-message error-login-email">name is required</div>
         </div>
 
         <div class="mb-3 age-div">
@@ -307,11 +404,19 @@
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="login-password-one"
             placeholder="choose a password"
             name="client-password"
           />
-          <div class="error-message error-password">name is required</div>
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
+          <div class="error-message error-password-one">name is required</div>
         </div>
 
         <div class="mb-3 age-div">
@@ -319,16 +424,24 @@
           <input
             type="password"
             class="form-control"
-            id="password"
+            id="login-password-two"
             class="password-2"
             placeholder="enter password again"
             name="client-password"
           />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
           <div class="error-message error-password-two">name is required</div>
         </div>
 
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
-          <a href="createaccount.html"
+          <a href=""
             ><input
               class="btn-success btn-lg w-100 sign-up-btn"
               type="submit"
@@ -341,9 +454,10 @@
             >Already have an account? sign in</a
           >
         </div>
-      </form>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- </form> -->
+      </main>
+    </form>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudfare.com/ajax/libs/axios/0.27.2/axios.min.js"></script> -->
     <script src="signup.js"></script>
   </body>
