@@ -7,18 +7,16 @@
 }
 /* navbar styling */
 /* navbar styling */
-
+body {
+    background-color: white;
+}
 
 .logo-img {
     height: 3rem;
     background-color: transparent;
 }
 
-.btn-apply-div {
-    display: flex;
-    align-items: center;
-    
-}
+
 
  .btn-apply {
     padding: .2rem 1rem;
@@ -42,6 +40,7 @@
         background-color: navy;
             padding: 0.75rem 1rem ;
             box-shadow: 0 0 3px white;
+            align-items: center;
         
     }
 /* homepage img styling */
@@ -54,6 +53,15 @@
     height: inherit;
 }
 
+
+.apply-head-div {
+    display: flex;
+    align-items: center;
+}
+
+.apply-div {
+    display: none;
+}
 
 /* side bar styling */
 /* side bar styling */
@@ -85,6 +93,7 @@
     line-height: 3;
     margin-left: -1.7rem;
     transition: all 0.3 linear;
+    margin-left: .4rem;
 }
 
 .item a {
@@ -101,6 +110,7 @@
     padding: .1rem 1rem;
     border-radius: 1rem;
     color: white;
+   
 }
 
 .show-sidebar {
@@ -121,15 +131,18 @@
         display: none;
     }
 
-    .btn-apply {
-        position: absolute;
-        left: 50%;
-        margin-bottom: 3rem;
-    }
 
     .homepage-pics {
         width: 100%;
         height: 40rem;
+    }
+
+    .apply-head-div {
+        display: none;
+    }
+
+    .apply-div {
+        margin-left: 7rem;
     }
 
     .homepage-pics img {
@@ -140,19 +153,35 @@
     .mynavbar {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         background-color: navy;
         padding: 0.5rem 1rem ;
         box-shadow: 0 0 3px rgb(172, 163, 163);
     }
+
+    .nav-heading {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
  
     .items {
         display: flex;
+        margin-bottom: 4px;
     }
 
     .item {
-        margin-right: 1rem;
         list-style: none;
+    
     }
+
+    .item:not(:nth-of-type(4)) {
+        margin-right: 2rem;
+        
+    }
+
+    
 
 
     .item a {
@@ -160,7 +189,8 @@
         color: white;
         font-weight: 500;
         font-size: 20px;
-        transition: all 0.3 linear 1s;
+        transition: all 0.4 linear 4s;
+         
     }
     
     .items a:hover {
@@ -168,7 +198,7 @@
         box-shadow: 0 0 3px rgb(114, 110, 110);
         padding: .1rem 1rem;
         border-radius: 1rem;
-        transition: all 0.3 linear 1s;
+       
     }
 
     .fa-bars {
