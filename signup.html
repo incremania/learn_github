@@ -150,7 +150,9 @@
           <div class="error-message error-phone-number"></div>
         </div>
         <div class="mb-3 col-md-6">
-          <label for="occupation" class="form-label">Occupation:</label>
+          <label for="occupation" class="form-label"
+            >Occupation <span class="optional">(optional)</span>:</label
+          >
           <input
             type="text"
             class="form-control"
@@ -168,6 +170,27 @@
           ></i>
           <div class="error-message error-occupation"></div>
         </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="income" class="form-label">Monthly income:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="income"
+            placeholder="how much do you earn monthly"
+            name="earning"
+          />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
+          <div class="error-message error-income"></div>
+        </div>
+
         <div class="mb-3 col-md-6">
           <label for="city" class="form-label">City:</label>
           <input
@@ -396,7 +419,7 @@
             class="fa-solid fa-circle-check validation-icon valid-icon"
             style="color: green"
           ></i>
-          <div class="error-message error-login-email">name is required</div>
+          <div class="error-message error-login-email"></div>
         </div>
 
         <div class="mb-3 age-div">

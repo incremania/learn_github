@@ -7,8 +7,8 @@ const firstName = document.querySelector('#first-name');
 const errorFirstName = document.querySelector('.error-firstname')
 const lastName = document.querySelector('#last-name')
 const errorLastName = document.querySelector('.error-lastname')
-const occupation = document.querySelector('#occupation')
-const errorOccupation = document.querySelector('.error-occupation')
+const income = document.querySelector('#income')
+const errorIncome = document.querySelector('.error-income')
 const age = document.querySelector('#age')
 const errorAge= document.querySelector('.error-age')
 const city = document.querySelector('#city')
@@ -72,7 +72,7 @@ continueBtn.addEventListener('click', function(e) {
  validation(city, errorCity, 'this field cannot be empty', 'invalid city format')
  validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format')
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
-  validation(occupation, errorOccupation, 'this field cannot be empty', 'invalid occupation format')
+  numberValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
   numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
  
   const firstNameValid = firstName.classList.contains('valid-border')
@@ -98,7 +98,7 @@ continueBtn.addEventListener('click', function(e) {
    validation(city, errorCity, 'this field cannot be empty', 'invalid city format')
    validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format')
     validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
-    validation(occupation, errorOccupation, 'this field cannot be empty', 'invalid occupation format')
+    validation(income, errorIncome, 'this field cannot be empty', 'numbers only')
  numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
  setTimeout(function(){
     alert('please make sure all fields all filled and try again')
@@ -136,8 +136,8 @@ lastName.addEventListener('keyup', function() {
     validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
 })
 
-occupation.addEventListener('keyup', function() {
-    validation(occupation, errorOccupation, 'this field cannot be empty', 'invalid occupation format')
+income.addEventListener('keyup', function() {
+    numberValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
 })
 
 city.addEventListener('keyup', function() {
@@ -274,6 +274,7 @@ function ageValidation() {
         age.classList.remove('valid-border')
         errorAge.innerHTML = 'select a valid age'
         age.classList.add('invalid')
+        errorAge.style.color = 'red'
        
         return false  
     } else if(age.value.length > 1) {
