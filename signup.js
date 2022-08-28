@@ -82,11 +82,11 @@ continueBtn.addEventListener('click', function(e) {
   const ageValid = age.classList.contains('valid-border');
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
-  const occupationValid = occupation.classList.contains('valid-border')
+  const incomeValid = income.classList.contains('valid-border')
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
 
-  if(firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid &&  incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form')
      secondForm.classList.remove('hide-form')
