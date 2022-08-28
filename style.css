@@ -129,7 +129,7 @@ p {
     color: rgb(10, 89, 153);
     font-weight: 500;
     font-size: 20px;
-    transition: all 0.5 linear;
+    transition: all 0.5s linear;
 }
 
 .items a:hover {
@@ -209,6 +209,14 @@ p {
         
     }
 
+    .home  {
+        background-color: white;
+    box-shadow: 0 0 3px rgb(114, 110, 110);
+    padding: .1rem 1rem;
+    border-radius: 1rem;
+    color: navy;
+    }
+    
     
 
 
@@ -217,17 +225,31 @@ p {
         color: white;
         font-weight: 500;
         font-size: 20px;
-        transition: all 0.4 linear 4s;
+        transition: all 0.3s linear;
+       
          
     }
+
+    
     
     .items a:hover {
         background-color: rgb(78, 78, 112);
         box-shadow: 0 0 3px rgb(114, 110, 110);
         padding: .1rem 1rem;
         border-radius: 1rem;
+        background-color: white;
+        color: navy;
        
     }
+    .home a {
+        color: navy;
+    }
+
+    .home a:hover {
+        box-shadow: 0 0 3px white;
+        padding: 0;
+    }
+
 
     .fa-bars {
         display: none;
