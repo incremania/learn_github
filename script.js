@@ -35,3 +35,13 @@ sidebarloseBtn.addEventListener('click', function() {
 
 
 
+
+const homeImg = document.querySelector('.img-home')
+const body = document.querySelector('body')
+
+window.addEventListener('DOMContentLoaded', function() {
+ const requiredWidth = body.getBoundingClientRect().width;
+ if(requiredWidth < 655) {
+    homeImg.setAttribute('src', "./images/sam-img-test.jpeg")
+ } 
+})
