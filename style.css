@@ -19,7 +19,7 @@ body {
 
 /* all articles styling */
 .row {
-    margin: 1rem 3rem;
+    margin: 1rem 2rem;
 }
 .img-div-width {
     width: 100%;
@@ -90,7 +90,6 @@ p {
 
 
 
-
 /* side bar styling */
 /* side bar styling */
 .nav-bottom {
@@ -140,14 +139,44 @@ p {
     color: white;
    
 }
-
+/* show and hide class */
 .show-sidebar {
     transform: translate(0);
 }
 }
+
+/* chat support styling */
+
+.hide-link {
+    display: none;
+}
+
+.chat-support {
+    margin-left: 25%;
+    word-spacing: 10px;
+}
+
+h2 {
+    margin: 1rem 0;
+}
+
+
 /* all image styling including logo */
+.img-div-width {
+    width: 100%;
+}
 
+.img-div-width img {
+    width: inherit;
+}
 
+/* all input styling */
+
+.sign-up-btn {
+    background-color: navy;
+    border:none;
+    color:white;
+}
 /* media queries  for medium and large screen*/
 /* media queries  for medium and large screen*/
 @media screen and (min-width: 700px) {
@@ -270,3 +299,5 @@ p {
 .logo-img {
     background-color: navy;
 }
+
+
