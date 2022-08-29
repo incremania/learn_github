@@ -6,10 +6,6 @@
     box-sizing: border-box;
 }
 
-body {
-    /* background-color: white;
-    width: 100vw; */
-}
 /* navbar styling */
 /* navbar styling */
 .logo-img {
@@ -41,8 +37,22 @@ p {
     
 }
 
+.contact-support, .sign-up-btn {
+    background-color: navy;
+    color: white;
+    border-color: navy;
+    border-radius: 5px;
+    transition: all 0.7s ease-in-out;
+   
+}
 
-
+.contact-support:hover, .sign-up-btn:hover {
+    background-color: white;
+    color: navy;
+    border-color: navy;
+    border-color: green;
+ 
+}
  .btn-apply {
     padding: .2rem 1rem;
     border: none;
@@ -55,6 +65,47 @@ p {
     font-weight: 500;
     
  }
+/* testimonial styling start here */
+/* testmonial styLING */
+.testmonial-div {
+   margin-top: 1rem;
+    display: flex;
+    background-color: navy;
+    color: white;
+    padding: .5rem .5rem;
+    border-radius: 1rem;
+   
+    
+}
+
+
+
+.testmonial-p-div, .testmonial-name {
+    margin-left: .5rem;
+}
+
+.testmonial-img-div {
+   width: 4rem;
+   background-color: inherit;
+   /* height: 5rem; */
+}
+
+.testmonial-img {
+    width: inherit;
+}
+
+.all-testmonial-div {
+    margin:  2rem 2rem;
+}
+
+
+
+
+
+
+
+
+/* TESTmonial styling end here */
 
 
 /* styling for small screen */
@@ -143,6 +194,10 @@ p {
 .show-sidebar {
     transform: translate(0);
 }
+
+/*  testmoonial styling */
+
+
 }
 
 /* chat support styling */
@@ -188,6 +243,14 @@ h2 {
         display: none;
     }
 
+    .all-testmonial-div {
+        display: grid;
+        gap: 1.5;
+        grid-template-columns: 1fr 1fr ;
+        
+        column-gap: 2rem;
+    
+    }
 
     .homepage-pics {
         width: 100%;
@@ -286,11 +349,11 @@ h2 {
 }
 
 
-/* @media screen  and (min-width:1200px) {
-    body {
-        margin: 0 3rem;
-    }
-} */
+@media screen  and (min-width:1200px) {
+  .all-testmonial-div {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+} 
 
 .logo-img-div {
     background-color: navy;
