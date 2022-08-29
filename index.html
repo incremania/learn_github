@@ -34,6 +34,7 @@
           <div class="logo-img-div">
             <img src="./images/logo-img.jpeg" alt="" class="logo-img" />
           </div>
+
           <div class="apply-head-div">
             <a href="./signup.html">
             <button class="btn-apply">apply now</button>
@@ -60,9 +61,13 @@
     <!-- end of navabr styling -->
 
     <!-- first homepage img begginning-->
-    <div class="homepage-pics">
-      <img src="./images/REALHOMEPAGETEST.jpeg" alt="" class="img-home" />
-    </div>
+  
+      <picture class="homepage-pics">
+        <source class="img-home" media="(min-width: 650px)" srcset="./images/REALHOMEPAGETEST.jpeg" alt="img">
+        <img src="./images/sam-img-test.jpeg" alt="" class="img-home" />
+      </picture>
+     
+   
 
    <div class="row">
 
@@ -157,6 +162,8 @@
 
        
     </div>
+
+  
 
 
     <!-- javascript src -->
