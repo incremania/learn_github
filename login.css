@@ -99,3 +99,7 @@ a {
 .login-btn:active{
     transform: scale(0.98);
 }
+
+.forgot-password {
+    margin-bottom: 10rem;
+}
