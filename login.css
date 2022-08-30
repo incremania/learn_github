@@ -9,12 +9,13 @@
 body {
 height: 100vh;
 }
+
+
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #000;
     background-color: rgb(160, 107, 37);
-    padding: 0 2rem;
+    padding: 2rem 2rem;
     height: 2rem;
     align-items: center;
    
@@ -27,6 +28,19 @@ a {
     width: 80%;
     margin: 0 auto;
     
+}
+
+
+
+.logo-div {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100%;
+}
+
+.logo-div img{
+    width: inherit;
+    height: inherit;
 }
 
 .existed-user {
@@ -55,6 +69,12 @@ a {
     font-weight: 700;
     color: #fff;
     margin-bottom: 1rem;
+    transition: all 0.4s linear;
+}
+
+.signup-link:hover {
+    color: white;
+    transform: scale(0.97);
 }
 
 .img-div {

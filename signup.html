@@ -24,7 +24,7 @@
   <body>
     <nav>
       <div class="logo-div">
-        <a href="index.html" class="nav-logo">GRANT.GOV</a>
+        <img src="./images/logo-img.jpeg" alt="" />
       </div>
       <i class="fa-solid fa-arrow-right-to-arc"></i>
       <div class="signup-div">
@@ -173,22 +173,26 @@
 
         <div class="mb-3 col-md-6">
           <label for="income" class="form-label">Monthly income:</label>
-          <input
-            type="text"
-            class="form-control"
-            id="income"
-            placeholder="how much do you earn monthly"
-            name="earning"
-          />
-          <i
-            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
-            style="color: red"
-          ></i>
-          <i
-            class="fa-solid fa-circle-check validation-icon valid-icon"
-            style="color: green"
-          ></i>
-          <div class="error-message error-income"></div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">$</span>
+            <input
+              type="text"
+              class="form-control"
+              id="income"
+              placeholder="how much do you earn monthly"
+              name="earning"
+            />
+
+            <i
+              class="fa-solid income-icon fa-circle-exclamation validation-icon invalid-icon"
+              style="color: red"
+            ></i>
+            <i
+              class="fa-solid income-icon fa-circle-check validation-icon valid-icon"
+              style="color: green"
+            ></i>
+            <div class="error-message error-income"></div>
+          </div>
         </div>
 
         <!-- mailing address -->
@@ -219,7 +223,7 @@
             type="text"
             class="form-control"
             id="city"
-            placeholder="input your other name"
+            placeholder="input your other state"
             name="city"
           />
           <i
@@ -383,7 +387,7 @@
           ></i>
           <div class="error-message error-file"></div>
         </div>
-        <div class="col-6">
+        <div class="col-6 textarea-div">
           <label for="credit-score" class="form-label"
             >Reason for grant application:</label
           >
@@ -395,14 +399,14 @@
             name="application-reason"
           ></textarea>
           <i
-            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon textarea-icon"
             style="color: red"
           ></i>
           <i
-            class="fa-solid fa-circle-check validation-icon valid-icon"
+            class="fa-solid fa-circle-check validation-icon valid-icon textarea-icon"
             style="color: green"
           ></i>
-          <div class="error-message error-reason"></div>
+          <div class="error-message error-reason" style="width: 100%"></div>
         </div>
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
           <a href=""

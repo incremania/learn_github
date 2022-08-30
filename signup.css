@@ -19,15 +19,25 @@ nav {
  background-color: #000;
  background-color: rgb(160, 107, 37);
  padding: 0 2rem;
+ align-items: center;
 
 
 }
+.logo-div {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 100%;
+}
 
+.logo-div img {
+    height: inherit;
+    width: inherit;
+}
 .login-link, .nav-logo {
     text-decoration: none;
     font-size: 23px;
     color: white;
-
+    transition:  all 0.4s linear;
 }
 
 .login-link:hover, .nav-logo:hover {
@@ -160,3 +170,27 @@ transform: scale(0.98);
     display: block;
  
 }
+
+.error-income {
+    width: 100%;
+}
+
+.income-icon {
+    position: absolute;
+    top: .64rem;
+    right: 1rem;
+    z-index: 99;
+
+}
+
+.textarea-div {
+    position: relative;
+    
+}
+
+/* .textarea-icon {
+   position: absolute;
+  left: 5rem;
+  top: 10rem;
+  z-index: 99;
+} */

@@ -73,10 +73,10 @@ continueBtn.addEventListener('click', function(e) {
   fileValidation()
   ageValidation()
   emailValidation(email, errorEmail, 'error', 'invalid error')
- validation(city, errorCity, 'this field cannot be empty', 'invalid city format')
- validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format')
+  validation(city, errorCity, 'this field cannot be empty', 'invalid state format')
+  validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format')
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
-  numberValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
+  incomeValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
   numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
   
   const firstNameValid = firstName.classList.contains('valid-border')
@@ -146,7 +146,7 @@ income.addEventListener('keyup', function() {
 })
 
 city.addEventListener('keyup', function() {
-    validation(city, errorCity, 'this field cannot be empty', 'invalid city format')
+    validation(city, errorCity, 'this field cannot be empty', 'invalid state format')
 })
 
 file.addEventListener('blur', function() {
@@ -420,11 +420,16 @@ function emailValidation() {
     }
 }
 
+textArea.addEventListener('keyup', function() {
+    textAreaValidation()
+})
+
 function textAreaValidation() {
     const invalidIcon = textArea.parentElement.querySelector('.invalid-icon')
     const validIcon = textArea.parentElement.querySelector('.valid-icon')
     const requiredReasonLength = 40
-    const reason = textArea.value
+    const reason = textArea.value.length
+    const remainder = 40-textArea.value.length
 
     if(!textArea.value.trim())  {
         textArea.classList.add('invalid-border')
@@ -436,12 +441,11 @@ function textAreaValidation() {
         return true
     
     } else if(reason < 40) {
-        errorTextArea.innerHTML = 
+        errorTextArea.innerHTML = `reason must be greater 40 letters, ${remainder} letters remaining `
         errorTextArea.classList.add('invalid')
         textArea.classList.remove('valid-border')
         textArea.classList.add('invalid-border') 
         invalidIcon.classList.add('not-success-icon')
-
         validIcon.classList.remove('success-icon')
         return true
     }
