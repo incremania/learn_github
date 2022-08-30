@@ -130,6 +130,7 @@ p {
 /*proof styling */
 .all-proofs {
     width: 100%;
+    padding: 0 1rem 1rem;
 
 }
 
@@ -141,13 +142,13 @@ p {
 
 /* TESTmonial styling end here */
 
-@media screen and(min-width: 460px) {
+@media screen and(max-width: 460px) {
     body {
         background-color: red;
     }
     .all-proofs {
         display: grid;
-        margin: 0 1rem;
+        /* margin: 0 1rem; */
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 1rem;
 
@@ -173,7 +174,6 @@ p {
 
 .all-proofs {
     display: grid;
-    margin: 0 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 1rem;
 }
