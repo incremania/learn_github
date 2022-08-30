@@ -78,7 +78,7 @@ continueBtn.addEventListener('click', function(e) {
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
   incomeValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
   numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
-  
+  textAreaValidation()
   const firstNameValid = firstName.classList.contains('valid-border')
   const lastNameValid  = lastName.classList.contains('valid-border')
   const creditScoreValid = creditScore.classList.contains('valid-border')
@@ -88,10 +88,12 @@ continueBtn.addEventListener('click', function(e) {
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
   const incomeValid = income.classList.contains('valid-border')
   const mailingAddressValid = mailingAddress.classList.contains('valid-border')
+  const textAreaValid = textArea.classList.contains('valid-border')
+
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
 
-  if(firstNameValid && mailingAddressValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid && mailingAddressValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form')
      secondForm.classList.remove('hide-form')
