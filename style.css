@@ -37,15 +37,17 @@ h2 {
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;  
     
 }
-
+/* btn stYLing */
+/* btn styling */
 .contact-support, .sign-up-btn {
     background-color: navy;
     color: white;
     border-color: navy;
     border-radius: 5px;
+    
     transition: all 0.7s ease-in-out;
    
 }
@@ -54,13 +56,11 @@ p {
     background-color: white;
     color: navy;
     border-color: navy;
-    border-color: green;
  
 }
  .btn-apply {
     padding: .2rem 1rem;
     border: none;
-    /* margin-top: .rem; */
     margin-right: 1rem;
     background-color: white;
     border-radius: 2rem;
@@ -69,6 +69,7 @@ p {
     font-weight: 500;
     
  }
+
 /* testimonial styling start here */
 /* testmonial styLING */
 .testmonial-heading {
@@ -242,11 +243,6 @@ h2 {
 
 /* all input styling */
 
-.sign-up-btn {
-    background-color: navy;
-    border:none;
-    color:white;
-}
 /* media queries  for medium and large screen*/
 /* media queries  for medium and large screen*/
 @media screen and (min-width: 700px) {
@@ -262,7 +258,6 @@ h2 {
         display: grid;
         gap: 1.5;
         grid-template-columns: 1fr 1fr ;
-        
         column-gap: 2rem;
     
     }
