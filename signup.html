@@ -191,8 +191,30 @@
           <div class="error-message error-income"></div>
         </div>
 
+        <!-- mailing address -->
+
         <div class="mb-3 col-md-6">
-          <label for="city" class="form-label">City:</label>
+          <label for="income" class="form-label">Mailing address:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="mailingaddress"
+            placeholder="address to receive your debit card"
+            name="mailing-adrress"
+          />
+          <i
+            class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+            style="color: red"
+          ></i>
+          <i
+            class="fa-solid fa-circle-check validation-icon valid-icon"
+            style="color: green"
+          ></i>
+          <div class="error-message error-mailing-address"></div>
+        </div>
+
+        <div class="mb-3 col-md-6">
+          <label for="city" class="form-label">State:</label>
           <input
             type="text"
             class="form-control"
@@ -211,7 +233,7 @@
           <div class="error-message error-city"></div>
         </div>
         <div class="mb-3 age-div col-md-6">
-          <label for="age" class="form-label">Age:</label>
+          <label for="age" class="form-label">Date Of Birth:</label>
           <input
             type="date"
             class="form-control"

@@ -21,6 +21,8 @@ const phoneNumber = document.querySelector('#number')
 const errorPhoneNumber = document.querySelector('.error-phone-number')
 const email = document.querySelector('#email')
 const errorEmail = document.querySelector('.error-email')
+const mailingAddress = document.querySelector('#mailingaddress')
+const errorMailingAddress = document.querySelector('.error-mailing-address')
 const textArea = document.querySelector('#reason')
 const errorTextArea = document.querySelector('.error-reason')
 const continueBtn = document.querySelector('.continue')
@@ -30,7 +32,9 @@ const loginPasswordOne = document.querySelector('#login-password-one')
 const errorPasswordOne= document.querySelector('.error-password-one')
 const loginPasswordTwo = document.querySelector('#login-password-two')
 const errorPasswordTwo = document.querySelector('.error-password-two')
+
 const signUpForm = document.querySelector('.signup-form')
+
 
 
 
@@ -74,7 +78,7 @@ continueBtn.addEventListener('click', function(e) {
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
   numberValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
   numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
- 
+  
   const firstNameValid = firstName.classList.contains('valid-border')
   const lastNameValid  = lastName.classList.contains('valid-border')
   const creditScoreValid = creditScore.classList.contains('valid-border')
@@ -83,10 +87,11 @@ continueBtn.addEventListener('click', function(e) {
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
   const incomeValid = income.classList.contains('valid-border')
+  const mailingAddressValid = mailingAddress.classList.contains('valid-border')
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
 
-  if(firstNameValid &&  incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid && mailingAddressValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form')
      secondForm.classList.remove('hide-form')
@@ -95,11 +100,12 @@ continueBtn.addEventListener('click', function(e) {
     fileValidation()
     ageValidation()
     emailValidation()
+    mailingAddressValiddation(mailingAddress, errorMailingAddress, 'mailing address cannot be empty')
    validation(city, errorCity, 'this field cannot be empty', 'invalid city format')
    validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format')
     validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format')
-    validation(income, errorIncome, 'this field cannot be empty', 'numbers only')
- numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
+    validation(income, errorIncome, 'this field cannot be empty', 'input a valid income')
+ incomeValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number')
  setTimeout(function(){
     alert('please make sure all fields all filled and try again')
  },1000)
@@ -124,7 +130,6 @@ creditScore.addEventListener('keyup', function() {
 })
 
 
-// phoneNumber = phoneNumber.replace(/[^\d]+/g, '').replace(/(\d{1}) (\d{3})(\d{3} (\d{4})/, '+$1 ($2) $3-$4')
 
 //letters validation
 firstName.addEventListener('keyup', function() {
@@ -137,7 +142,7 @@ lastName.addEventListener('keyup', function() {
 })
 
 income.addEventListener('keyup', function() {
-    numberValidation(income, errorIncome, 'this field cannot be empty', 'numbers only')
+    incomeValidation(income, errorIncome, 'this field cannot be empty', 'input a valid income')
 })
 
 city.addEventListener('keyup', function() {
@@ -153,6 +158,9 @@ age.addEventListener('blur', function()
    ageValidation()
 })
 
+mailingAddress.addEventListener('keyup', function(){
+    mailingAddressValiddation(mailingAddress, errorMailingAddress,'mailing address is required')
+})
 
 
 
@@ -168,8 +176,8 @@ function numberValidation(inputName, errorName, firstMessage, secondMessage) {
         invalidIcon.classList.add('not-success-icon')
         validIcon.classList.remove('success-icon')
         return false    
-
-    } else if(!inputName.value.match(/^[0-9]+$/)) {
+        // /(?:(\+1)[ -])?\(?(\d{3})?[ -]?(\d{3})[ -]?(\d{4})/
+    } else if(!inputName.value.match(/(?:(\+1)[ -])?\(?(\d{3})?[ -]?(\d{3})[ -]?(\d{4})/) ) {
         errorName.innerHTML = secondMessage
         errorName.classList.add('invalid')
         inputName.classList.remove('valid-border')
@@ -290,6 +298,62 @@ email.addEventListener('keyup', function() {
     emailValidation()
 })
 
+// mailing address validation
+function mailingAddressValiddation(inputName, errorName, firstMessage) {
+    const invalidIcon = inputName.parentElement.querySelector('.invalid-icon')
+    const validIcon = inputName.parentElement.querySelector('.valid-icon')
+    if(!mailingAddress.value.trim()) {
+        inputName.classList.add('invalid-border')
+        inputName.classList.remove('valid-border')
+        errorName.innerHTML = firstMessage
+        errorName.classList.add('invalid')
+        invalidIcon.classList.add('not-success-icon')
+        validIcon.classList.remove('success-icon')
+    } else {
+        errorName.innerHTML = ''
+        validIcon.classList.add('success-icon')
+        invalidIcon.classList.remove('not-success-icon')
+        inputName.classList.remove('invalid-border')
+        inputName.classList.add('valid-border')
+        return true
+    }
+}
+
+function incomeValidation(inputName, errorName, firstMessage,secondMessage){
+    const invalidIcon = inputName.parentElement.querySelector('.invalid-icon')
+    const validIcon = inputName.parentElement.querySelector('.valid-icon')
+
+    if(!inputName.value.trim())  {
+        inputName.classList.add('invalid-border')
+        inputName.classList.remove('valid-border')
+        errorName.innerHTML = firstMessage
+        errorName.classList.add('invalid')
+        invalidIcon.classList.add('not-success-icon')
+        validIcon.classList.remove('success-icon')  
+        return true
+    
+    } 
+    else if(inputName.value.length < 3) {
+        errorName.innerHTML = secondMessage
+        errorName.classList.add('invalid')
+        inputName.classList.remove('valid-border')
+        inputName.classList.add('invalid-border')
+        invalidIcon.classList.add('not-success-icon')
+
+        validIcon.classList.remove('success-icon')
+        return true
+    }
+    else {
+        errorName.innerHTML = ''
+        validIcon.classList.add('success-icon')
+        invalidIcon.classList.remove('not-success-icon')
+        inputName.classList.remove('invalid-border')
+        inputName.classList.add('valid-border')
+     return false
+    }
+}
+
+
 function loginEmailValidation() {
     const invalidIcon = loginEmail.parentElement.querySelector('.invalid-icon')
     const validIcon = loginEmail.parentElement.querySelector('.valid-icon')
@@ -303,7 +367,7 @@ function loginEmailValidation() {
         validIcon.classList.remove('success-icon')  
         return true
     
-    } else if(!loginEmail.value.match(/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/)) {
+    } else if(!loginEmail.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
         errorLoginEmail.innerHTML = 'invalid email format'
         errorLoginEmail.classList.add('invalid')
         loginEmail.classList.remove('valid-border')
@@ -336,7 +400,7 @@ function emailValidation() {
         validIcon.classList.remove('success-icon')  
         return true
     
-    } else if(!email.value.match(/^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/)) {
+    } else if(!email.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
         errorEmail.innerHTML = 'invalid email format'
         errorEmail.classList.add('invalid')
         email.classList.remove('valid-border')
@@ -437,8 +501,6 @@ function passwordValidation(passwordType, passwordError) {
 
     
 }
-
-
 
 
 function validatePasswordTwo() {
