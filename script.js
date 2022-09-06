@@ -4,19 +4,16 @@ const sidebar = document.querySelector('.nav-bottom')
 const sidebarloseBtn = document.querySelector('.fa-times')
 const contactBtn = document.querySelector('.contact-support')
 const chatSupport = document.querySelector('.chat-support')
-// const chats = document.querySelectorAll('.chat')
+const body = document.querySelector('body')
+
 const navLinks = document.querySelectorAll('.item-link')
 
 contactBtn.addEventListener('click', function(e) {
     e.preventDefault()
-    chatSupport.classList.remove('hide-link') 
+    chatSupport.classList.toggle('hide-link') 
 })
 
-// chats.forEach(chat => {
-//     chat.addEventListener('click', function(e) {
-//         // e.preventDefault()
-//     })
-// })
+
 
 navLinks.forEach(navLink => {
     navLink.addEventListener('click', function() {
@@ -33,6 +30,20 @@ sidebarloseBtn.addEventListener('click', function() {
     sidebar.classList.remove('show-sidebar')
 })
 
+// back to top styling
 
+const toTopBtn = document.querySelector('.to-top')
+
+
+
+window.addEventListener('scroll', function() {
+    const scrollHeight = window.pageYOffset
+    if(scrollHeight >= 635) {
+       toTopBtn.classList.add('show-totopbtn')
+    } else {
+        toTopBtn.classList.remove('show-totopbtn')
+    }
+   
+})
 
 

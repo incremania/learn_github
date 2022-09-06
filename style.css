@@ -54,7 +54,6 @@ p {
     color: white;
     border-color: navy;
     border-radius: 5px;
-    
     transition: all 0.7s ease-in-out;
    
 }
@@ -262,8 +261,8 @@ p {
 }
 
 .chat-support {
-    margin-left: 25%;
     word-spacing: 10px;
+    text-align: center;
 }
 
 h2 {
@@ -424,7 +423,28 @@ h2 {
 .logo-img {
     background-color: navy;
 }
+/* back to top styling */
+
+.to-top { 
+    position: fixed;
+    right: 0;
+    margin-bottom:3rem;
+    bottom: 0;
+    display: none;
+    color: blue;
+}
+
+.show-totopbtn {
+    display: block;
+}
 
 
+/* footer styling */
+/* footer styling */
+footer {
+    height: 10rem;
+    background-color: navy;
+    color: white;
+}
 
 
