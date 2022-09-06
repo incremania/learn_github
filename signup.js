@@ -135,7 +135,7 @@ city.addEventListener('keyup', function() {
 
 
 
-file.addEventListener('keypress', function() {
+file.addEventListener('blur', function() {
     fileValidation();
 });
 
