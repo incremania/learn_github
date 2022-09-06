@@ -229,6 +229,7 @@ function creditScoreValidation() {
 }
 
 function fileValidation() {
+    console.log(file.value.length)
     const invalidIcon = file.parentElement.querySelector('.invalid-icon');
     const validIcon = file.parentElement.querySelector('.valid-icon');
     if(file.value.length == 0)  {
@@ -238,7 +239,13 @@ function fileValidation() {
         file.classList.remove('valid-border');
         errorFile.innerHTML = 'upload a photo';
         errorFile.classList.add('invalid');
-    } 
+    }  else if(file.value.length > 13) {
+        errorFile.innerHTML = '';
+        validIcon.classList.add('success-icon');
+        invalidIcon.classList.remove('not-success-icon');
+        file.classList.remove('invalid-border');
+        file.classList.add('valid-border');
+    }
     else {
         errorFile.innerHTML = '';
         validIcon.classList.add('success-icon');
