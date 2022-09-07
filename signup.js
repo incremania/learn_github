@@ -32,6 +32,14 @@ const loginPasswordOne = document.querySelector('#login-password-one');
 const errorPasswordOne= document.querySelector('.error-password-one');
 const loginPasswordTwo = document.querySelector('#login-password-two');
 const errorPasswordTwo = document.querySelector('.error-password-two');
+const male = document.querySelector('#male')
+const female = document.querySelector('#female')
+const errorGender = document.querySelector('.error-gender')
+const gender = document.querySelector('#gender')
+
+console.log(male.checked)
+
+
 
 const signUpForm = document.querySelector('.signup-form');
 loginEmail.addEventListener('keyup' ,function() { 
@@ -61,6 +69,7 @@ continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
   fileValidation();
+  genderCheck();
   ageValidation();
   emailValidation(email, errorEmail, 'error', 'invalid error');
   validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
@@ -69,6 +78,7 @@ continueBtn.addEventListener('click', function(e) {
   incomeValidation(income, errorIncome, 'this field cannot be empty', 'numbers only');
   numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number');
   textAreaValidation()
+
   const firstNameValid = firstName.classList.contains('valid-border');
   const lastNameValid  = lastName.classList.contains('valid-border');
   const creditScoreValid = creditScore.classList.contains('valid-border');
@@ -79,10 +89,11 @@ continueBtn.addEventListener('click', function(e) {
   const incomeValid = income.classList.contains('valid-border');
   const mailingAddressValid = mailingAddress.classList.contains('valid-border');
   const textAreaValid = textArea.classList.contains('valid-border');
+  const genderValid = gender.classList.contains('valid-text')
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid && mailingAddressValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
@@ -229,7 +240,6 @@ function creditScoreValidation() {
 }
 
 function fileValidation() {
-    console.log(file.value.length)
     const invalidIcon = file.parentElement.querySelector('.invalid-icon');
     const validIcon = file.parentElement.querySelector('.valid-icon');
     if(file.value.length == 0)  {
@@ -441,6 +451,33 @@ function textAreaValidation() {
         return false;
     };
 };
+
+// gender validation
+
+function genderCheck () {
+  const errorGender = document.querySelector('.error-gender')
+
+    if(!male.checked && !female.checked)  {
+        
+        errorGender.innerHTML = 'select a gender';
+        errorGender.classList.add('invalid');
+    } 
+    else {
+        errorGender.innerHTML = '';
+        gender.classList.add('valid-text')
+        gender.classList.remove('invalid')
+
+    };
+
+    male.addEventListener('click', function() {
+        errorGender.innerHTML = ''
+    })
+    
+    female.addEventListener('click', function() {
+        errorGender.innerHTML = ''
+    })
+    
+}
 
 
 

@@ -22,64 +22,73 @@
     <link rel="stylesheet" href="dashboard.css" />
   </head>
   <body>
-    <nav>
-      <div class="logo-div">
-        <a href="index.html" class="nav-logo">GRANT.GOV</a>
-      </div>
-      <i class="fa-solid fa-arrow-right-to-arc"></i>
-      <div class="signup-div">
-        <a href="login.html" class="logout-link">
-          logout
-          <span><i class="fa-solid fa-right-to-bracket"></i></span>
-        </a>
-      </div>
-    </nav>
-
-    <main>
-      <header class="profile">
-        <div class="profile-head-div">
-          <img src="./images/IMG-20220822-WA0001.jpg" class="user-img" alt="" />
+    <article class="dashboard">
+      <nav>
+        <div class="logo-div">
+          <a href="index.html" class="nav-logo">GRANT.GOV</a>
         </div>
-        <div class="profile-logo-div">
-          <h4 class="grant-id">
-            GRANT ID: <span class="user-id">000000</span>
-          </h4>
+        <i class="fa-solid fa-arrow-right-to-arc"></i>
+        <div class="signup-div">
+          <a href="login.html" class="logout-link">
+            logout
+            <span><i class="fa-solid fa-right-to-bracket"></i></span>
+          </a>
         </div>
-      </header>
+      </nav>
 
-      <article class="profile-messsage-one">
-        <div class="greeting">
-          <h3 class="greeting-message">
-            Hello <span class="firstname">firstname</span>
-            <span class="lastname">lastname</span>,
-          </h3>
-
-          <div class="dashboard-div show-div">
-            <p class="greeting-text">
-              We are processing your application, you will get an email from us
-              if you get get approved for this grant.
-            </p>
-
-            <p class="greeting-text">
-              If you get rejected for this program you are always welcome to
-              re-apply.
-            </p>
-            <div class="status">
-              <h3>GRANT STATUS: <i class="grant-status"> Processing...</i></h3>
-            </div>
-            <div class="processing-div">
-              <img
-                src="./images/proceesing.png"
-                alt="application in process"
-                class="processing-img"
-              />
-            </div>
-            <div class="grant-amount">
-              <h3>GRANT AMOUNT: $<span>20,000</span> - $<span>30,000</span></h3>
-            </div>
+      <main>
+        <header class="profile">
+          <div class="profile-head-div">
+            <img
+              src="./images/IMG-20220822-WA0001.jpg"
+              class="user-img"
+              alt=""
+            />
           </div>
-          <!-- display after two hours -->
-          <!-- <h3>Congratulations <span>firstname</span> <span>lastname</span>,</h3>
+          <div class="profile-logo-div">
+            <h4 class="grant-id">
+              GRANT ID: <span class="user-id">000000</span>
+            </h4>
+          </div>
+        </header>
+
+        <article class="profile-messsage-one">
+          <div class="greeting">
+            <h3 class="greeting-message">
+              Hello <span class="firstname">firstname</span>
+              <span class="lastname">lastname</span>,
+            </h3>
+
+            <div class="dashboard-div show-div">
+              <p class="greeting-text">
+                We are processing your application, you will get an email from
+                us if you get get approved for this grant.
+              </p>
+
+              <p class="greeting-text">
+                If you get rejected for this program you are always welcome to
+                re-apply.
+              </p>
+              <div class="status">
+                <h3>
+                  GRANT STATUS: <i class="grant-status"> Processing...</i>
+                </h3>
+              </div>
+              <div class="processing-div">
+                <img
+                  src="./images/proceesing.png"
+                  alt="application in process"
+                  class="processing-img"
+                />
+              </div>
+              <div class="grant-amount">
+                <h3>
+                  GRANT AMOUNT: $<span>20,000</span> - $<span>30,000</span>
+                </h3>
+              </div>
+            </div>
+            <!-- display after two hours -->
+            <!-- <h3>Congratulations <span>firstname</span> <span>lastname</span>,</h3>
           <div class="winning-message-div">
             <p class="greeting-text hide-text winning-message">
               Yep, that's right. Congrats
@@ -111,12 +120,11 @@
             </h3>
           </div> -->
 
-          <!-- display after two hours -->
-        </div>
-      </article>
-
-      <article></article>
-    </main>
+            <!-- display after two hours -->
+          </div>
+        </article>
+      </main>
+    </article>
 
     <script src="dashboard.js"></script>
   </body>
