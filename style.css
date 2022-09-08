@@ -462,6 +462,7 @@ footer {
  background: navy;
  color: white;
  transition: all 3s linear;
+ margin-top: 0.5rem;
 
 }
 
@@ -471,6 +472,7 @@ footer {
     border: none;
     color:white;
     background: navy;
+    margin-top: 0.5rem;
     
  
    
@@ -496,7 +498,6 @@ footer {
 }
 
 .contact-ads-social {
-    margin-top: -1rem;
     margin-bottom: 1rem;
 }
 
