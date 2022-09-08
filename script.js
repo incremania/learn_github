@@ -47,3 +47,14 @@ window.addEventListener('scroll', function() {
 })
 
 
+//  footer more about this grant styling
+
+const moreAbout = document.querySelector('.about-footer')
+const toggleAboutBtn = document.querySelector('.more-toggle')
+
+
+toggleAboutBtn.addEventListener('click', function() {
+    moreAbout.classList.toggle('show-more')
+})
+
+

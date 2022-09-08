@@ -295,9 +295,9 @@ h2 {
     .all-testmonial-div {
         display: grid;
         gap: 1.5;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr ;
         column-gap: 2rem;
-        grid-template-rows: auto auto auto auto auto;
+        
     
     }
 
@@ -442,9 +442,79 @@ h2 {
 /* footer styling */
 /* footer styling */
 footer {
-    height: 10rem;
     background-color: navy;
     color: white;
+    padding: 1rem 1rem;
+    
 }
 
 
+.more-about-footer {
+    display: flex;
+
+
+}
+.open-footer-about {
+ position: absolute;
+ margin-left: 1rem;
+ display: none;
+ border: none;
+ background: navy;
+ color: white;
+ transition: all 3s linear;
+
+}
+
+.close-footer-about {
+    position: absolute;
+    margin-left: 1rem;
+    border: none;
+    color:white;
+    background: navy;
+    
+ 
+   
+}
+
+.more-about-text {
+    display: none;
+    max-width: 500px;
+    /* margin-top: -1rem; */
+    margin-bottom: 1rem;
+}
+
+.show-more .more-about-text {
+    display: block;
+}
+
+.show-more .open-footer-about {
+    display: block;
+}
+
+.show-more .close-footer-about {
+    display: none;
+}
+
+.contact-ads-social {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+
+.whatsapp-footer {
+    color: green;
+    cursor: pointer;
+}
+
+.mail-footer {
+    color: black;
+    margin-left: 1rem;
+    cursor: pointer;
+}
+
+
+.telegram-footer {
+    color: white;
+    margin-left: 1rem;
+    cursor: pointer;
+}
