@@ -93,7 +93,7 @@ li {
 /* .hide-text {
     display: none; 
 } */
-
+/* 
 .amount-won-div {
     text-align: center;
     border: 1px solid rgb(75, 80, 73);
@@ -103,7 +103,7 @@ li {
     color: #fff;
     border-radius: 4px;
    
-}
+} */
 
 /* .amount-text {
 font-weight: 700;
@@ -138,4 +138,59 @@ font-size: 23px;
     padding-bottom: 10rem;
     
     background-color: white;
+}
+
+.payment-mode {
+    margin-top: 2rem;
+}
+
+.fa-square-whatsapp {
+    color: green;
+}
+
+.fa-envelope {
+    color: red;
+}
+
+.chat-support {
+  word-spacing: 20px;
+   text-align: center;
+}
+
+
+.hide-link {
+    display: none;
+}
+
+.show-link {
+    display: block;
+}
+
+
+.after-payment {
+    transition: all 0.4s linear;
+}
+
+.claim-payment-btn:active {
+    transform: scale(0.98);
+    transition: all 0.4s linear;
+}
+
+.grant-status-after {
+    margin-top: .1rem;
+
+}
+
+.grant-status-div {
+    display: flex;
+    align-items: center;
+    
+}
+
+.approved-btn {
+    margin-left: .4rem;
+}
+
+.btn:hover {
+   background-color: #198754;;
 }
