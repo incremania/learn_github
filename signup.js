@@ -36,11 +36,6 @@ const male = document.querySelector('#male')
 const female = document.querySelector('#female')
 const errorGender = document.querySelector('.error-gender')
 const gender = document.querySelector('#gender')
-
-console.log(male.checked)
-
-
-
 const signUpForm = document.querySelector('.signup-form');
 loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
@@ -54,6 +49,14 @@ signUpForm.addEventListener('submit', function(e) {
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
     alert('sign in to dashboard');
+    
+  let formData = new FormData(signUpForm);
+  console.log(formData)
+  axios.post('https://dateapi-app.herokuapp.com/user/', formData)
+  .then(res => console.log(res))
+  .catch(err => console.log(err))
+//   console.log([...formData])
+    
   } else {
     loginEmailValidation();
     passwordMatch();
@@ -61,17 +64,26 @@ signUpForm.addEventListener('submit', function(e) {
     validatePasswordTwo();
     passwordValidation(loginPasswordTwo, errorPasswordTwo);
   };
+
+//   let formData = new FormData(signUpForm);
+//   console.log(formData)
+//   axios.post('https://dateapi-app.herokuapp.com/user/', formData)
+//   .then(res => console.log(res))
+//   .catch(err => console.log(err))
+//   console.log([...formData])
 });
 
 //  continuing to next form
+function continuBtnFunction() {
+
 
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
   fileValidation();
-  genderCheck();
+//   genderCheck();
   ageValidation();
-  emailValidation(email, errorEmail, 'error', 'invalid error');
+//   emailValidation(email, errorEmail, 'error', 'invalid error');
   validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
   validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
@@ -89,11 +101,11 @@ continueBtn.addEventListener('click', function(e) {
   const incomeValid = income.classList.contains('valid-border');
   const mailingAddressValid = mailingAddress.classList.contains('valid-border');
   const textAreaValid = textArea.classList.contains('valid-border');
-  const genderValid = gender.classList.contains('valid-text')
+//   const genderValid = gender.classList.contains('valid-text')
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid && mailingAddressValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
@@ -101,7 +113,7 @@ continueBtn.addEventListener('click', function(e) {
     creditScoreValidation();
     fileValidation();
     ageValidation();
-    emailValidation();
+    // emailValidation();
     mailingAddressValiddation(mailingAddress, errorMailingAddress, 'mailing address cannot be empty');
     validation(city, errorCity, 'this field cannot be empty', 'invalid city format');
     validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
@@ -114,6 +126,9 @@ continueBtn.addEventListener('click', function(e) {
 };
 });
 
+}
+
+continuBtnFunction()
 
 
 
@@ -221,6 +236,7 @@ function validation(inputName, errorName, firstMessage, secondMessage) {
 
 
 function creditScoreValidation() {
+    creditScore.value = parseInt(creditScore.value)
     const invalidIcon = creditScore.parentElement.querySelector('.invalid-icon');
     const validIcon = creditScore.parentElement.querySelector('.valid-icon');
    if(!creditScore.value.match(/^[0-9]+$/) || creditScore.value > 850 || creditScore.value.length < 3) {
@@ -292,9 +308,9 @@ function ageValidation() {
     };
 };
 
-email.addEventListener('keyup', function() {
-    emailValidation();
-});
+// email.addEventListener('keyup', function() {
+//     emailValidation();
+// });
 
 // mailing address validation
 function mailingAddressValiddation(inputName, errorName, firstMessage) {
@@ -383,36 +399,36 @@ function loginEmailValidation() {
     }
 }
 
-function emailValidation() {
-    const invalidIcon = email.parentElement.querySelector('.invalid-icon');
-    const validIcon = email.parentElement.querySelector('.valid-icon');
+// function emailValidation() {
+//     const invalidIcon = email.parentElement.querySelector('.invalid-icon');
+//     const validIcon = email.parentElement.querySelector('.valid-icon');
 
-    if(!email.value.trim())  {
-        email.classList.add('invalid-border');
-        email.classList.remove('valid-border');
-        errorEmail.innerHTML = 'email field cannot be empty';
-        errorEmail.classList.add('invalid');
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon'); 
-        return true;
-    } else if(!email.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-        errorEmail.innerHTML = 'invalid email format';
-        errorEmail.classList.add('invalid');
-        email.classList.remove('valid-border');
-        email.classList.add('invalid-border');
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon');
-        return true;
-    }
-    else {
-        errorEmail.innerHTML = '';
-        validIcon.classList.add('success-icon');
-        invalidIcon.classList.remove('not-success-icon');
-        email.classList.remove('invalid-border');
-        email.classList.add('valid-border');
-        return false;
-    };
-};
+//     if(!email.value.trim())  {
+//         email.classList.add('invalid-border');
+//         email.classList.remove('valid-border');
+//         errorEmail.innerHTML = 'email field cannot be empty';
+//         errorEmail.classList.add('invalid');
+//         invalidIcon.classList.add('not-success-icon');
+//         validIcon.classList.remove('success-icon'); 
+//         return true;
+//     } else if(!email.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
+//         errorEmail.innerHTML = 'invalid email format';
+//         errorEmail.classList.add('invalid');
+//         email.classList.remove('valid-border');
+//         email.classList.add('invalid-border');
+//         invalidIcon.classList.add('not-success-icon');
+//         validIcon.classList.remove('success-icon');
+//         return true;
+//     }
+//     else {
+//         errorEmail.innerHTML = '';
+//         validIcon.classList.add('success-icon');
+//         invalidIcon.classList.remove('not-success-icon');
+//         email.classList.remove('invalid-border');
+//         email.classList.add('valid-border');
+//         return false;
+//     };
+// };
 
 textArea.addEventListener('keyup', function() {
     textAreaValidation();
@@ -454,30 +470,30 @@ function textAreaValidation() {
 
 // gender validation
 
-function genderCheck () {
-  const errorGender = document.querySelector('.error-gender')
+// function genderCheck () {
+//   const errorGender = document.querySelector('.error-gender')
 
-    if(!male.checked && !female.checked)  {
+//     if(!male.checked && !female.checked)  {
         
-        errorGender.innerHTML = 'select a gender';
-        errorGender.classList.add('invalid');
-    } 
-    else {
-        errorGender.innerHTML = '';
-        gender.classList.add('valid-text')
-        gender.classList.remove('invalid')
+//         errorGender.innerHTML = 'select a gender';
+//         errorGender.classList.add('invalid');
+//     } 
+//     else {
+//         errorGender.innerHTML = '';
+//         gender.classList.add('valid-text')
+//         gender.classList.remove('invalid')
 
-    };
+//     };
 
-    male.addEventListener('click', function() {
-        errorGender.innerHTML = ''
-    })
+//     male.addEventListener('click', function() {
+//         errorGender.innerHTML = ''
+//     })
     
-    female.addEventListener('click', function() {
-        errorGender.innerHTML = ''
-    })
+//     female.addEventListener('click', function() {
+//         errorGender.innerHTML = ''
+//     })
     
-}
+// }
 
 
 
@@ -556,4 +572,34 @@ function passwordMatch() {
 
 
 
+// consuming backend api
+// consuming backend api
 
+
+// function tryAxios() {
+//  const data = axios.get('https://catfact.ninja/breeds')
+// console.log(data)
+// }
+
+// tryAxios()
+
+// https://dateapi-app.herokuapp.com/
+
+// async function postUserInfos() {
+//     try {
+//         let h = new Headers();
+//         h.append('Authentication', `Bearer ${token}`)
+//       const response = await axios({
+//         method: 'post',
+//         url: 'dateapi-app.herokuapp.com',
+//         header: h,
+//       })
+//        return response;
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   }
+
+//   postUserInfos()
+
+ 

