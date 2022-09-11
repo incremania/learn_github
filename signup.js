@@ -15,8 +15,8 @@ const city = document.querySelector('#city');
 const errorCity= document.querySelector('.error-city');
 const creditScore = document.querySelector('#credit-score');
 const errorCreditScore= document.querySelector('.error-credit-score');
-const file = document.querySelector('#file');
-const errorFile = document.querySelector('.error-file');
+// const file = document.querySelector('#file');
+// const errorFile = document.querySelector('.error-file');
 const phoneNumber = document.querySelector('#number');
 const errorPhoneNumber = document.querySelector('.error-phone-number');
 const email = document.querySelector('#email');
@@ -41,7 +41,7 @@ loginEmail.addEventListener('keyup' ,function() {
     loginEmailValidation()
 });
 
-signUpForm.addEventListener('submit', function(e) {
+signUpForm.addEventListener('submit',async  function(e) {
     e.preventDefault(); 
   const loginEmailValid = loginEmail.classList.contains('valid-border');
   const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
@@ -49,14 +49,25 @@ signUpForm.addEventListener('submit', function(e) {
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
     alert('sign in to dashboard');
-    
-  let formData = new FormData(signUpForm);
-  console.log(formData)
-  axios.post('https://dateapi-app.herokuapp.com/user/', formData)
-  .then(res => console.log(res))
-  .catch(err => console.log(err))
-//   console.log([...formData])
-    
+    const url = 'https://dateapi-app.herokuapp.com/user/'
+        const formData = new FormData(signUpForm)
+        const formDataSerialized = Object.fromEntries(formData)
+        console.log(formDataSerialized)
+        let headers = new Headers()
+        headers.append('Content-Type', 'application/json')
+        headers.append('Accept', 'application/json')
+    try {
+        const response =  await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(formDataSerialized),
+            headers: headers
+        })
+        const json = await response.json()
+        console.log(json)
+    } catch (error) {
+        console.log(error)
+    }
+  
   } else {
     loginEmailValidation();
     passwordMatch();
@@ -73,15 +84,92 @@ signUpForm.addEventListener('submit', function(e) {
 //   console.log([...formData])
 });
 
+
+
+//     const url = 'https://dateapi-app.herokuapp.com/user/'
+//     const formEL = document.querySelector('form')
+//     formEL.addEventListener('submit', async function (e)  {
+//         e.preventDefault();
+//         const formData = new FormData(formEL)
+//         const formDataSerialized = Object.fromEntries(formData)
+//         console.log(formDataSerialized)
+//     try {
+//         const response =  await fetch(url, {
+//             method: 'POST',
+//             body: JSON.stringify(formDataSerialized),
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             }
+//         })
+//         const json = await response.json()
+//         console.log(json)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //  continuing to next form
 function continuBtnFunction() {
-
-
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
-  fileValidation();
-//   genderCheck();
+//   fileValidation();
+  genderCheck();
   ageValidation();
 //   emailValidation(email, errorEmail, 'error', 'invalid error');
   validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
@@ -94,24 +182,24 @@ continueBtn.addEventListener('click', function(e) {
   const firstNameValid = firstName.classList.contains('valid-border');
   const lastNameValid  = lastName.classList.contains('valid-border');
   const creditScoreValid = creditScore.classList.contains('valid-border');
-  const fileValid = file.classList.contains('valid-border');
+//   const fileValid = file.classList.contains('valid-border');
   const ageValid = age.classList.contains('valid-border');
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
   const incomeValid = income.classList.contains('valid-border');
   const mailingAddressValid = mailingAddress.classList.contains('valid-border');
   const textAreaValid = textArea.classList.contains('valid-border');
-//   const genderValid = gender.classList.contains('valid-text')
+  const genderValid = gender.classList.contains('valid-text')
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid) {
+  if(firstNameValid && mailingAddressValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {
     creditScoreValidation();
-    fileValidation();
+    // fileValidation();
     ageValidation();
     // emailValidation();
     mailingAddressValiddation(mailingAddress, errorMailingAddress, 'mailing address cannot be empty');
@@ -161,9 +249,9 @@ city.addEventListener('keyup', function() {
 
 
 
-file.addEventListener('blur', function() {
-    fileValidation();
-});
+// file.addEventListener('blur', function() {
+//     fileValidation();
+// });
 
 age.addEventListener('blur', function() {
    ageValidation();
@@ -236,7 +324,7 @@ function validation(inputName, errorName, firstMessage, secondMessage) {
 
 
 function creditScoreValidation() {
-    creditScore.value = parseInt(creditScore.value)
+    
     const invalidIcon = creditScore.parentElement.querySelector('.invalid-icon');
     const validIcon = creditScore.parentElement.querySelector('.valid-icon');
    if(!creditScore.value.match(/^[0-9]+$/) || creditScore.value > 850 || creditScore.value.length < 3) {
@@ -255,31 +343,31 @@ function creditScoreValidation() {
     }
 }
 
-function fileValidation() {
-    const invalidIcon = file.parentElement.querySelector('.invalid-icon');
-    const validIcon = file.parentElement.querySelector('.valid-icon');
-    if(file.value.length == 0)  {
-        validIcon.classList.remove('success-icon');
-        invalidIcon.classList.add('not-success-icon');
-        file.classList.add('invalid-border');
-        file.classList.remove('valid-border');
-        errorFile.innerHTML = 'upload a photo';
-        errorFile.classList.add('invalid');
-    }  else if(file.value.length > 13) {
-        errorFile.innerHTML = '';
-        validIcon.classList.add('success-icon');
-        invalidIcon.classList.remove('not-success-icon');
-        file.classList.remove('invalid-border');
-        file.classList.add('valid-border');
-    }
-    else {
-        errorFile.innerHTML = '';
-        validIcon.classList.add('success-icon');
-        invalidIcon.classList.remove('not-success-icon');
-        file.classList.remove('invalid-border');
-        file.classList.add('valid-border');
-    };
-};
+// function fileValidation() {
+//     const invalidIcon = file.parentElement.querySelector('.invalid-icon');
+//     const validIcon = file.parentElement.querySelector('.valid-icon');
+//     if(file.value.length == 0)  {
+//         validIcon.classList.remove('success-icon');
+//         invalidIcon.classList.add('not-success-icon');
+//         file.classList.add('invalid-border');
+//         file.classList.remove('valid-border');
+//         errorFile.innerHTML = 'upload a photo';
+//         errorFile.classList.add('invalid');
+//     }  else if(file.value.length > 13) {
+//         errorFile.innerHTML = '';
+//         validIcon.classList.add('success-icon');
+//         invalidIcon.classList.remove('not-success-icon');
+//         file.classList.remove('invalid-border');
+//         file.classList.add('valid-border');
+//     }
+//     else {
+//         errorFile.innerHTML = '';
+//         validIcon.classList.add('success-icon');
+//         invalidIcon.classList.remove('not-success-icon');
+//         file.classList.remove('invalid-border');
+//         file.classList.add('valid-border');
+//     };
+// };
 
 function ageValidation() {
     const year = age.value.substring(0,4)
@@ -470,30 +558,30 @@ function textAreaValidation() {
 
 // gender validation
 
-// function genderCheck () {
-//   const errorGender = document.querySelector('.error-gender')
+function genderCheck () {
+  const errorGender = document.querySelector('.error-gender')
 
-//     if(!male.checked && !female.checked)  {
+    if(!male.checked && !female.checked)  {
         
-//         errorGender.innerHTML = 'select a gender';
-//         errorGender.classList.add('invalid');
-//     } 
-//     else {
-//         errorGender.innerHTML = '';
-//         gender.classList.add('valid-text')
-//         gender.classList.remove('invalid')
+        errorGender.innerHTML = 'select a gender';
+        errorGender.classList.add('invalid');
+    } 
+    else {
+        errorGender.innerHTML = '';
+        gender.classList.add('valid-text')
+        gender.classList.remove('invalid')
 
-//     };
+    };
 
-//     male.addEventListener('click', function() {
-//         errorGender.innerHTML = ''
-//     })
+    male.addEventListener('click', function() {
+        errorGender.innerHTML = ''
+    })
     
-//     female.addEventListener('click', function() {
-//         errorGender.innerHTML = ''
-//     })
+    female.addEventListener('click', function() {
+        errorGender.innerHTML = ''
+    })
     
-// }
+}
 
 
 
