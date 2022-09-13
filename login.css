@@ -24,7 +24,7 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
-.login-form {
+.loginform {
     width: 80%;
     margin: 0 auto;
     
@@ -102,5 +102,10 @@ a {
 
 .forgot-password {
     margin-bottom: 10rem;
+}
+
+.error-message {
+    color : red;
+    font-size: .85rem;
 }
 

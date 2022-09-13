@@ -1,0 +1,46 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+article {
+    background-color: white;
+    box-shadow: 0 0 3px gray;
+    margin: 1rem 1rem;
+    padding: .3rem 1rem;
+
+}
+
+p , h1{
+    border-bottom: 1px solid black;
+    font-size: 24px;
+    font-weight: 700;
+    
+    padding: 1rem 1rem;
+    
+}
+
+span {
+    margin-left:  1rem;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+article:nth-child(even) {
+    background-color: gray;
+    color: white;
+    
+}
+
+.grant-reason {
+    width: inherit;
+    font-size: 18px;
+    border-top: none;
+    word-wrap: break-word;
+}
+
+.grant-reason-p {
+    border-bottom: none;
+}

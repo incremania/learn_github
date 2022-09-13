@@ -39,27 +39,29 @@
       <img src="./images/signup-image.jpg" alt="" />
     </div>
     <section class="form-section">
-      <form action="dashboard.html" class="login-form row">
+      <form action="dashboard.html" class="loginform row">
         <div class="mb-3 col-md-6">
-          <label for="mail" class="form-label">user id:</label>
+          <label for="usermail" class="form-label">username</label>
           <input
             type="text"
             class="form-control"
-            id="mail"
+            id="username"
             placeholder="enter email or username"
-            name="client-login-mail"
+            name="username"
           />
+          <span class="error-message error-username"></span>
         </div>
 
         <div class="mb-3 col-md-6">
-          <label for="password" class="form-label">Password:</label>
+          <label for="password" class="form-label">Password</label>
           <input
             type="password"
             class="form-control"
             id="password"
             placeholder="enter password"
-            name="client-password"
+            name="password"
           />
+          <span class="error-message error-password"></span>
         </div>
         <div class="mb-3 submit-div col-12" style="margin-top: 1rem">
           <a href="index.html"
@@ -80,5 +82,7 @@
         </div>
       </form>
     </section>
+
+    <script src="login.js"></script>
   </body>
 </html>

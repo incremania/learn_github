@@ -1,8 +1,64 @@
-// if(!firstName.value.match(/^[A-Za-z\s]*$/ ) ) {
-//     errorFirstName.innerHTML = 'enter a valid name without any characters'
-//     errorFirstName.classList.add('notvalid')
-// }
 
-// axios.get('https://reqres.in/api/users?page=2')
-// .then(res => console.log(res))
-// .catch(err => console.log(err))
+const form =  document.querySelector('form')
+const username = document.querySelector('#username')
+const password = document.querySelector('#password')
+const passwordError = document.querySelector('.error-password')
+const usernameErrror = document.querySelector('.error-username')
+
+form.addEventListener('submit', function(e) {
+     e.preventDefault()
+     if(!username.value.trim() && !password.value.trim()) {
+        passwordError.innerHTML = 'password required'
+        usernameErrror.innerHTML = 'username required'
+     } else if(username.value.trim && !password.value.trim()) {
+        passwordError.innerHTML = 'password required'
+        usernameErrror.innerHTML = ''
+     } else if(!username.value.trim() && password.value.trim()) {
+        passwordError.innerHTML = ''
+        usernameErrror.innerHTML = 'username required'
+     } else if(username.value.trim() && password.value.trim()) {
+        passwordError.innerHTML = ''
+        usernameErrror.innerHTML = ''
+        console.log('valid credential')
+        vaidateViaServer()
+     } else {
+        
+     }
+        
+})
+
+
+
+
+
+
+
+
+
+function vaidateViaServer() {
+   
+        const formData= new FormData(form);
+        const payload = new URLSearchParams()
+
+        for(const pair of formData) {
+            payload.append(pair[0], pair[1])
+        }
+        console.log(...formData)
+        console.log(payload)
+        fetch('https://dateapi-app.herokuapp.com/login/', {
+            method: 'POST',
+            body: payload
+        })
+        .then((res) => res.json()) 
+        .then((data) => {
+            if(data.detail == 'Invalid Credentials') {
+                passwordError.innerHTML = 'username or password incorrect'
+            } {
+                console.log(data)
+            }
+        })
+        .catch(err => console.log(err))
+        
+}
+
+

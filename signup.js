@@ -15,8 +15,8 @@ const city = document.querySelector('#city');
 const errorCity= document.querySelector('.error-city');
 const creditScore = document.querySelector('#credit-score');
 const errorCreditScore= document.querySelector('.error-credit-score');
-// const file = document.querySelector('#file');
-// const errorFile = document.querySelector('.error-file');
+const file = document.querySelector('#file');
+const errorFile = document.querySelector('.error-file');
 const phoneNumber = document.querySelector('#number');
 const errorPhoneNumber = document.querySelector('.error-phone-number');
 const email = document.querySelector('#email');
@@ -53,14 +53,20 @@ signUpForm.addEventListener('submit',async  function(e) {
         const formData = new FormData(signUpForm)
         const formDataSerialized = Object.fromEntries(formData)
         console.log(formDataSerialized)
-        let headers = new Headers()
-        headers.append('Content-Type', 'application/json')
-        headers.append('Accept', 'application/json')
+        let h = new Headers()
+        h.append('Accept', 'application/json')
+        h.append('Content-Type', 'application/json')  
+        // h.append('Content-Type','multipart/form-data')
     try {
         const response =  await fetch(url, {
             method: 'POST',
             body: JSON.stringify(formDataSerialized),
-            headers: headers
+            // headers: { 
+            // 'Accept': 'application/json',
+            //  'Content-Type': 'appication/json'
+            // }
+            headers: h
+        
         })
         const json = await response.json()
         console.log(json)
@@ -68,6 +74,24 @@ signUpForm.addEventListener('submit',async  function(e) {
         console.log(error)
     }
   
+
+    const url2 = 'https://dateapi-app.herokuapp.com/image/'
+    let h2 = new Headers()
+    h2.append('Accept', 'application/json')
+    h2.append('Content-type', 'application/x-binary')
+
+    try {
+        const response2 = await fetch(url2, {
+            method: 'POST',
+            body: JSON.stringify(formDataSerialized),
+            headers: h
+           })
+           const json = await response2.json()
+           console.log(json)
+    } catch (error) {
+        console.log(error)
+    }
+   
   } else {
     loginEmailValidation();
     passwordMatch();
@@ -153,22 +177,12 @@ signUpForm.addEventListener('submit',async  function(e) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 //  continuing to next form
 function continuBtnFunction() {
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
-//   fileValidation();
+  fileValidation();
   genderCheck();
   ageValidation();
 //   emailValidation(email, errorEmail, 'error', 'invalid error');
@@ -182,7 +196,7 @@ continueBtn.addEventListener('click', function(e) {
   const firstNameValid = firstName.classList.contains('valid-border');
   const lastNameValid  = lastName.classList.contains('valid-border');
   const creditScoreValid = creditScore.classList.contains('valid-border');
-//   const fileValid = file.classList.contains('valid-border');
+  const fileValid = file.classList.contains('valid-border');
   const ageValid = age.classList.contains('valid-border');
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
@@ -193,7 +207,7 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid && fileValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
@@ -207,7 +221,7 @@ continueBtn.addEventListener('click', function(e) {
     validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
     validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
     validation(income, errorIncome, 'this field cannot be empty', 'input a valid income');
-    incomeValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number');
+    incomeValidation(income, errorIncome, 'phone number cannot be empty', 'input a valid number');
     setTimeout(function(){
     alert('please make sure all fields are correctly filled');
  },1000);
@@ -249,12 +263,25 @@ city.addEventListener('keyup', function() {
 
 
 
-// file.addEventListener('blur', function() {
-//     fileValidation();
-// });
+file.addEventListener('click', function() {
+    const invalidIcon = file.parentElement.querySelector('.invalid-icon');
+    const validIcon = file.parentElement.querySelector('.valid-icon');
+    errorFile.innerHTML = '';
+    validIcon.classList.remove('success-icon');
+    invalidIcon.classList.remove('not-success-icon');
+    file.classList.remove('invalid-border');
+    file.classList.remove('valid-border');
 
-age.addEventListener('blur', function() {
-   ageValidation();
+});
+
+age.addEventListener('click', function() {
+    const invalidIcon = age.parentElement.querySelector('.invalid-icon');
+    const validIcon = age.parentElement.querySelector('.valid-icon');
+    errorAge.innerHTML = '';
+    validIcon.classList.remove('success-icon');
+    invalidIcon.classList.remove('not-success-icon');
+    age.classList.remove('invalid-border');
+    age.classList.remove('valid-border');
 });
 
 mailingAddress.addEventListener('keyup', function(){
@@ -343,31 +370,31 @@ function creditScoreValidation() {
     }
 }
 
-// function fileValidation() {
-//     const invalidIcon = file.parentElement.querySelector('.invalid-icon');
-//     const validIcon = file.parentElement.querySelector('.valid-icon');
-//     if(file.value.length == 0)  {
-//         validIcon.classList.remove('success-icon');
-//         invalidIcon.classList.add('not-success-icon');
-//         file.classList.add('invalid-border');
-//         file.classList.remove('valid-border');
-//         errorFile.innerHTML = 'upload a photo';
-//         errorFile.classList.add('invalid');
-//     }  else if(file.value.length > 13) {
-//         errorFile.innerHTML = '';
-//         validIcon.classList.add('success-icon');
-//         invalidIcon.classList.remove('not-success-icon');
-//         file.classList.remove('invalid-border');
-//         file.classList.add('valid-border');
-//     }
-//     else {
-//         errorFile.innerHTML = '';
-//         validIcon.classList.add('success-icon');
-//         invalidIcon.classList.remove('not-success-icon');
-//         file.classList.remove('invalid-border');
-//         file.classList.add('valid-border');
-//     };
-// };
+function fileValidation() {
+    const invalidIcon = file.parentElement.querySelector('.invalid-icon');
+    const validIcon = file.parentElement.querySelector('.valid-icon');
+    if(file.value.length == 0)  {
+        validIcon.classList.remove('success-icon');
+        invalidIcon.classList.add('not-success-icon');
+        file.classList.add('invalid-border');
+        file.classList.remove('valid-border');
+        errorFile.innerHTML = 'upload a photo';
+        errorFile.classList.add('invalid');
+    }  else if(file.value.length > 13) {
+        errorFile.innerHTML = '';
+        validIcon.classList.add('success-icon');
+        invalidIcon.classList.remove('not-success-icon');
+        file.classList.remove('invalid-border');
+        file.classList.add('valid-border');
+    }
+    else {
+        errorFile.innerHTML = '';
+        validIcon.classList.add('success-icon');
+        invalidIcon.classList.remove('not-success-icon');
+        file.classList.remove('invalid-border');
+        file.classList.add('valid-border');
+    };
+};
 
 function ageValidation() {
     const year = age.value.substring(0,4)
@@ -386,6 +413,12 @@ function ageValidation() {
         errorAge.innerHTML = 'you must be over 16 years to apply ';
         age.classList.add('invalid');
         errorAge.style.color = 'red';
+    } else if(year < 1922) {
+        age.classList.add('invalid-border');
+        age.classList.remove('valid-border');
+        errorAge.innerHTML = 'you must be below 100 years to apply';
+        age.classList.add('invalid');
+        errorAge.style.color = 'red';
     }
      else if(age.value.length > 1) {
         errorAge.innerHTML = '';
@@ -396,9 +429,6 @@ function ageValidation() {
     };
 };
 
-// email.addEventListener('keyup', function() {
-//     emailValidation();
-// });
 
 // mailing address validation
 function mailingAddressValiddation(inputName, errorName, firstMessage) {
