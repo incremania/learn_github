@@ -176,6 +176,7 @@ try {
   })
   .then(res2 => res2.json())
   .then(data3 => {
+    console.log(data3)
     if(data3 === true) {
      beforeTwoHours.classList.add('hide')
      afterTwoHours.classList.add('show')
@@ -183,13 +184,14 @@ try {
     }  else if(data3 === fasle ) {
       beforeTwoHours.classList.add('show')
       afterTwoHours.classList.add('hide')
+      preloader.classList.add('hide')
     } else {
       preloader.classList.add('show')
       beforeTwoHours.classList.add('hide')
       afterTwoHours.classList.add('hide')
       preloader.classList.add('hide')
     }
-    
+
    
 
   })
