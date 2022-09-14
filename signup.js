@@ -37,22 +37,39 @@ const female = document.querySelector('#female')
 const errorGender = document.querySelector('.error-gender')
 const gender = document.querySelector('#gender')
 const signUpForm = document.querySelector('.signup-form');
+
 loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
 });
 
+
+
 signUpForm.addEventListener('submit',async  function(e) {
     e.preventDefault(); 
-  const loginEmailValid = loginEmail.classList.contains('valid-border');
+  const loginEmailValid  = loginEmail.classList.contains('valid-border');
   const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
   const passwordTwoValid = loginPasswordTwo.classList.contains('valid-border');
+  passwordValidation(loginPasswordOne, errorPasswordOne);
+  validatePasswordTwo()
+  loginEmailValidation()
+  passwordMatch()
+  if(!loginEmailValid) {
+    loginPasswordOne.value = ''
+    loginPasswordTwo.value = ''
+  }
+
+  if(!loginPasswordOne) {
+    loginPasswordTwo.value = ''
+  }
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
     alert('sign in to dashboard');
     const url = 'https://dateapi-app.herokuapp.com/user/'
         const formData = new FormData(signUpForm)
+        console.log(formData)
         const formDataSerialized = Object.fromEntries(formData)
         console.log(formDataSerialized)
+        
         let h = new Headers()
         h.append('Accept', 'application/json')
         h.append('Content-Type', 'application/json')  
@@ -70,110 +87,111 @@ signUpForm.addEventListener('submit',async  function(e) {
         })
         const json = await response.json()
         console.log(json)
+        if(json.detail == 'Email has been used') {
+            emailVerificationViaServer()
+        }
     } catch (error) {
         console.log(error)
     }
   
+// fitst attempt  // working but file not displaying
+    // const url2 = 'https://dateapi-app.herokuapp.com/image/'
+    // let userFile = file.files[0]
+    // console.log(userFile)
+    // const fileFormData = new FormData()
+    // fileFormData.append('uploaded_file', userFile, 'user-file.jpg')
+    // const fileFormDataSerialized = Object.fromEntries(fileFormData) 
+    
+    // console.log(fileFormDataSerialized)
+    // let token = JSON.parse(localStorage.getItem('myToken'))
+    // console.log(token)
 
+    // try {
+    //     const response2 = await fetch(url2, {
+    //         method: 'POST',
+    //         body: JSON.stringify(fileFormDataSerialized),
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             // 'Content-type': 'multipart/form-data',
+    //             'Authentication': `Bearer ${token}`,
+    //         }
+    //        })
+    //        const json = await response2.json()
+    //        console.log(json)
+    // } catch (error) {
+    //     console.log(error)
+    // }
+
+// 2nd attempt  // file not displaying
     const url2 = 'https://dateapi-app.herokuapp.com/image/'
-    let h2 = new Headers()
-    h2.append('Accept', 'application/json')
-    h2.append('Content-type', 'application/x-binary')
+    let userFile = file.files[0]
+    console.log(userFile)
+    const fileFormData = new FormData()
+    fileFormData.append('uploaded_file', userFile)
+    let token = JSON.parse(localStorage.getItem('myToken'))
+    console.log(token)
 
     try {
         const response2 = await fetch(url2, {
             method: 'POST',
-            body: JSON.stringify(formDataSerialized),
-            headers: h
+            body: fileFormData,
+            headers: {
+                'Accept': 'application/json',
+                // 'Content-type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+            }
            })
-           const json = await response2.json()
-           console.log(json)
+        //    const json = await response2.json()
+        //    console.log(json)      
     } catch (error) {
         console.log(error)
     }
+
+
+
+    //third attempt ///
+    
+// const fileFormData = new FormData();
+// let userFile = file.files[0]
+// fileFormData.append('uploaded_file', userFile, )
+// const payload = new URLSearchParams()
+// let token = JSON.parse(localStorage.getItem('myToken'))
+// let h2 = new Headers()
+// h2.append('Authentication', `Bearer ${token}`)
+
+// for(const pair of fileFormData) {
+//     payload.append(pair[0], pair[1] )
+//     console.log(pair[0], pair[1])
+// }
+// console.log(...fileFormData)
+// console.log(payload)
+// fetch('https://dateapi-app.herokuapp.com/image/', {
+//     method: 'POST',
+//     body: payload,
+//     headers: h2
+   
+// })
+// .then((res) => res.json()) 
+// .then((data) => {
+//   console.log(data)
+  
+// })
+// .catch(err => console.log(err))
+
+
+// signUpForm.submit()
    
   } else {
-    loginEmailValidation();
-    passwordMatch();
-    passwordValidation(loginPasswordOne, errorPasswordOne);
-    validatePasswordTwo();
-    passwordValidation(loginPasswordTwo, errorPasswordTwo);
+    // loginEmailValidation();
+    // passwordMatch();
+    // passwordValidation(loginPasswordOne, errorPasswordOne);
+    // validatePasswordTwo();
+    // passwordValidation(loginPasswordTwo, errorPasswordTwo);
+    console
   };
 
-//   let formData = new FormData(signUpForm);
-//   console.log(formData)
-//   axios.post('https://dateapi-app.herokuapp.com/user/', formData)
-//   .then(res => console.log(res))
-//   .catch(err => console.log(err))
-//   console.log([...formData])
+
 });
-
-
-
-//     const url = 'https://dateapi-app.herokuapp.com/user/'
-//     const formEL = document.querySelector('form')
-//     formEL.addEventListener('submit', async function (e)  {
-//         e.preventDefault();
-//         const formData = new FormData(formEL)
-//         const formDataSerialized = Object.fromEntries(formData)
-//         console.log(formDataSerialized)
-//     try {
-//         const response =  await fetch(url, {
-//             method: 'POST',
-//             body: JSON.stringify(formDataSerialized),
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             }
-//         })
-//         const json = await response.json()
-//         console.log(json)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -485,6 +503,31 @@ function incomeValidation(inputName, errorName, firstMessage,secondMessage){
 };
 
 
+
+function loginEmailUsed() {
+    const invalidIcon = loginEmail.parentElement.querySelector('.invalid-icon');
+    const validIcon = loginEmail.parentElement.querySelector('.valid-icon');
+    loginEmail.classList.add('invalid-border');
+        loginEmail.classList.remove('valid-border');
+        errorLoginEmail.innerHTML = 'email has been used';
+        errorLoginEmail.classList.add('invalid');
+        invalidIcon.classList.add('not-success-icon');
+        validIcon.classList.remove('success-icon');
+
+
+}
+
+function emailVerificationViaServer() {
+    errorLoginEmail.style.color = 'red'
+            loginEmail.classList.remove('valid-border')
+            loginEmail.classList.add('invalid-border')
+            loginPasswordOne.value = ''
+            loginPasswordTwo.value = ''
+            passwordValidation(loginPasswordOne, errorPasswordOne);
+            validatePasswordTwo()
+            loginEmailUsed()
+}
+
 function loginEmailValidation() {
     const invalidIcon = loginEmail.parentElement.querySelector('.invalid-icon');
     const validIcon = loginEmail.parentElement.querySelector('.valid-icon');
@@ -517,36 +560,6 @@ function loginEmailValidation() {
     }
 }
 
-// function emailValidation() {
-//     const invalidIcon = email.parentElement.querySelector('.invalid-icon');
-//     const validIcon = email.parentElement.querySelector('.valid-icon');
-
-//     if(!email.value.trim())  {
-//         email.classList.add('invalid-border');
-//         email.classList.remove('valid-border');
-//         errorEmail.innerHTML = 'email field cannot be empty';
-//         errorEmail.classList.add('invalid');
-//         invalidIcon.classList.add('not-success-icon');
-//         validIcon.classList.remove('success-icon'); 
-//         return true;
-//     } else if(!email.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
-//         errorEmail.innerHTML = 'invalid email format';
-//         errorEmail.classList.add('invalid');
-//         email.classList.remove('valid-border');
-//         email.classList.add('invalid-border');
-//         invalidIcon.classList.add('not-success-icon');
-//         validIcon.classList.remove('success-icon');
-//         return true;
-//     }
-//     else {
-//         errorEmail.innerHTML = '';
-//         validIcon.classList.add('success-icon');
-//         invalidIcon.classList.remove('not-success-icon');
-//         email.classList.remove('invalid-border');
-//         email.classList.add('valid-border');
-//         return false;
-//     };
-// };
 
 textArea.addEventListener('keyup', function() {
     textAreaValidation();
@@ -623,7 +636,30 @@ loginPasswordOne.addEventListener('keyup', function() {
     validatePasswordTwo();
 });
 
+function passwordOneInvalid() {
+    const invalidIcon = passwordType.parentElement.querySelector('.invalid-icon');
+    const validIcon = passwordType.parentElement.querySelector('.valid-icon');
+    passwordType.classList.add('invalid-border');
+    passwordType.classList.remove('valid-border');
+    errorPasswordOne.innerHTML = 'password cannot be empty';
+    passwordError.classList.add('invalid');
+    invalidIcon.classList.add('not-success-icon');
+    validIcon.classList.remove('success-icon'); 
+}
 
+
+
+function passwordTwoInvalid() {
+    const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
+    const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');  
+    loginPasswordTwo.classList.add('invalid-border');
+    loginPasswordTwo.classList.remove('valid-border');
+    passwordError.innerHTML = 'password cannot be empty';
+    passwordError.classList.add('invalid');
+    invalidIcon.classList.add('not-success-icon');
+    validIcon.classList.remove('success-icon'); 
+
+}
 
 function passwordValidation(passwordType, passwordError) {
     const invalidIcon = passwordType.parentElement.querySelector('.invalid-icon');
@@ -659,14 +695,24 @@ function passwordValidation(passwordType, passwordError) {
 function validatePasswordTwo() {
     const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
     const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
-    if(loginPasswordOne.value != loginPasswordTwo.value) {
+    if(!loginPasswordTwo.value.trim()) {
+        loginPasswordTwo.classList.add('invalid-border');
+        loginPasswordTwo.classList.remove('valid-border');
+        errorPasswordTwo.innerHTML = 'password cannot be empty';
+        errorPasswordTwo.classList.add('invalid');
+        invalidIcon.classList.add('not-success-icon');
+        validIcon.classList.remove('success-icon'); 
+    }
+    else if(loginPasswordOne.value != loginPasswordTwo.value) {
         loginPasswordTwo.classList.add('invalid-border');
        loginPasswordTwo.classList.remove('valid-border');
        errorPasswordTwo.innerHTML = 'password does not match';
        errorPasswordTwo.classList.add('invalid');
        invalidIcon.classList.add('not-success-icon');
        validIcon.classList.remove('success-icon');
-       };
+       } else if(loginPasswordOne.classList.contains('invalid-border')) {
+        loginPasswordTwo.value = ''
+       }
 };
 
 loginPasswordTwo.addEventListener('keyup', function() {
@@ -676,48 +722,35 @@ loginPasswordTwo.addEventListener('keyup', function() {
 function passwordMatch() {
     const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
     const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
-    if(loginPasswordOne.value.length === loginPasswordTwo.value.length){
+    if(loginPasswordOne.value !== loginPasswordTwo.value){
+        errorPasswordTwo.innerHTML = 'password does not match';
+        invalidIcon.classList.add('not-success-icon');
+        validIcon.classList.remove('success-icon');
+        loginPasswordTwo.classList.remove('valid-border');
+        loginPasswordTwo.classList.add('invalid-border');
+        console.log('doesnt match')
+        return false
+       
+       } else if(!loginPasswordOne.classList.contains('valid-border')) {
+        errorPasswordTwo.innerHTML = 'password cannot be empty';
+        loginPasswordTwo.value = ''
+        invalidIcon.classList.add('not-success-icon');
+        validIcon.classList.remove('success-icon');
+        loginPasswordTwo.classList.remove('valid-border');
+        loginPasswordTwo.classList.add('invalid-border');
+        console.log('doesnt match')
+        return false
+       }
+        else {
         errorPasswordTwo.innerHTML = '';
         validIcon.classList.add('success-icon');
         invalidIcon.classList.remove('not-success-icon');
         loginPasswordTwo.classList.remove('invalid-border');
         loginPasswordTwo.classList.add('valid-border');
-        console.log('equal');
-       } else {
-        console.log('not equal');
+        console.log('match')
+        return true
        };
 }
 
 
 
-// consuming backend api
-// consuming backend api
-
-
-// function tryAxios() {
-//  const data = axios.get('https://catfact.ninja/breeds')
-// console.log(data)
-// }
-
-// tryAxios()
-
-// https://dateapi-app.herokuapp.com/
-
-// async function postUserInfos() {
-//     try {
-//         let h = new Headers();
-//         h.append('Authentication', `Bearer ${token}`)
-//       const response = await axios({
-//         method: 'post',
-//         url: 'dateapi-app.herokuapp.com',
-//         header: h,
-//       })
-//        return response;
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   }
-
-//   postUserInfos()
-
- 

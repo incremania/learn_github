@@ -8,7 +8,7 @@
 
 //     validateAuth(auth) {
 //         if(auth != 1) {
-//          window.location.replace("/")
+//          window.location.href("dashboard.html")
 //         } else {
 //             document.querySelector("body").style.display = 'block'
 //         }
@@ -17,7 +17,7 @@
 
 //       logout() {
 //         localStorage.removeItem('auth');
-//         window.location.replace("/Users/User/Documents/GitHub/learn_github/login.html")
+//         window.location.replace("./login.html")
 //       }
 // }
 
