@@ -83,6 +83,7 @@ const amountWonBtn = document.querySelector('.amount-won-btn-span')
 const text = document.querySelector('.greeting-text')
 const beforeTwoHours = document.querySelector('.before-two-hrs')
 const afterTwoHours = document.querySelector('.after-two-hrs')
+const preloader = document.querySelector('.preloader')
 
 console.log(beforeTwoHours, afterTwoHours)
 
@@ -177,8 +178,17 @@ try {
   .then(data3 => {
     if(data3 === true) {
      beforeTwoHours.classList.add('hide')
-     afterTwoHours.classList.remove('hide')
-    }  
+     afterTwoHours.classList.add('show')
+     preloader.classList.add('hide')
+    }  else if(data3 === fasle ) {
+      beforeTwoHours.classList.add('show')
+      afterTwoHours.classList.add('hide')
+    } else {
+      preloader.classList.add('show')
+      beforeTwoHours.classList.add('hide')
+      afterTwoHours.classList.add('hide')
+      preloader.classList.add('hide')
+    }
     
    
 

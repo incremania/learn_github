@@ -221,6 +221,8 @@ font-size: 23px;
 
 
 .preloader {
-    height: 500vh;
+    height: 100vh;
+    /* background-color: red; */
     width: 100%;
+    margin-bottom: 100000rem;
 }
