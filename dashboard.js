@@ -181,7 +181,7 @@ try {
      beforeTwoHours.classList.add('hide')
      afterTwoHours.classList.add('show')
      preloader.classList.add('hide')
-    }  else if(data3 === fasle ) {
+    }  else if(data3 === false ) {
       beforeTwoHours.classList.add('show')
       afterTwoHours.classList.add('hide')
       preloader.classList.add('hide')
