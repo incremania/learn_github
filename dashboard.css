@@ -198,3 +198,29 @@ font-size: 23px;
 .firstname {
     color: red
 }
+
+.lastname {
+    color: green
+}
+
+.amount-won {
+    color:purple
+}
+
+.amount-won-span {
+    color: pink;
+}
+
+.hide {
+ display: none
+}
+
+.show {
+  display: block;
+}
+
+
+.preloader {
+    height: 500vh;
+    width: 100%;
+}

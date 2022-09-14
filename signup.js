@@ -73,15 +73,10 @@ signUpForm.addEventListener('submit',async  function(e) {
         let h = new Headers()
         h.append('Accept', 'application/json')
         h.append('Content-Type', 'application/json')  
-        // h.append('Content-Type','multipart/form-data')
     try {
         const response =  await fetch(url, {
             method: 'POST',
             body: JSON.stringify(formDataSerialized),
-            // headers: { 
-            // 'Accept': 'application/json',
-            //  'Content-Type': 'appication/json'
-            // }
             headers: h
         
         })
@@ -93,34 +88,8 @@ signUpForm.addEventListener('submit',async  function(e) {
     } catch (error) {
         console.log(error)
     }
-  
-// fitst attempt  // working but file not displaying
-    // const url2 = 'https://dateapi-app.herokuapp.com/image/'
-    // let userFile = file.files[0]
-    // console.log(userFile)
-    // const fileFormData = new FormData()
-    // fileFormData.append('uploaded_file', userFile, 'user-file.jpg')
-    // const fileFormDataSerialized = Object.fromEntries(fileFormData) 
-    
-    // console.log(fileFormDataSerialized)
-    // let token = JSON.parse(localStorage.getItem('myToken'))
-    // console.log(token)
+ 
 
-    // try {
-    //     const response2 = await fetch(url2, {
-    //         method: 'POST',
-    //         body: JSON.stringify(fileFormDataSerialized),
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             // 'Content-type': 'multipart/form-data',
-    //             'Authentication': `Bearer ${token}`,
-    //         }
-    //        })
-    //        const json = await response2.json()
-    //        console.log(json)
-    // } catch (error) {
-    //     console.log(error)
-    // }
 
 // 2nd attempt  // file not displaying
     const url2 = 'https://dateapi-app.herokuapp.com/image/'
@@ -147,39 +116,7 @@ signUpForm.addEventListener('submit',async  function(e) {
         console.log(error)
     }
 
-
-
-    //third attempt ///
-    
-// const fileFormData = new FormData();
-// let userFile = file.files[0]
-// fileFormData.append('uploaded_file', userFile, )
-// const payload = new URLSearchParams()
-// let token = JSON.parse(localStorage.getItem('myToken'))
-// let h2 = new Headers()
-// h2.append('Authentication', `Bearer ${token}`)
-
-// for(const pair of fileFormData) {
-//     payload.append(pair[0], pair[1] )
-//     console.log(pair[0], pair[1])
-// }
-// console.log(...fileFormData)
-// console.log(payload)
-// fetch('https://dateapi-app.herokuapp.com/image/', {
-//     method: 'POST',
-//     body: payload,
-//     headers: h2
-   
-// })
-// .then((res) => res.json()) 
-// .then((data) => {
-//   console.log(data)
-  
-// })
-// .catch(err => console.log(err))
-
-
-// signUpForm.submit()
+signUpForm.submit()
    
   } else {
     // loginEmailValidation();
