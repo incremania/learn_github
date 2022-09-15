@@ -226,3 +226,13 @@ font-size: 23px;
     width: 100%;
     margin-bottom: 100000rem;
 }
+
+.user-img-footer-div {
+    width: 100%;
+    height: 17rem;
+}
+
+.user-img-footer {
+    width: inherit;
+    height: inherit;
+}

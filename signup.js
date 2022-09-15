@@ -98,6 +98,8 @@ signUpForm.addEventListener('submit',async  function(e) {
     const fileFormData = new FormData()
     fileFormData.append('uploaded_file', userFile)
     let token = JSON.parse(localStorage.getItem('myToken'))
+    
+    let token2 = JSON.
     console.log(token)
 
     try {
@@ -116,7 +118,7 @@ signUpForm.addEventListener('submit',async  function(e) {
         console.log(error)
     }
 
-signUpForm.submit()
+// signUpForm.submit()
    
   } else {
     // loginEmailValidation();
