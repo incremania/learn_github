@@ -1,8 +1,5 @@
 const firstForm = document.querySelector('.first-form');
 const secondForm = document.querySelector('.second-form');
-
-// form validation
-
 const firstName = document.querySelector('#first-name');
 const errorFirstName = document.querySelector('.error-firstname');
 const lastName = document.querySelector('#last-name');
@@ -15,8 +12,6 @@ const city = document.querySelector('#city');
 const errorCity= document.querySelector('.error-city');
 const creditScore = document.querySelector('#credit-score');
 const errorCreditScore= document.querySelector('.error-credit-score');
-// const file = document.querySelector('#file');
-// const errorFile = document.querySelector('.error-file');
 const phoneNumber = document.querySelector('#number');
 const errorPhoneNumber = document.querySelector('.error-phone-number');
 const email = document.querySelector('#email');
@@ -65,10 +60,8 @@ signUpForm.addEventListener('submit',async  function(e) {
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
     const url = 'https://dateapi-app.herokuapp.com/user/'
         const formData = new FormData(signUpForm)
-        console.log(formData)
-        const formDataSerialized = Object.fromEntries(formData)
-        console.log(formDataSerialized)
-        
+        // console.log(formData)
+        const formDataSerialized = Object.fromEntries(formData)        
         let h = new Headers()
         h.append('Accept', 'application/json')
         h.append('Content-Type', 'application/json')  
@@ -80,7 +73,6 @@ signUpForm.addEventListener('submit',async  function(e) {
         
         })
         const json = await response.json()
-        console.log(json)
         if(json.detail == 'Email has been used') {
             emailVerificationViaServer()
         } else {
@@ -88,12 +80,8 @@ signUpForm.addEventListener('submit',async  function(e) {
             signUpForm.submit()
         }
     } catch (error) {
-        console.log(error)
+        // console.log(error)
     }
- 
-
-
-   
   } else {
     
 
@@ -418,7 +406,7 @@ function loginEmailUsed() {
 }
 
 function emailVerificationViaServer() {
-    errorLoginEmail.style.color = 'red'
+             errorLoginEmail.style.color = 'red'
             loginEmail.classList.remove('valid-border')
             loginEmail.classList.add('invalid-border')
             loginPasswordOne.value = ''
@@ -526,8 +514,6 @@ function genderCheck () {
     
 }
 
-
-
 // login password validation
 
 
@@ -628,7 +614,6 @@ function passwordMatch() {
         validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
-        console.log('doesnt match')
         return false
        
        } else if(!loginPasswordOne.classList.contains('valid-border')) {
@@ -638,7 +623,7 @@ function passwordMatch() {
         validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
-        console.log('doesnt match')
+     
         return false
        }
         else {
@@ -647,7 +632,6 @@ function passwordMatch() {
         invalidIcon.classList.remove('not-success-icon');
         loginPasswordTwo.classList.remove('invalid-border');
         loginPasswordTwo.classList.add('valid-border');
-        console.log('match')
         return true
        };
 }

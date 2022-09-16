@@ -19,7 +19,6 @@ form.addEventListener('submit', function(e) {
      } else if(username.value.trim() && password.value.trim()) {
         passwordError.innerHTML = ''
         usernameErrror.innerHTML = ''
-        console.log('valid credential')
         vaidateViaServer()
      
      } else {
@@ -35,10 +34,7 @@ function vaidateViaServer() {
         const payload = new URLSearchParams()
         for(const pair of formData) {
             payload.append(pair[0], pair[1], pair[3])
-            console.log(pair[0], pair[1])
         }
-        // console.log(...formData)
-        // console.log(payload)
         fetch('https://dateapi-app.herokuapp.com/login/', {
             method: 'POST',
             body: payload
@@ -49,10 +45,7 @@ function vaidateViaServer() {
                 passwordError.innerHTML = 'username or password incorrect'
             } else {
                 const token = data.access_token
-                console.log(token)
                 localStorage.setItem('myToken', JSON.stringify(token))
-               
-                // console.log(data)
                 form.submit()
             }
         })
