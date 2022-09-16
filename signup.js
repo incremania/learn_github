@@ -15,8 +15,8 @@ const city = document.querySelector('#city');
 const errorCity= document.querySelector('.error-city');
 const creditScore = document.querySelector('#credit-score');
 const errorCreditScore= document.querySelector('.error-credit-score');
-const file = document.querySelector('#file');
-const errorFile = document.querySelector('.error-file');
+// const file = document.querySelector('#file');
+// const errorFile = document.querySelector('.error-file');
 const phoneNumber = document.querySelector('#number');
 const errorPhoneNumber = document.querySelector('.error-phone-number');
 const email = document.querySelector('#email');
@@ -63,7 +63,6 @@ signUpForm.addEventListener('submit',async  function(e) {
   }
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
-    alert('sign in to dashboard');
     const url = 'https://dateapi-app.herokuapp.com/user/'
         const formData = new FormData(signUpForm)
         console.log(formData)
@@ -84,47 +83,19 @@ signUpForm.addEventListener('submit',async  function(e) {
         console.log(json)
         if(json.detail == 'Email has been used') {
             emailVerificationViaServer()
+        } else {
+            alert('your account as been successfully created, click "ok" to login to your dashboard');
+            signUpForm.submit()
         }
     } catch (error) {
         console.log(error)
     }
  
 
-// // 2nd attempt  // file not displaying
-//     const url2 = 'https://dateapi-app.herokuapp.com/image/'
-//     let userFile = file.files[0]
-//     console.log(userFile)
-//     const fileFormData = new FormData()
-//     fileFormData.append('uploaded_file', userFile)
-//     let token = JSON.parse(localStorage.getItem('myToken'))
-//     localStorage.setItem('imageFile',JSON.stringify(userFile.name) )
-//     let userImageToken = localStorage.getItem('imageFile')
-//     console.log(userImageToken)
 
-//     try {
-//         const response2 = await fetch(url2, {
-//             method: 'POST',
-//             body: fileFormData,
-//             headers: {
-//                 'Accept': 'application/json',
-//                 // 'Content-type': 'application/json',
-//                 'Authorization': `Bearer ${token}`,
-//             }
-//            })
-//            const json = await response2.json()
-//            console.log(json)      
-//     } catch (error) {
-//         console.log(error)
-//     }
-
-// signUpForm.submit()
    
   } else {
-    // loginEmailValidation();
-    // passwordMatch();
-    // passwordValidation(loginPasswordOne, errorPasswordOne);
-    // validatePasswordTwo();
-    // passwordValidation(loginPasswordTwo, errorPasswordTwo);
+    
 
   };
 
@@ -138,7 +109,7 @@ function continuBtnFunction() {
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
-  fileValidation();
+//   fileValidation();
   genderCheck();
   ageValidation();
 //   emailValidation(email, errorEmail, 'error', 'invalid error');
@@ -152,7 +123,7 @@ continueBtn.addEventListener('click', function(e) {
   const firstNameValid = firstName.classList.contains('valid-border');
   const lastNameValid  = lastName.classList.contains('valid-border');
   const creditScoreValid = creditScore.classList.contains('valid-border');
-  const fileValid = file.classList.contains('valid-border');
+//   const fileValid = file.classList.contains('valid-border');
   const ageValid = age.classList.contains('valid-border');
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
@@ -163,7 +134,7 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && fileValid && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid  && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
@@ -219,16 +190,7 @@ city.addEventListener('keyup', function() {
 
 
 
-file.addEventListener('click', function() {
-    const invalidIcon = file.parentElement.querySelector('.invalid-icon');
-    const validIcon = file.parentElement.querySelector('.valid-icon');
-    errorFile.innerHTML = '';
-    validIcon.classList.remove('success-icon');
-    invalidIcon.classList.remove('not-success-icon');
-    file.classList.remove('invalid-border');
-    file.classList.remove('valid-border');
 
-});
 
 age.addEventListener('click', function() {
     const invalidIcon = age.parentElement.querySelector('.invalid-icon');
