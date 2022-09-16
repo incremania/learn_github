@@ -87,8 +87,6 @@ if(data.gender == 'female' && data.firstname.length < 6 ) {
 
 })
 
-const img = document.querySelector('.user-img')
-const imgFooter = document.querySelector('.user-img-footer')
 // const uploadBtn = document.querySelector('#file')
 // const uploadForm = document.querySelector('form')
 // uploadForm.addEventListener('submit', function(e) {
@@ -174,8 +172,6 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 .then(data2 =>  {
   console.log(data2.image_url)
   console.log(data2)
-  localStorage.setItem('userimage', JSON.stringify(data2.image_url))
-  // console.log(userImageLocalStorage)
   
 })
 .catch(err => console.log(err))
@@ -183,9 +179,11 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 
 })
 
-const userImageLocalStorage = JSON.parse(localStorage.getItem('userimage'))
-img.src = userImageLocalStorage
-    imgFooter.src =  userImageLocalStorage
+
+
+// const userImageLocalStorage = JSON.parse(localStorage.getItem('userimage'))
+// img.src = userImageLocalStorage
+//     imgFooter.src =  userImageLocalStorage
 // form.addEventListener('submit', async function(e) {
 
 // e.preventDefault()
@@ -218,10 +216,28 @@ img.src = userImageLocalStorage
 const logOut = document.querySelector('.logout-link')
 
 logOut.addEventListener('click', function(e) {
-  // e.preventDefault()
+  // e.preventDefault()+
   localStorage.removeItem('myToken')
   localStorage.removeItem('userimage')
+  localStorage.removeItem('loginImage')
   // window.location.href('./login.html')
   // console.log(window.location)
   // console.log(localStorage)
 })
+const img = document.querySelector('.user-img')
+const imgFooter = document.querySelector('.user-img-footer')
+fetch('https://dateapi-app.herokuapp.com/image/', {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${token}`
+  }
+
+})
+.then(res => res.json())
+.then(data => {
+  console.log(data)
+  img.src = data[0].image_url
+  imgFooter.src = data[0].image_url
+
+})
+.catch(error => console.log(error))

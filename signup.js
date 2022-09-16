@@ -98,7 +98,9 @@ signUpForm.addEventListener('submit',async  function(e) {
     const fileFormData = new FormData()
     fileFormData.append('uploaded_file', userFile)
     let token = JSON.parse(localStorage.getItem('myToken'))
-    console.log(token)
+    localStorage.setItem('imageFile',JSON.stringify(userFile.name) )
+    let userImageToken = localStorage.getItem('imageFile')
+    console.log(userImageToken)
 
     try {
         const response2 = await fetch(url2, {
