@@ -30,12 +30,6 @@ form.addEventListener('submit', function(e) {
 
 
 
-
-
-
-
-
-
 function vaidateViaServer() {
       const formData= new FormData(form);
         const payload = new URLSearchParams()
@@ -43,8 +37,8 @@ function vaidateViaServer() {
             payload.append(pair[0], pair[1], pair[3])
             console.log(pair[0], pair[1])
         }
-        console.log(...formData)
-        console.log(payload)
+        // console.log(...formData)
+        // console.log(payload)
         fetch('https://dateapi-app.herokuapp.com/login/', {
             method: 'POST',
             body: payload
