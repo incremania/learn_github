@@ -57,6 +57,10 @@ function vaidateViaServer() {
                 const token = data.access_token
                 console.log(token)
                 localStorage.setItem('myToken', JSON.stringify(token))
+               let userLocalImage = JSON.parse(localStorage.getItem('userimage'))
+               localStorage.setItem('loginImage', JSON.stringify(userLocalImage))
+
+
                 // console.log(data)
                 form.submit()
             }

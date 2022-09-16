@@ -98,8 +98,6 @@ signUpForm.addEventListener('submit',async  function(e) {
     const fileFormData = new FormData()
     fileFormData.append('uploaded_file', userFile)
     let token = JSON.parse(localStorage.getItem('myToken'))
-    
-    let token2 = JSON.
     console.log(token)
 
     try {
@@ -112,8 +110,8 @@ signUpForm.addEventListener('submit',async  function(e) {
                 'Authorization': `Bearer ${token}`,
             }
            })
-        //    const json = await response2.json()
-        //    console.log(json)      
+           const json = await response2.json()
+           console.log(json)      
     } catch (error) {
         console.log(error)
     }
@@ -126,7 +124,7 @@ signUpForm.addEventListener('submit',async  function(e) {
     // passwordValidation(loginPasswordOne, errorPasswordOne);
     // validatePasswordTwo();
     // passwordValidation(loginPasswordTwo, errorPasswordTwo);
-    console
+
   };
 
 
