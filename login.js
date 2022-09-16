@@ -57,10 +57,7 @@ function vaidateViaServer() {
                 const token = data.access_token
                 console.log(token)
                 localStorage.setItem('myToken', JSON.stringify(token))
-               let userLocalImage = JSON.parse(localStorage.getItem('userimage'))
-               localStorage.setItem('loginImage', JSON.stringify(userLocalImage))
-
-
+               
                 // console.log(data)
                 form.submit()
             }
@@ -68,35 +65,5 @@ function vaidateViaServer() {
         .catch(err => console.log(err))
         
 }
-
-
-
-// const fileFormData= new FormData();
-// fileFormData.append('file', userFile, 'user-file.jpg')
-// const payload = new URLSearchParams()
-// let token = JSON.parse(localStorage.getItem('myToken'))
-
-
-// for(const pair of fileFormData) {
-//     payload.append(pair[0], pair[1])
-//     console.log(pair[0], pair[1])
-// }
-// console.log(...formData)
-// console.log(payload)
-// fetch('https://dateapi-app.herokuapp.com/image/', {
-//     method: 'POST',
-//     body: payload,
-//     headers: {
-//         'Authentication': `Bearer ${token}`
-//     }
-   
-// })
-// .then((res) => res.json()) 
-// .then((data) => {
-//   console.log(data)
-  
-// })
-// .catch(err => console.log(err))
-
 
 

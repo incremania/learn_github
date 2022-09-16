@@ -87,32 +87,6 @@ if(data.gender == 'female' && data.firstname.length < 6 ) {
 
 })
 
-// const uploadBtn = document.querySelector('#file')
-// const uploadForm = document.querySelector('form')
-// uploadForm.addEventListener('submit', function(e) {
-//   e.preventDefault()
-// let url2 = 'https://dateapi-app.herokuapp.com/image/'
-// let h2 = new Headers()
-// h2.append('Authorization', `Bearer ${token}`)
-// h2.append('Accept', 'application/json')
-// h2.append('Content-Type', 'application/json')
-
-// try {
-//   let response2 = fetch(url2, {
-//     method: 'GET',
-//     headers: h2
-//   })
-//   .then(res2 => res2.json())
-//   .then(data2 =>  {
-//     console.log(data2);
-//     img.src = data2.image_url
-//     imgFooter.src =  data2.image_url
-//   })
-// } catch (error) {
-//   console.log(error)
-// }
-
-// })
 
 
 //  time lag diisplay after 2hrs
@@ -153,7 +127,8 @@ try {
 }
 
 const file = document.querySelector('#file')
-document.querySelector('form').addEventListener('submit', function(e) {
+let form = document.querySelector('form')
+form.addEventListener('submit', function(e) {
 
   e.preventDefault()
 
@@ -181,48 +156,10 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 
 
 
-// const userImageLocalStorage = JSON.parse(localStorage.getItem('userimage'))
-// img.src = userImageLocalStorage
-//     imgFooter.src =  userImageLocalStorage
-// form.addEventListener('submit', async function(e) {
-
-// e.preventDefault()
-// const url2 = 'https://dateapi-app.herokuapp.com/image/'
-//     let userFile = file.files[0]
-//     console.log(userFile)
-//     const fileFormData = new FormData()
-//     fileFormData.append('uploaded_file', userFile)
-//     let token = JSON.parse(localStorage.getItem('myToken'))
-//     console.log(token)
-//     let h = new Headers()
-//     h.append('Authorization', `Bearer ${token}`)
-//      h.append('Authorization', `Bearer ${token}`)
-//     // h.append('content-type', 'multipart/form-data')
-
-//     try {
-//         const response2 = await fetch(url2, {
-//             method: 'POST',
-//             body: fileFormData,
-//            headers: h
-//            })
-
-//            const json = await response2.json()
-//            console.log(json)      
-//     } catch (error) {
-//         console.log(error)
-//     }
-//   })
-
 const logOut = document.querySelector('.logout-link')
-
 logOut.addEventListener('click', function(e) {
-  // e.preventDefault()+
+  // e.preventDefault()
   localStorage.removeItem('myToken')
-  localStorage.removeItem('userimage')
-  localStorage.removeItem('loginImage')
-  // window.location.href('./login.html')
-  // console.log(window.location)
-  // console.log(localStorage)
 })
 const img = document.querySelector('.user-img')
 const imgFooter = document.querySelector('.user-img-footer')
@@ -237,7 +174,12 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 .then(data => {
   console.log(data)
   img.src = data[0].image_url
-  imgFooter.src = data[0].image_url
+  // imgFooter.src = data[0].image_url
+  if(img.src.length > 12) {
+    form.classList.add('hide')
+    // location.reload()
+    console.log(form)
+  }
 
 })
 .catch(error => console.log(error))

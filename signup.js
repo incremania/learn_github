@@ -90,33 +90,32 @@ signUpForm.addEventListener('submit',async  function(e) {
     }
  
 
+// // 2nd attempt  // file not displaying
+//     const url2 = 'https://dateapi-app.herokuapp.com/image/'
+//     let userFile = file.files[0]
+//     console.log(userFile)
+//     const fileFormData = new FormData()
+//     fileFormData.append('uploaded_file', userFile)
+//     let token = JSON.parse(localStorage.getItem('myToken'))
+//     localStorage.setItem('imageFile',JSON.stringify(userFile.name) )
+//     let userImageToken = localStorage.getItem('imageFile')
+//     console.log(userImageToken)
 
-// 2nd attempt  // file not displaying
-    const url2 = 'https://dateapi-app.herokuapp.com/image/'
-    let userFile = file.files[0]
-    console.log(userFile)
-    const fileFormData = new FormData()
-    fileFormData.append('uploaded_file', userFile)
-    let token = JSON.parse(localStorage.getItem('myToken'))
-    localStorage.setItem('imageFile',JSON.stringify(userFile.name) )
-    let userImageToken = localStorage.getItem('imageFile')
-    console.log(userImageToken)
-
-    try {
-        const response2 = await fetch(url2, {
-            method: 'POST',
-            body: fileFormData,
-            headers: {
-                'Accept': 'application/json',
-                // 'Content-type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            }
-           })
-           const json = await response2.json()
-           console.log(json)      
-    } catch (error) {
-        console.log(error)
-    }
+//     try {
+//         const response2 = await fetch(url2, {
+//             method: 'POST',
+//             body: fileFormData,
+//             headers: {
+//                 'Accept': 'application/json',
+//                 // 'Content-type': 'application/json',
+//                 'Authorization': `Bearer ${token}`,
+//             }
+//            })
+//            const json = await response2.json()
+//            console.log(json)      
+//     } catch (error) {
+//         console.log(error)
+//     }
 
 // signUpForm.submit()
    
