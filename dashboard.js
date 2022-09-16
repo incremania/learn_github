@@ -6,7 +6,6 @@ const  firstName = document.querySelectorAll('.firstname')
 const lastName = document.querySelectorAll('.lastname')
 const firstAmount = document.querySelector('.first-amount')
 const secondAmount = document.querySelector('.second-amount') 
-console.log(firstAmount, secondAmount)
 const grantId = document.querySelector('.grantid')
 const amoutWon = document.querySelector('.amount-won')
 const amountWonTwo = document.querySelector('.amount-won-span')
@@ -15,10 +14,24 @@ const text = document.querySelector('.greeting-text')
 const beforeTwoHours = document.querySelector('.before-two-hrs')
 const afterTwoHours = document.querySelector('.after-two-hrs')
 const preloader = document.querySelector('.preloader')
+const userId = document.querySelector('.user-id')
+const profileName1 = document.querySelector('.profile-name-one')
+const profileId1 = document.querySelector('.profile-id-one')
+const profileEmail1 = document.querySelector('.profile-email-one')
+const profileAddress1 = document.querySelector('.profile-address-one')
 
-function paymentMethod() {
-  afterPayment.classList.toggle('show-link')
-}
+const profileName2 = document.querySelector('.profile-name-two')
+const profileId2 = document.querySelector('.profile-id-two')
+const profileEmail2 = document.querySelector('.profile-email-two')
+const profileAddress2 = document.querySelector('.profile-address-two')
+
+
+
+// function paymentMethod() {
+ 
+// }
+
+
 
 // btns.forEach(btn => {
 //   console.log(btn)
@@ -27,11 +40,19 @@ function paymentMethod() {
 //   })
 // })
 
+claimBtn.addEventListener('click', function(e) {
+  e.preventDefault()
+  afterPayment.classList.toggle('show-link')
+
+
+})
+
+
 //  get user details
 let url = 'https://dateapi-app.herokuapp.com/user/'
 let h = new Headers()
 const token = JSON.parse(localStorage.getItem('myToken'))
-console.log(token)
+
 h.append('Authorization', `Bearer ${token}`)
 h.append('Accept', 'applciation/json')
 
@@ -42,25 +63,15 @@ let response = fetch(url, {
 })
 .then(res =>  res.json()) 
 .then(data =>  {
-  console.log(data)
+  // console.log(data)
   firstName.forEach(first => {
-    first.innerHTML = data.firstname
+    first.innerHTML = data.firstname.toUpperCase()
   })
   lastName.forEach(last => {
-    last.innerHTML = data.lastname
+    last.innerHTML = data.lastname.toUpperCase()
   })
 
-if(data.gender == 'female' && data.firstname.length < 6 ) {
-  grantId.innerHTML = 345685 
-} else if(data.gender == 'female' && data.firstname.length >= 6) {
-  grantId.innerHTML = 451290
-}  else if(data.gender == 'male' && data.lastname.length < 6) {
-  grantId.innerHTML = 456784
-} else if(data.gender == 'male' && data.firstname.length >= 6) {
-  grantId.innerHTML = 930154
-} else {
-  grantId.innerHTML = 569813
-}
+
   let figureWon = Number(data.grant) + 2245
   const figureWonString = String(figureWon)
   const figureBeforeComa = figureWonString.slice(0,2)
@@ -68,7 +79,6 @@ if(data.gender == 'female' && data.firstname.length < 6 ) {
   const  figureBeforeComa1 = figureWonString.slice(0,3)
   const figureAfterComa1 = figureWonString.slice(3)
   amoutWon.innerHTML = Number(data.grant) + 2245 
-  console.log(figureWonString.length)
   if(figureWonString.length === 5) {
     amountWonTwo.innerHTML =  figureBeforeComa + ',' + figureAfterComa 
     amountWonBtn.innerHTML =  figureBeforeComa + ',' + figureAfterComa 
@@ -79,8 +89,45 @@ if(data.gender == 'female' && data.firstname.length < 6 ) {
     amoutWon.innerHTML  = figureBeforeComa1 + ',' + figureAfterComa1
   }
   
+  if(String(data.id).length=== 1) {
+    grantId.innerHTML = '56912' + data.id
+    userId.innerHTML = '56912'+ data.id
+    profileId1.innerHTML = '56912'+ data.id
+    profileId2.innerHTML = '56912'+ data.id
+  } else if(String(data.id).length === 2) {
+    grantId.innerHTML = '9861' + data.id
+    userId.innerHTML = '9861'+ data.id
+    profileId1.innerHTML = '9861'+ data.id
+    profileId2.innerHTML = '9861'+ data.id
+  } else if(String(data.id).length) {
+    grantId.innerHTML = '380' + data.id
+    userId.innerHTML = '380'+ data.id
+    profileId1.innerHTML = '380' + data.id
+    profileId2.innerHTML = '380' + data.id
+  } else if(String(data.id).length === 4) {
+    grantId.innerHTML = '81' + data.id
+    userId.innerHTML ='81'+ data.id
+    profileId1.innerHTML = '81'+ data.id
+    profileId2.innerHTML = '81'+ data.id
+  } else if(String(data.id).length === 5) {
+    grantId.innerHTML = '7' + data.id
+    userId.innerHTML = '7'+ data.id
+    profileId1.innerHTML = '7'+ data.id
+    profileId2.innerHTML = '7'+ data.id
+  } else {
+    grantId.innerHTML = '498349'
+    userId.innerHTML =  '498349'
+    profileId1.innerHTML = '498349'
+    profileId2.innerHTML = '498349'
+  }
+  
+ 
 
 
+profileName1.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.lastname
+profileName2.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.lastname
+profileEmail1.innerHTML = data.email
+profileEmail2.innerHTML = data.email
 
  firstAmount.innerHTML = data.grant
  secondAmount.innerHTML = Number(data.grant) + 4000
@@ -103,7 +150,6 @@ try {
   })
   .then(res2 => res2.json())
   .then(data3 => {
-    console.log(data3)
     if(data3 === true) {
      beforeTwoHours.classList.add('hide')
      afterTwoHours.classList.add('show')
@@ -172,14 +218,13 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 })
 .then(res => res.json())
 .then(data => {
-  console.log(data)
+  
   img.src = data[0].image_url
-  // imgFooter.src = data[0].image_url
+
   if(img.src.length > 12) {
     form.classList.add('hide')
-    // location.reload()
-    console.log(form)
-  }
+  } 
 
 })
 .catch(error => console.log(error))
+

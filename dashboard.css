@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=DynaPuff&family=Kanit:wght@500&family=Montserrat:ital,wght@0,300;1,300&display=swap');
+
 *,
 ::before,
 ::after {
@@ -8,16 +10,97 @@
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: #000;
-    background-color: rgb(160, 107, 37);
+    background-color:white;
+    box-shadow: 0 0 4px rgb(104, 98, 98);
     padding: 0 2rem;
-    height: 2rem;
+    height: 4rem;
     align-items: center;
+    z-index: 99;
    
 }
 
 body {
-    background-color: rgb(151, 149, 149);
+    background-color:white;
+}
+
+.all-body {
+    display: flex;
+}
+
+aside {
+    display: none;
+}
+
+.basic-info-div {
+    margin-top: 1rem;
+    /* width: 80%; */
+    margin-left: auto;
+    margin-right: auto;
+    padding:  .4rem 1rem 1rem;
+    line-height: 1;
+
+}
+
+.basic-info-div  span{
+    font-weight: 700;
+    margin-left: .5rem;
+}
+
+.approved {
+    color:#198754
+}
+
+.processing {
+    color: yellow;
+}
+
+
+.basic-profile-two, .basic-profile-one {
+    box-shadow: 0 0 3px rgb(131, 129, 129);
+    margin-top: 1rem;
+
+}
+
+.basic-profile{
+   padding: 1rem;
+    border-bottom: solid 2px black;
+ 
+}
+.contact-aside {
+    text-align: center;
+    margin-top: 100%;
+   
+}
+
+.congratulations {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 40px;
+    text-decoration: underline;
+}
+
+@media screen and (min-width:700px) {
+    
+
+aside {
+    background-color: rgb(253, 251, 251);
+    display: block;
+    width: 30%;
+    /* padding-left: 100px; */
+    position: fixed;
+    box-shadow:0 0 2px black;
+    top: 0;
+    bottom: 0;
+}
+.main {
+    width: 70%;
+    margin-left: 30%;
+    position: relative;
+    /* position: fixed;  */
+    
+    
+}
+
 }
 
 a {
@@ -26,29 +109,39 @@ a {
 .nav-logo, .logout-link {
     text-decoration: none;
     font-size: 20px;
-    color: #fff;
+    color: goldenrod;
+    font-size: 23px;
+    font-style: 700;
 }
 
-.nav-logo:hover, .logout-link:hover {
-    color: #fff;
+.nav-logo:active, .logout-link:active {
+    transform: scale(0.97);
+    
 }
 
 .processing-div {
     width: 100%;
     margin-top: -1.5rem;
     margin-bottom: 2rem;
+    height: 14rem;
     
 }
 
+.upload-btn {
+    margin-left: 1rem;
+    height: 2.4rem;
+    padding: .4rem;
+    border: none;
+}
 .processing-img {
     width: inherit;
-    height: 8rem;
+    height: inherit;
 }
 
 
 .user-img {
-    width: 3rem;
-    height: 3rem;
+    width: 4.5rem;
+    height: 4.5rem;
     border-radius: 50%;
     border: 1px solid black;
 }
@@ -129,6 +222,15 @@ font-size: 23px;
     
 }
 
+.logo-img-div {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1005;
+}
+
+.logo-img-div img {
+    width: inherit;
+}
 
 
 .dashboard {
@@ -204,11 +306,11 @@ font-size: 23px;
 }
 
 .amount-won {
-    color:purple
+    font-size: 20px;
 }
 
 .amount-won-span {
-    color: pink;
+    font-size: 20px;
 }
 
 .hide {

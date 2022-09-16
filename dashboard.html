@@ -25,8 +25,27 @@
 
   </head>
   <body>
-    <article class="dashboard">
+    <div class="all-body">
+    <aside>
+      <div class="logo-img-div">
+        <img src="./images/logo-img.jpeg" alt="" class="logo-img" />
+
+      </div>
+
+      <div class="contact-aside">
+        <h2>Contact Support</h2>
+        <div class="chat-support-aside">
+          <a href="https://wa.me/message/2DYFFHFZDUY5C1"><i class="fa-brands fa-square-whatsapp fa-3x"></i></a><br>
+          <a href="mailto:govtgrantfederal8@gmail.com"><i class="fa-regular fa-envelope fa-3x"></i></a><br>
+          <a href="https://t.me/@FederalGovtGrantPayment"><i class="fa-brands fa-telegram fa-3x"></i></i></a><br>
+
+        </div>
+      </div>
+    </aside>
+   <div class="main">
+     <article class="dashboard">
       <nav>
+        
         <div class="logo-div">
           <a href="index.html" class="nav-logo">GRANT.GOV</a>
         </div>
@@ -38,9 +57,14 @@
           </a>
         </div>
       </nav>
-      <form action="" class="">
-        <input type="file" name="uploaded_file" id="file">
-        <button type="submit">upload</button>
+    
+      <form action="" class="" style="margin-left: 2rem;">
+      <div class="mb-3">
+        <label style="margin-top: .5rem; color:red" for="formFile" class="form-label" >upload a photo(selfie recomended)</label>
+        <input class="form-control" type="file" id="file" style="width: 60%; margin-top: -.5rem; display: inline;">
+        <button type="submit" class="upload-btn">upload photo</button>
+        <div class="error-message" style="font-size: 14px; color:red ;">upload a photo</div>
+      </div>
       </form>
 
       <main>
@@ -54,26 +78,42 @@
           </div>
           <div class="profile-logo-div">
             <h4 class="grant-id">
-              GRANT ID: <span class="user-id">000000</span>
+              GRANT ID: <span class="user-id" style="color: red;">000000</span>
             </h4>
           </div>
         </header>
-
+  <!-- basic-profile -->
         <article class="profile-messsage-one">
+    
         
           <div class="greeting">
             <h3 class="greeting-message">
               Hello <span class="firstname"></span>
+              
               <span class="lastname"></span>,
             </h3>
+            
             <article class="preloader">
+
 
             </article>
 
 
             <!-- before two hrs -->
+            
             <article class="before-two-hrs">
             <div class="dashboard-div show-div">
+              <article class="basic-profile-one" style="margin-top: .5rem;">
+                <div class="basic-profile-div">
+                <h2 class="basic-profile"><i class="fa-solid fa-user"></i>  Basic Profile</h2>
+              </div>
+              <div class="basic-info-div">
+                <p>Full name: <span class="profile-name-one"></span></p>
+                <p>Grant id: <span class="profile-id-one"></span></p>
+                <p>Email: <span class="profile-email-one"></span></p>
+                <p>Grant Status: <span class="profile-address-one proccesing"><i> Proccesing</i></span></p>
+              </div>
+              </article>
               <p class="greeting-text">
                 We are processing your application, you will get an email from
                 us if you get get approved for this grant.
@@ -90,7 +130,7 @@
               </div>
               <div class="processing-div">
                 <img
-                  src="./images/proceesing.png"
+                  src="./images/proccessfinal.jpeg"
                   alt="application in process"
                   class="processing-img"
                 />
@@ -109,15 +149,26 @@
           
             <!-- display after two hours -->
             <article class="after-two-hrs">
+              <article class="basic-profile-two">
+                <div class="basic-profile-div">
+                <h2 class="basic-profile"> <i class="fa-solid fa-user"></i>  Basic Profile</h2>
+              </div>
+              <div class="basic-info-div">
+                <p>Full name: <span class="profile-name-two"></span></p>
+                <p>Grant id: <span class="profile-id-two"></span></p>
+                <p>Email: <span class="profile-email-two"></span></p>
+                <p>Grant Status: <span class="profile-address-two approved">Approved</span></p>
+              </div>
+              </article>
              
-            <h3>
-              Congratulations <span class="firstname">firstname</span> <span class="lastname">lastname</span>,
+            <h3 style="margin-top: -3rem;" class="congratulations">
+              Congratulations!
             </h3>
-            <div class="winning-message-div">
+            <div class="winning-message-div" style="margin-top: -1rem;">
               <p class="greeting-text hide-text winning-message">
                 Yep, that's right. Congrats Welcome back on board
                 <span class="firstname">firstname</span>
-                <span class="lastname">lastname</span>; Your Grant Application has
+                <span class="lastname">lastname</span>. Your Grant Application has
                 been approved successfully! You Just won a Grant payment of
                 $<span class="amount-won">20,000</span> on
                 <span class="grant-won-date">november 21 2010</span>.</p>
@@ -135,22 +186,21 @@
                   Your patience just paid off!
                   Your application has been successfully approved by the Federal Government. 
                 
-                  We have
-                  thousands of applications daily but We only pick few winner(s)
-                  in a day.Your patience just paid off. You just won a grant of
+              
+                   You just won a grant of
                   $<span class="amount-won-span">20,000</span>! Your application has been successfully
                   approved by the US Federal Emergency Management Agency; wait no
                   longer.
                   </p>
                   <div class="mb-3 submit-div ">
                     <button class="approved-btn btn btn-success">
-                     approved
+                     Grant Status: approved
    
                     </button>
                    </div>
 
                  <p> Simply text the administrative number with your grant
-                 code on how to receive your funds. Grant id: <span class="grantid" style="color: navy;">123456</span>
+                 id on how to receive your funds. Grant id: <span class="grantid" style="color: navy;">123456</span>
 
                  Congratulations once again
                  <span class="firstname">firstname</span>
@@ -205,6 +255,9 @@
         </article>
       </main>
     </article>
+  </div>
+  
+</div>
 
     <script src="dashboard.js"></script>
   </body>
