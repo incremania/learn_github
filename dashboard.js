@@ -19,34 +19,17 @@ const profileName1 = document.querySelector('.profile-name-one')
 const profileId1 = document.querySelector('.profile-id-one')
 const profileEmail1 = document.querySelector('.profile-email-one')
 const profileAddress1 = document.querySelector('.profile-address-one')
-
 const profileName2 = document.querySelector('.profile-name-two')
 const profileId2 = document.querySelector('.profile-id-two')
 const profileEmail2 = document.querySelector('.profile-email-two')
 const profileAddress2 = document.querySelector('.profile-address-two')
 
 
-
-// function paymentMethod() {
- 
-// }
-
-
-
-// btns.forEach(btn => {
-//   console.log(btn)
-//   btn.addEventListener('click', function(e) {
-//     e.preventDefault()
-//   })
-// })
-
 claimBtn.addEventListener('click', function(e) {
   e.preventDefault()
-  afterPayment.classList.toggle('show-link')
-
+  afterPayment.classList.toggle('show')
 
 })
-
 
 //  get user details
 let url = 'https://dateapi-app.herokuapp.com/user/'
@@ -63,7 +46,7 @@ let response = fetch(url, {
 })
 .then(res =>  res.json()) 
 .then(data =>  {
-  // console.log(data)
+  
   firstName.forEach(first => {
     first.innerHTML = data.firstname.toUpperCase()
   })
