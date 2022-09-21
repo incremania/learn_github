@@ -532,3 +532,8 @@ p {
     font-weight: 700;
     line-height: 2;
 }
+
+
+video {
+    margin-top: 2rem;
+}
