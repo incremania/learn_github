@@ -76,7 +76,7 @@ signUpForm.addEventListener('submit',async  function(e) {
         if(json.detail == 'Email has been used') {
             emailVerificationViaServer()
         } else {
-            alert('your account as been successfully created, click "ok" to login to your dashboard');
+            alert('your account as been successfully created, you can now proceed to your dashboard');
             signUpForm.submit()
         }
     } catch (error) {
@@ -97,10 +97,8 @@ function continuBtnFunction() {
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
   creditScoreValidation();
-//   fileValidation();
   genderCheck();
   ageValidation();
-//   emailValidation(email, errorEmail, 'error', 'invalid error');
   validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
   validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
   validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');

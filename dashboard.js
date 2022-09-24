@@ -120,7 +120,6 @@ profileEmail2.innerHTML = data.email
 
 
 //  time lag diisplay after 2hrs
-
 let url3 = 'https://dateapi-app.herokuapp.com/user/time'
 let h3 = new Headers()
 h3.append('Authorization', `Bearer ${token}`)
@@ -206,8 +205,9 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 
   if(img.src.length > 12) {
     form.classList.add('hide')
-  } 
+  } else {
+    alert('please upload a photo and refresh this page')
+  }
 
 })
 .catch(error => console.log(error))
-
