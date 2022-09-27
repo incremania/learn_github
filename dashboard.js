@@ -41,8 +41,7 @@ h.append('Accept', 'applciation/json')
 
 let response = fetch(url, {
   method: 'GET',
-  headers: h
-  
+  headers: h  
 })
 .then(res =>  res.json()) 
 .then(data =>  {
@@ -173,8 +172,8 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 
 }).then(res => res.json())
 .then(data2 =>  {
-  console.log(data2.image_url)
-  console.log(data2)
+  // console.log(data2.image_url)
+  // console.log(data2)
   
 })
 .catch(err => console.log(err))
@@ -190,7 +189,6 @@ logOut.addEventListener('click', function(e) {
   localStorage.removeItem('myToken')
 })
 const img = document.querySelector('.user-img')
-const imgFooter = document.querySelector('.user-img-footer')
 fetch('https://dateapi-app.herokuapp.com/image/', {
   method: 'GET',
   headers: {
@@ -200,14 +198,20 @@ fetch('https://dateapi-app.herokuapp.com/image/', {
 })
 .then(res => res.json())
 .then(data => {
-  
+  console.log(data)
   img.src = data[0].image_url
-
-  if(img.src.length > 12) {
+  console.log(data[0].image_url)
+console.log(img.src.length)
+console.log(img.src)
+  
+  if(img.src.length > 11) {
     form.classList.add('hide')
-  } else {
-    alert('please upload a photo and refresh this page')
-  }
+  } 
+
 
 })
 .catch(error => console.log(error))
+
+  console.log(img.src);
+  console.log(img.src.length)
+
