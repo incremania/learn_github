@@ -4,28 +4,62 @@ const username = document.querySelector('#username')
 const password = document.querySelector('#password')
 const passwordError = document.querySelector('.error-password')
 const usernameErrror = document.querySelector('.error-username')
+const login = document.querySelector('.login-btn-div')
+const loader = document.querySelector('.loader')
 
 form.addEventListener('submit', function(e) {
      e.preventDefault()
-     if(!username.value.trim() && !password.value.trim()) {
-        passwordError.innerHTML = 'password required'
-        usernameErrror.innerHTML = 'username required'
-     } else if(username.value.trim && !password.value.trim()) {
-        passwordError.innerHTML = 'password required'
-        usernameErrror.innerHTML = ''
-     } else if(!username.value.trim() && password.value.trim()) {
-        passwordError.innerHTML = ''
-        usernameErrror.innerHTML = 'username required'
-     } else if(username.value.trim() && password.value.trim()) {
-        passwordError.innerHTML = ''
-        usernameErrror.innerHTML = ''
-        vaidateViaServer()
-     
-     } else {
-        
-     }
+    //  loader.style.display = 'block'
+
+   
+        if(!username.value.trim() && !password.value.trim()) {
+            loader.style.display = 'block'
+            setTimeout(() => {
+               
+                passwordError.innerHTML = 'password required'
+            usernameErrror.innerHTML = 'username required'
+            loader.style.display = 'none' 
+            }, 2000)
+           
+         } else if(username.value.trim && !password.value.trim()) {
+            loader.style.display = 'block'
+            setTimeout(() => {
+                passwordError.innerHTML = 'password required'
+                usernameErrror.innerHTML = ''
+                loader.style.display = 'none'
+            }, 2000);
+           
+         } else if(!username.value.trim() && password.value.trim()) {
+            loader.style.display = 'block'
+            setTimeout(() => {
+                passwordError.innerHTML = ''
+                usernameErrror.innerHTML = 'username required'
+                loader.style.display = 'none'
+            }, 2000);
+           
+         } else if(username.value.trim() && password.value.trim()) {
+            loader.style.display = 'block'
+            setTimeout(() => {
+                passwordError.innerHTML = ''
+                usernameErrror.innerHTML = ''
+                loader.style.display = 'none'
+                vaidateViaServer()
+            },6000)
+           
+         
+         } else {
+            
+         }
+    
+    //  }, 2000);
+
+    
         
 })
+
+// login.addEventListener('click', function() {
+//    
+// })
 
 
 
@@ -44,6 +78,7 @@ function vaidateViaServer() {
             if(data.detail == 'Invalid Credentials') {
                 passwordError.innerHTML = 'username or password incorrect'
             } else {
+                loader.style.display = 'block'
                 const token = data.access_token
                 localStorage.setItem('myToken', JSON.stringify(token))
                 form.submit()

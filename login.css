@@ -109,3 +109,33 @@ a {
     font-size: .85rem;
 }
 
+.login-btn {
+    display: grid;
+    place-content: center;
+}
+
+.loader {
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: white;
+    animation: an1 1s ease infinite;
+    position: absolute;
+    margin-left: 1rem;
+    margin-top: -2rem;
+    display: none;
+    
+}
+
+
+@keyframes an1 {
+    0% {
+        transform: rotate(0turn);
+    }
+
+    100% {
+        transform: rotate(1turn);
+    }
+}

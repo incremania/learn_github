@@ -32,6 +32,7 @@ const female = document.querySelector('#female')
 const errorGender = document.querySelector('.error-gender')
 const gender = document.querySelector('#gender')
 const signUpForm = document.querySelector('.signup-form');
+const loader = document.querySelector('.loader')
 
 loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
@@ -73,12 +74,17 @@ signUpForm.addEventListener('submit',async  function(e) {
         
         })
         const json = await response.json()
-        if(json.detail == 'Email has been used') {
-            emailVerificationViaServer()
-        } else {
-            alert('your account as been successfully created, you can now proceed to your dashboard');
-            signUpForm.submit()
-        }
+        loader.style.display = 'block'
+        setTimeout(() => {
+          
+            if(json.detail == 'Email has been used') {
+                emailVerificationViaServer()
+            } else {
+                alert('your account as been successfully created, you can now proceed to your dashboard');
+                signUpForm.submit()
+            }
+        },6000)
+      
     } catch (error) {
         // console.log(error)
     }
