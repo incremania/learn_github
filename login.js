@@ -6,6 +6,26 @@ const passwordError = document.querySelector('.error-password')
 const usernameErrror = document.querySelector('.error-username')
 const login = document.querySelector('.login-btn-div')
 const loader = document.querySelector('.loader')
+const eye = document.querySelector('#eye')
+const eyeSlash = document.querySelector('#eye-slash')
+
+
+eye.addEventListener('click', function() {
+    if(password.type === 'password') {
+        password.type ='text'
+        eye.style.display = 'none'
+        eyeSlash.style.display = 'inline-block'
+    }
+})
+
+eyeSlash.addEventListener('click', function() {
+    if(password.type === 'text') {
+        password.type ='password'
+        eye.style.display = 'inline-block'
+        eyeSlash.style.display = 'none'
+    }
+})
+
 
 form.addEventListener('submit', function(e) {
      e.preventDefault()

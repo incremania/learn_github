@@ -213,6 +213,17 @@ transform: scale(0.98);
     
 }
 
+.eye {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 2.4rem;
+    margin-right: .3rem;
+}
+#eye-slash, #eye-slash2{
+    display: none;
+}
+
 
 @keyframes an1 {
     0% {

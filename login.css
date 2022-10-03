@@ -129,7 +129,22 @@ a {
     
 }
 
+.login-inp {
+    position: relative;
+}
 
+
+
+.eye {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: .3rem;
+    margin-right: .3rem;
+}
+#eye-slash {
+    display: none;
+}
 @keyframes an1 {
     0% {
         transform: rotate(0turn);
@@ -139,3 +154,4 @@ a {
         transform: rotate(1turn);
     }
 }
+

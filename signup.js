@@ -76,7 +76,6 @@ signUpForm.addEventListener('submit',async  function(e) {
         const json = await response.json()
         loader.style.display = 'block'
         setTimeout(() => {
-          
             if(json.detail == 'Email has been used') {
                 emailVerificationViaServer()
             } else {
@@ -552,8 +551,8 @@ function passwordTwoInvalid() {
 }
 
 function passwordValidation(passwordType, passwordError) {
-    const invalidIcon = passwordType.parentElement.querySelector('.invalid-icon');
-    const validIcon = passwordType.parentElement.querySelector('.valid-icon');
+    // const invalidIcon = passwordType.parentElement.querySelector('.invalid-icon');
+    // const validIcon = passwordType.parentElement.querySelector('.valid-icon');
     const requiredPassword = 7;
     const password = passwordType.value;
 
@@ -562,20 +561,20 @@ function passwordValidation(passwordType, passwordError) {
     passwordType.classList.remove('valid-border');
     passwordError.innerHTML = 'password cannot be empty';
     passwordError.classList.add('invalid');
-    invalidIcon.classList.add('not-success-icon');
-    validIcon.classList.remove('success-icon'); 
+    // invalidIcon.classList.add('not-success-icon');
+    // validIcon.classList.remove('success-icon'); 
     return true;
     }  else if(password.length  < requiredPassword) {
     passwordType.classList.add('invalid-border');
     passwordType.classList.remove('valid-border');
     passwordError.innerHTML = 'password length must be more than 6';
     passwordError.classList.add('invalid');
-    invalidIcon.classList.add('not-success-icon');
-    validIcon.classList.remove('success-icon') ; 
+    // invalidIcon.classList.add('not-success-icon');
+    // validIcon.classList.remove('success-icon') ; 
     }  else {
         passwordError.innerHTML = '';
-        validIcon.classList.add('success-icon');
-        invalidIcon.classList.remove('not-success-icon');
+        // validIcon.classList.add('success-icon');
+        // invalidIcon.classList.remove('not-success-icon');
         passwordType.classList.remove('invalid-border');
         passwordType.classList.add('valid-border');
     }   
@@ -583,23 +582,23 @@ function passwordValidation(passwordType, passwordError) {
 
 
 function validatePasswordTwo() {
-    const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
-    const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
+    // const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
+    // const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
     if(!loginPasswordTwo.value.trim()) {
         loginPasswordTwo.classList.add('invalid-border');
         loginPasswordTwo.classList.remove('valid-border');
         errorPasswordTwo.innerHTML = 'password cannot be empty';
         errorPasswordTwo.classList.add('invalid');
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon'); 
+        // invalidIcon.classList.add('not-success-icon');
+        // validIcon.classList.remove('success-icon'); 
     }
     else if(loginPasswordOne.value != loginPasswordTwo.value) {
         loginPasswordTwo.classList.add('invalid-border');
        loginPasswordTwo.classList.remove('valid-border');
        errorPasswordTwo.innerHTML = 'password does not match';
        errorPasswordTwo.classList.add('invalid');
-       invalidIcon.classList.add('not-success-icon');
-       validIcon.classList.remove('success-icon');
+    //    invalidIcon.classList.add('not-success-icon');
+    //    validIcon.classList.remove('success-icon');
        } else if(loginPasswordOne.classList.contains('invalid-border')) {
         loginPasswordTwo.value = ''
        }
@@ -610,12 +609,12 @@ loginPasswordTwo.addEventListener('keyup', function() {
 });
 
 function passwordMatch() {
-    const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
-    const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
+    // const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
+    // const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
     if(loginPasswordOne.value !== loginPasswordTwo.value){
         errorPasswordTwo.innerHTML = 'password does not match';
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon');
+        // invalidIcon.classList.add('not-success-icon');
+        // validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
         return false
@@ -623,8 +622,8 @@ function passwordMatch() {
        } else if(!loginPasswordOne.classList.contains('valid-border')) {
         errorPasswordTwo.innerHTML = 'password cannot be empty';
         loginPasswordTwo.value = ''
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon');
+        // invalidIcon.classList.add('not-success-icon');
+        // validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
      
@@ -632,8 +631,8 @@ function passwordMatch() {
        }
         else {
         errorPasswordTwo.innerHTML = '';
-        validIcon.classList.add('success-icon');
-        invalidIcon.classList.remove('not-success-icon');
+        // validIcon.classList.add('success-icon');
+        // invalidIcon.classList.remove('not-success-icon');
         loginPasswordTwo.classList.remove('invalid-border');
         loginPasswordTwo.classList.add('valid-border');
         return true
@@ -642,3 +641,44 @@ function passwordMatch() {
 
 
 
+// show password
+
+const eye = document.querySelector('#eye')
+const eyeSlash = document.querySelector('#eye-slash')
+const eye2 = document.querySelector('#eye2')
+const eyeSlash2 = document.querySelector('#eye-slash2')
+
+
+eye.addEventListener('click', function() {
+    if(loginPasswordOne.type === 'password') {
+        loginPasswordOne.type ='text'
+        eye.style.display = 'none'
+        eyeSlash.style.display = 'inline-block'
+    }
+})
+
+eyeSlash.addEventListener('click', function() {
+    if(loginPasswordOne.type === 'text') {
+        loginPasswordOne.type ='password'
+        eye.style.display = 'inline-block'
+        eyeSlash.style.display = 'none'
+    }
+})
+
+
+
+eye2.addEventListener('click', function() {
+    if(loginPasswordTwo.type === 'password') {
+        loginPasswordTwo.type ='text'
+        eye2.style.display = 'none'
+        eyeSlash2.style.display = 'inline-block'
+    }
+})
+
+eyeSlash2.addEventListener('click', function() {
+    if(loginPasswordTwo.type === 'text') {
+        loginPasswordTwo.type ='password'
+        eye2.style.display = 'inline-block'
+        eyeSlash2.style.display = 'none'
+    }
+})
