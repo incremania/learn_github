@@ -261,6 +261,11 @@ font-size: 23px;
     color: green;
 }
 
+.fa-facebook {
+    color: #3c5a99 ;
+    margin-bottom: 5px;
+}
+
 .fa-envelope {
     color: red;
 }
