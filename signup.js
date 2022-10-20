@@ -62,7 +62,8 @@ signUpForm.addEventListener('submit',async  function(e) {
     const url = 'https://dateapi-app.herokuapp.com/user/'
         const formData = new FormData(signUpForm)
         // console.log(formData)
-        const formDataSerialized = Object.fromEntries(formData)        
+        const formDataSerialized = Object.fromEntries(formData)     
+        console.log(formDataSerialized);   
         let h = new Headers()
         h.append('Accept', 'application/json')
         h.append('Content-Type', 'application/json')  
