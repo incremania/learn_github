@@ -32,7 +32,7 @@ claimBtn.addEventListener('click', function(e) {
 })
 
 //  get user details
-let url = 'https://dateapi-app.herokuapp.com/user/'
+let url = 'https://date-app-wqna.onrender.com/user/'
 let h = new Headers()
 const token = JSON.parse(localStorage.getItem('myToken'))
 
@@ -110,20 +110,21 @@ profileName1.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.last
 profileName2.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.lastname
 profileEmail1.innerHTML = data.email
 profileEmail2.innerHTML = data.email
-
  firstAmount.innerHTML = data.grant
  secondAmount.innerHTML = Number(data.grant) + 4000
-
 })
 
 
 
 //  time lag diisplay after 2hrs
-let url3 = 'https://dateapi-app.herokuapp.com/user/time'
+let url3 = 'https://date-app-wqna.onrender.com/user/time'
 let h3 = new Headers()
 h3.append('Authorization', `Bearer ${token}`)
 h3.append('Accept', 'application/json')
 h3.append('Content-Type', 'application/json')
+
+
+
 try {
   let response2 = fetch(url3, {
     method: 'POST',
@@ -163,7 +164,7 @@ let userFile = file.files[0]
 console.log(userFile)
 const fileFormData = new FormData()
 fileFormData.append('uploaded_file', userFile)
-fetch('https://dateapi-app.herokuapp.com/image/', {
+fetch('https://date-app-wqna.onrender.com/image/', {
   method: "POST",
    headers: {
     'Authorization': `Bearer ${token}`
@@ -189,7 +190,7 @@ logOut.addEventListener('click', function(e) {
   localStorage.removeItem('myToken')
 })
 const img = document.querySelector('.user-img')
-fetch('https://dateapi-app.herokuapp.com/image/', {
+fetch('https://date-app-wqna.onrender.com/image/', {
   method: 'GET',
   headers: {
     'Authorization': `Bearer ${token}`

@@ -59,7 +59,7 @@ signUpForm.addEventListener('submit',async  function(e) {
   }
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
-    const url = 'https://dateapi-app.herokuapp.com/user/'
+    const url = 'https://date-app-wqna.onrender.com/user/'
         const formData = new FormData(signUpForm)
         // console.log(formData)
         const formDataSerialized = Object.fromEntries(formData)     

@@ -89,7 +89,7 @@ function vaidateViaServer() {
         for(const pair of formData) {
             payload.append(pair[0], pair[1], pair[3])
         }
-        fetch('https://dateapi-app.herokuapp.com/login/', {
+        fetch('https://date-app-wqna.onrender.com/login/', {
             method: 'POST',
             body: payload
         })
@@ -105,7 +105,6 @@ function vaidateViaServer() {
             }
         })
         .catch(err => console.log(err))
-        
 }
 
 
