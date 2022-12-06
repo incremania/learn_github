@@ -32,7 +32,7 @@ claimBtn.addEventListener('click', function(e) {
 })
 
 //  get user details
-let url = 'https://date-app-wqna.onrender.com/user/'
+let url = 'https://date-apps.onrender.com/user/'
 let h = new Headers()
 const token = JSON.parse(localStorage.getItem('myToken'))
 
@@ -117,7 +117,7 @@ profileEmail2.innerHTML = data.email
 
 
 //  time lag diisplay after 2hrs
-let url3 = 'https://date-app-wqna.onrender.com/user/time'
+let url3 = 'https://date-apps.onrender.com/user/time'
 let h3 = new Headers()
 h3.append('Authorization', `Bearer ${token}`)
 h3.append('Accept', 'application/json')
@@ -154,65 +154,66 @@ try {
   console.log(error)
 }
 
-const file = document.querySelector('#file')
-let form = document.querySelector('form')
-form.addEventListener('submit', function(e) {
+// const file = document.querySelector('#file')
+// let form = document.querySelector('form')
+// form.addEventListener('submit', function(e) {
 
-  e.preventDefault()
+//   e.preventDefault()
 
-let userFile = file.files[0]
-console.log(userFile)
-const fileFormData = new FormData()
-fileFormData.append('uploaded_file', userFile)
-fetch('https://date-app-wqna.onrender.com/image/', {
-  method: "POST",
-   headers: {
-    'Authorization': `Bearer ${token}`
-   },
-   body: fileFormData
+// let userFile = file.files[0]
+// console.log(userFile)
+// const fileFormData = new FormData()
+// fileFormData.append('uploaded_file', userFile)
+// fetch('https://date-apps.onrender.com/image/', {
 
-}).then(res => res.json())
-.then(data2 =>  {
-  // console.log(data2.image_url)
-  // console.log(data2)
+//   method: "POST",
+//    headers: {
+//     'Authorization': `Bearer ${token}`
+//    },
+//    body: fileFormData
+
+// }).then(res => res.json())
+// .then(data2 =>  {
+//   // console.log(data2.image_url)
+//   // console.log(data2)
   
-})
-.catch(err => console.log(err))
+// })
+// .catch(err => console.log(err))
 
 
-})
+// })
 
 
 
-const logOut = document.querySelector('.logout-link')
-logOut.addEventListener('click', function(e) {
-  // e.preventDefault()
-  localStorage.removeItem('myToken')
-})
-const img = document.querySelector('.user-img')
-fetch('https://date-app-wqna.onrender.com/image/', {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
+// const logOut = document.querySelector('.logout-link')
+// logOut.addEventListener('click', function(e) {
+//   // e.preventDefault()
+//   localStorage.removeItem('myToken')
+// })
+// const img = document.querySelector('.user-img')
+// fetch('https://date-apps.onrender.com/image/', {
+//   method: 'GET',
+//   headers: {
+//     'Authorization': `Bearer ${token}`
+//   }
 
-})
-.then(res => res.json())
-.then(data => {
-  console.log(data)
-  img.src = data[0].image_url
-  console.log(data[0].image_url)
-console.log(img.src.length)
-console.log(img.src)
+// })
+// .then(res => res.json())
+// .then(data => {
+//   console.log(data)
+//   img.src = data[0].image_url
+//   console.log(data[0].image_url)
+// console.log(img.src.length)
+// console.log(img.src)
   
-  if(img.src.length > 11) {
-    form.classList.add('hide')
-  } 
+//   if(img.src.length > 11) {
+//     form.classList.add('hide')
+//   } 
 
 
-})
-.catch(error => console.log(error))
+// })
+// .catch(error => console.log(error))
 
-  console.log(img.src);
-  console.log(img.src.length)
+//   console.log(img.src);
+//   console.log(img.src.length)
 
