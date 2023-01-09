@@ -25,9 +25,10 @@ eyeSlash.addEventListener('click', function() {
 })
 
 
+//  adding comment testing github
 form.addEventListener('submit', async function(e) {
      e.preventDefault()
-    //  loader.style.display = 'block'
+    
     passwordError.innerHTML = ''
     usernameErrror.innerHTML = ''
 
