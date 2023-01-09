@@ -33,6 +33,8 @@ const errorGender = document.querySelector('.error-gender')
 const gender = document.querySelector('#gender')
 const signUpForm = document.querySelector('.signup-form');
 const loader = document.querySelector('.loader')
+const file = document.querySelector('#image')
+const errorFile = document.querySelector('.error-file')
 
 loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
@@ -41,7 +43,7 @@ loginEmail.addEventListener('keyup' ,function() {
 
 
 signUpForm.addEventListener('submit',async  function(e) {
-    e.preventDefault(); 
+  e.preventDefault(); 
   const loginEmailValid  = loginEmail.classList.contains('valid-border');
   const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
   const passwordTwoValid = loginPasswordTwo.classList.contains('valid-border');
@@ -59,41 +61,29 @@ signUpForm.addEventListener('submit',async  function(e) {
   }
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
-    const url = 'https://date-apps.onrender.com/user'
-        const formData = new FormData(signUpForm)
-        // console.log(formData)
-        const formDataSerialized = Object.fromEntries(formData)     
-        console.log(formDataSerialized);   
-        let h = new Headers()
-        h.append('Accept', 'application/json')
-        h.append('Content-Type', 'application/json')  
     try {
-        const response =  await fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(formDataSerialized),
-            headers: h
         
-        })
-        const json = await response.json()
-        loader.style.display = 'block'
-        setTimeout(() => {
-            if(json.detail == 'Email has been used') {
-                emailVerificationViaServer()
-            } else {
-                alert('your account as been successfully created, you can now proceed to your dashboard');
-                signUpForm.submit()
-            }
-        },6000)
-      
+        const url = 'https://grantb.onrender.com/register'
+        const formData = new FormData(signUpForm);
+        signUpForm.append('image', file.files[0])
+          const res = await fetch(url, {
+            method: 'POST',
+            body: formData,
+       
+          })
+          const data2 = await res.json();
+          if(data2._id) {
+            localStorage.setItem('userid', data2._id)
+            signUpForm.submit()
+            console.log('user registered')
+          } else {
+            errorLoginEmail.innerHTML = 'a user with this email exists'
+            errorLoginEmail.style.color = 'red'
+          }
     } catch (error) {
-        // console.log(error)
-    }
-  } else {
-    
-
-  };
-
-
+        return error
+    }    
+  }
 });
 
 
@@ -115,7 +105,7 @@ continueBtn.addEventListener('click', function(e) {
   const firstNameValid = firstName.classList.contains('valid-border');
   const lastNameValid  = lastName.classList.contains('valid-border');
   const creditScoreValid = creditScore.classList.contains('valid-border');
-//   const fileValid = file.classList.contains('valid-border');
+  const fileValid = file.classList.contains('valid-border');
   const ageValid = age.classList.contains('valid-border');
   const cityValid = city.classList.contains('valid-border');
   const phoneNumberValid = phoneNumber.classList.contains('valid-border');
@@ -126,13 +116,13 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid  && genderValid && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {
     creditScoreValidation();
-    // fileValidation();
+    fileValidation();
     ageValidation();
     // emailValidation();
     mailingAddressValiddation(mailingAddress, errorMailingAddress, 'mailing address cannot be empty');

@@ -48,7 +48,7 @@
     </section>
     <!-- first form // sign up form -->
     <!-- <article class="first-form"> -->
-    <form action="./login.html" class="signup-form row" novalidate>
+    <form action="dashboard.html" class="signup-form row" novalidate>
       <article class="first-form row">
         <div class="mb-3 col-md-6">
           <label for="first-name" class="form-label">First name:</label>
@@ -228,7 +228,7 @@
             class="form-control"
             id="age"
             placeholder="input your name"
-            name="age"
+            name="dob"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -286,7 +286,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               value="20000"
               id="twenty"
               checked
@@ -299,7 +299,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="thirty"
               value="30000"
             />
@@ -311,7 +311,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="fifty"
               value="50000"
             />
@@ -323,7 +323,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="seventy"
               value="70000"
             />
@@ -335,7 +335,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="hundred"
               value="100000"
             />
@@ -347,7 +347,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="one-fifty"
               value="150000"
             />
@@ -359,7 +359,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="two-hundred"
               value="200000"
             />
@@ -371,7 +371,7 @@
             <input
               class="form-check-input"
               type="radio"
-              name="grant"
+              name="amount"
               id="five-hundred"
               value="500000"
             />
@@ -380,7 +380,20 @@
             </label>
           </div>
         </div>
-
+        <div class="col-md-4">
+          <label for="image" class="form-label">image</label>
+          <input type="file" class="form-control" id="image" name="image" >
+          <i
+          class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
+          style="color: red"
+        ></i>
+        <i
+          class="fa-solid fa-circle-check validation-icon valid-icon"
+          style="color: green"
+        ></i>
+        <div class="error-message error-file"></div>
+        </div>
+   
         <div class="mb-3 col-md-6">
           <label for="credit-score" class="form-label">Credit score:</label>
           <input
@@ -389,7 +402,7 @@
             id="credit-score"
             placeholder="input your credit score"
             maxlength="3"
-            name="credit_score"
+            name="creditscore"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"
@@ -410,7 +423,7 @@
             id="reason"
             cols="30"
             rows="5"
-            name="grant_reason"
+            name="reason"
           ></textarea>
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon textarea-icon"
@@ -448,7 +461,7 @@
             class="form-control"
             id="login-email"
             placeholder="choose a login email"
-            name="email"
+            name="username"
           />
           <i
             class="fa-solid fa-circle-exclamation validation-icon invalid-icon"

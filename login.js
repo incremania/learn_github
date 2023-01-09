@@ -1,4 +1,3 @@
-
 const form =  document.querySelector('form')
 const username = document.querySelector('#username')
 const password = document.querySelector('#password')
@@ -8,7 +7,6 @@ const login = document.querySelector('.login-btn-div')
 const loader = document.querySelector('.loader')
 const eye = document.querySelector('#eye')
 const eyeSlash = document.querySelector('#eye-slash')
-
 
 eye.addEventListener('click', function() {
     if(password.type === 'password') {
@@ -20,16 +18,18 @@ eye.addEventListener('click', function() {
 
 eyeSlash.addEventListener('click', function() {
     if(password.type === 'text') {
-        password.type ='password'
+        password.type = 'password'
         eye.style.display = 'inline-block'
         eyeSlash.style.display = 'none'
     }
 })
 
 
-form.addEventListener('submit', function(e) {
+form.addEventListener('submit', async function(e) {
      e.preventDefault()
     //  loader.style.display = 'block'
+    passwordError.innerHTML = ''
+    usernameErrror.innerHTML = ''
 
    
         if(!username.value.trim() && !password.value.trim()) {
@@ -58,53 +58,33 @@ form.addEventListener('submit', function(e) {
             }, 2000);
            
          } else if(username.value.trim() && password.value.trim()) {
-            loader.style.display = 'block'
-            setTimeout(() => {
+            try {
+                const formData= new FormData(form);
+                const payload = new URLSearchParams()
+                for(const pair of formData) {
+                    payload.append(pair[0], pair[1], pair[3])
+                }
+                e.preventDefault();
+                const res = await fetch('https://grantb.onrender.com/login', {
+                  method: 'POST',
+                  body: payload
+                })
+          
+                const data = await res.json();
+                if(data._id) {
+                  localStorage.setItem('userid', data._id)
+                  form.submit()
+                } 
+                if(!data._id) {
+                    console.log('this is an error')
+                }
+            } catch (error) {
+               if(error) {
                 passwordError.innerHTML = ''
-                usernameErrror.innerHTML = ''
-                loader.style.display = 'none'
-                vaidateViaServer()
-            },6000)
-           
-         
-         } else {
-            
-         }
-    
-    //  }, 2000);
-
-    
-        
-})
-
-// login.addEventListener('click', function() {
-//    
-// })
-
-
-
-function vaidateViaServer() {
-      const formData= new FormData(form);
-        const payload = new URLSearchParams()
-        for(const pair of formData) {
-            payload.append(pair[0], pair[1], pair[3])
-        }
-        fetch('https://date-apps.onrender.com/login/', {
-            method: 'POST',
-            body: payload
-        })
-        .then((res) => res.json()) 
-        .then((data) => {
-            if(data.detail == 'Invalid Credentials') {
-                passwordError.innerHTML = 'username or password incorrect'
-            } else {
-                loader.style.display = 'block'
-                const token = data.access_token
-                localStorage.setItem('myToken', JSON.stringify(token))
-                form.submit()
+                usernameErrror.innerHTML = 'username or password incorrect'
+               }
             }
-        })
-        .catch(err => console.log(err))
-}
-
+           
+         }       
+})
 
