@@ -10,6 +10,8 @@ form.addEventListener('submit', async(e) => {
       body: JSON.stringify(formDataSerialized)
     })
     const data = await res.json();
+    console.log(data)
+    console.log(data._id)
     if(data._id) {
         setTimeout(() => {
             form.submit();
