@@ -35,29 +35,22 @@ form.addEventListener('submit', async function(e) {
 
    
         if(!username.value.trim() && !password.value.trim()) {
-            loader.style.display = 'block'
-            setTimeout(() => {
-               
-                passwordError.innerHTML = 'password required'
+            passwordError.innerHTML = 'password required'
             usernameErrror.innerHTML = 'username required'
             loader.style.display = 'none' 
-            }, 2000)
+           
            
          } else if(username.value.trim && !password.value.trim()) {
-            loader.style.display = 'block'
-            setTimeout(() => {
                 passwordError.innerHTML = 'password required'
                 usernameErrror.innerHTML = ''
                 loader.style.display = 'none'
-            }, 2000);
+         
            
          } else if(!username.value.trim() && password.value.trim()) {
-            loader.style.display = 'block'
-            setTimeout(() => {
                 passwordError.innerHTML = ''
                 usernameErrror.innerHTML = 'username required'
                 loader.style.display = 'none'
-            }, 2000);
+      
            
          } else if(username.value.trim() && password.value.trim()) {
             try {
