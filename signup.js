@@ -44,6 +44,7 @@ loginEmail.addEventListener('keyup' ,function() {
 
 signUpForm.addEventListener('submit',async  function(e) {
   e.preventDefault(); 
+  loader.style.display = 'block'
   const loginEmailValid  = loginEmail.classList.contains('valid-border');
   const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
   const passwordTwoValid = loginPasswordTwo.classList.contains('valid-border');
@@ -75,13 +76,17 @@ signUpForm.addEventListener('submit',async  function(e) {
           if(data2._id) {
             localStorage.setItem('userid', data2._id)
             signUpForm.submit()
+            loader.style.display = 'none'
             console.log('user registered')
           } else {
             errorLoginEmail.innerHTML = 'a user with this email exists'
+            loader.style.display = 'none'
             errorLoginEmail.style.color = 'red'
           }
     } catch (error) {
+        loader.style.display = 'none'
         return error
+        
     }    
   }
 });

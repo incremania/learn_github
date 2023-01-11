@@ -28,6 +28,7 @@ eyeSlash.addEventListener('click', function() {
 //  adding comment testing github
 form.addEventListener('submit', async function(e) {
      e.preventDefault()
+     loader.style.display = 'block'
     
     passwordError.innerHTML = ''
     usernameErrror.innerHTML = ''
@@ -75,12 +76,15 @@ form.addEventListener('submit', async function(e) {
                 if(data._id) {
                   localStorage.setItem('userid', data._id)
                   form.submit()
+                  loader.style.display = 'none'
                 } 
                 if(!data._id) {
                     console.log('this is an error')
+                    loader.style.display = 'none'
                 }
             } catch (error) {
                if(error) {
+                loader.style.display = 'none'
                 passwordError.innerHTML = ''
                 usernameErrror.innerHTML = 'username or password incorrect'
                }
