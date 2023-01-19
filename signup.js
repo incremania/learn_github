@@ -36,30 +36,31 @@ const loader = document.querySelector('.loader')
 const file = document.querySelector('#image')
 const errorFile = document.querySelector('.error-file')
 
-loginEmail.addEventListener('keydown' ,function() { 
-    loginEmailValidation()
-});
+// loginEmail.addEventListener('keydown' ,function() { 
+//     loginEmailValidation()
+// });
 
-loginEmail.addEventListener('keyup' ,function() { 
-    loginEmailValidation()
-});
+// loginEmail.addEventListener('keyup' ,function() { 
+//     loginEmailValidation()
+// });
 
-loginEmail.addEventListener('keypress' ,function() { 
-    loginEmailValidation()
-});
+// loginEmail.addEventListener('keypress' ,function() { 
+//     if(loginEmail.value.length  <  2) {
+//         errorLoginEmail.innerHTML = ''
+//     }
+// });
 
 signUpForm.addEventListener('submit',async  function(e) {
   e.preventDefault(); 
   loader.style.display = 'block'
-  const loginEmailValid  = loginEmail.classList.contains('valid-border');
+  const loginEmailValid  = loginEmailValidation();
   const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
   const passwordTwoValid = loginPasswordTwo.classList.contains('valid-border');
   passwordValidation(loginPasswordOne, errorPasswordOne);
   validatePasswordTwo()
   loginEmailValidation()
   passwordMatch()
-  
-  
+
   if(!loginEmailValid) {
     loginPasswordOne.value = ''
     loginPasswordTwo.value = ''
@@ -133,7 +134,8 @@ continueBtn.addEventListener('click', function(e) {
   const textAreaValid = textArea.classList.contains('valid-border');
   const genderValid = gender.classList.contains('valid-text')
 
- 
+  
+
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
   if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
@@ -404,35 +406,9 @@ function incomeValidation(inputName, errorName, firstMessage,secondMessage){
 };
 
 
-
-function loginEmailUsed() {
-    const invalidIcon = loginEmail.parentElement.querySelector('.invalid-icon');
-    const validIcon = loginEmail.parentElement.querySelector('.valid-icon');
-    loginEmail.classList.add('invalid-border');
-        loginEmail.classList.remove('valid-border');
-        errorLoginEmail.innerHTML = 'email has been used';
-        errorLoginEmail.classList.add('invalid');
-        invalidIcon.classList.add('not-success-icon');
-        validIcon.classList.remove('success-icon');
-
-
-}
-
-function emailVerificationViaServer() {
-             errorLoginEmail.style.color = 'red'
-            loginEmail.classList.remove('valid-border')
-            loginEmail.classList.add('invalid-border')
-            loginPasswordOne.value = ''
-            loginPasswordTwo.value = ''
-            passwordValidation(loginPasswordOne, errorPasswordOne);
-            validatePasswordTwo()
-            loginEmailUsed()
-}
-
 function loginEmailValidation() {
     const invalidIcon = loginEmail.parentElement.querySelector('.invalid-icon');
     const validIcon = loginEmail.parentElement.querySelector('.valid-icon');
-
     if(!loginEmail.value.trim())  {
         loginEmail.classList.add('invalid-border');
         loginEmail.classList.remove('valid-border');
@@ -440,7 +416,8 @@ function loginEmailValidation() {
         errorLoginEmail.classList.add('invalid');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        loader.style.display = 'none'
+        return false;
     
     } else if(!loginEmail.value.match(/^[A-Za-z\._\-[0-9]*[@][A-Za-z]*[\.][a-z]{2,4}$/)) {
         errorLoginEmail.innerHTML = 'invalid email format';
@@ -449,7 +426,8 @@ function loginEmailValidation() {
         loginEmail.classList.add('invalid-border');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        loader.style.display = 'none'
+        return false;
     }
     else {
         errorLoginEmail.innerHTML = '';
@@ -457,9 +435,10 @@ function loginEmailValidation() {
         invalidIcon.classList.remove('not-success-icon');
         loginEmail.classList.remove('invalid-border');
         loginEmail.classList.add('valid-border');
-     return false;
+     return true;
     }
 }
+
 
 
 textArea.addEventListener('keyup', function() {
@@ -471,6 +450,7 @@ function textAreaValidation() {
     const validIcon = textArea.parentElement.querySelector('.valid-icon');
     const reason = textArea.value.length;
     const remainder = 40-textArea.value.length;
+
 
     if(!textArea.value.trim())  {
         textArea.classList.add('invalid-border');
