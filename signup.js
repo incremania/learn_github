@@ -66,13 +66,15 @@ signUpForm.addEventListener('submit',async  function(e) {
         
         const url = 'https://grantb.onrender.com/register'
         const formData = new FormData(signUpForm);
-        signUpForm.append('image', file.files[0])
-          const res = await fetch(url, {
+        signUpForm.append('image', file.files[0] || 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png')
+        console.log(formData)
+        const res = await fetch(url, {
             method: 'POST',
             body: formData,
        
           })
           const data2 = await res.json();
+          console.log(data2)
           if(data2._id) {
             localStorage.setItem('userid', data2._id)
             signUpForm.submit()
