@@ -36,29 +36,12 @@ const loader = document.querySelector('.loader')
 const file = document.querySelector('#image')
 const errorFile = document.querySelector('.error-file')
 
-// loginEmail.addEventListener('keydown' ,function() { 
-//     loginEmailValidation()
-// });
-
-// loginEmail.addEventListener('keyup' ,function() { 
-//     loginEmailValidation()
-// });
-
-// loginEmail.addEventListener('keypress' ,function() { 
-//     if(loginEmail.value.length  <  2) {
-//         errorLoginEmail.innerHTML = ''
-//     }
-// });
-
 signUpForm.addEventListener('submit',async  function(e) {
   e.preventDefault(); 
   loader.style.display = 'block'
   const loginEmailValid  = loginEmailValidation();
-  const passwordOneValid = loginPasswordOne.classList.contains('valid-border');
-  const passwordTwoValid = loginPasswordTwo.classList.contains('valid-border');
-  passwordValidation(loginPasswordOne, errorPasswordOne);
-  validatePasswordTwo()
-  loginEmailValidation()
+  const passwordTwoValid = validatePasswordTwo()
+ const passwordOneValid = passwordValidation(loginPasswordOne, errorPasswordOne);
   passwordMatch()
 
   if(!loginEmailValid) {
@@ -112,46 +95,27 @@ signUpForm.addEventListener('submit',async  function(e) {
 function continuBtnFunction() {
 continueBtn.addEventListener('click', function(e) {
   e.preventDefault();
-  creditScoreValidation();
-  genderCheck();
-  ageValidation();
-  validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
-  validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
-  validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
-  incomeValidation(income, errorIncome, 'this field cannot be empty', 'numbers only');
-  numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number');
-  textAreaValidation()
-
-  const firstNameValid = firstName.classList.contains('valid-border');
-  const lastNameValid  = lastName.classList.contains('valid-border');
-  const creditScoreValid = creditScore.classList.contains('valid-border');
-  const fileValid = file.classList.contains('valid-border');
-  const ageValid = age.classList.contains('valid-border');
-  const cityValid = city.classList.contains('valid-border');
-  const phoneNumberValid = phoneNumber.classList.contains('valid-border');
-  const incomeValid = income.classList.contains('valid-border');
-  const mailingAddressValid = mailingAddress.classList.contains('valid-border');
-  const textAreaValid = textArea.classList.contains('valid-border');
-  const genderValid = gender.classList.contains('valid-text')
-
-  
-
+  const genderValid = genderCheck();
+  const ageValid = ageValidation();
+  const creditScoreValid = creditScoreValidation()
+  const fileValid = fileValidation()
+  const firstNameValid = validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
+  const cityValid = validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
+  const lastNameValid = validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
+  const incomeValid = incomeValidation(income, errorIncome, 'this field cannot be empty', 'numbers only');
+  const phoneNumberValid = numberValidation(phoneNumber, errorPhoneNumber, 'phone number cannot be empty', 'input a valid number');
+  const textAreaValid  = textAreaValidation();
+  const mailingAddressValid = mailingAddressValiddation(mailingAddress, errorMailingAddress,'mailing address is required');
+ 
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid && fileValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
-   firstForm.classList.add('hide-form');
+  
+     firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {
-    creditScoreValidation();
-    fileValidation();
-    ageValidation();
-    // emailValidation();
-    mailingAddressValiddation(mailingAddress, errorMailingAddress, 'mailing address cannot be empty');
-    validation(city, errorCity, 'this field cannot be empty', 'invalid city format');
-    validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
-    validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
-    validation(income, errorIncome, 'this field cannot be empty', 'input a valid income');
-    incomeValidation(income, errorIncome, 'phone number cannot be empty', 'input a valid number');
+    console.log('invalid')
+   
     setTimeout(function(){
     alert('please make sure all fields are correctly filled');
  },1000);
@@ -220,7 +184,6 @@ function numberValidation(inputName, errorName, firstMessage, secondMessage) {
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
         return false    
-        // /(?:(\+1)[ -])?\(?(\d{3})?[ -]?(\d{3})[ -]?(\d{4})/
     } else if(!inputName.value.match(/(?:(\+1)[ -])?\(?(\d{3})?[ -]?(\d{3})[ -]?(\d{4})/) ) {
         errorName.innerHTML = secondMessage;
         errorName.classList.add('invalid');
@@ -250,7 +213,7 @@ function validation(inputName, errorName, firstMessage, secondMessage) {
         errorName.classList.add('invalid');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        return false;
     } else if(!inputName.value.match(/^[A-Za-z\s]*$/ )) {
         errorName.innerHTML = secondMessage;
         errorName.classList.add('invalid');
@@ -258,7 +221,7 @@ function validation(inputName, errorName, firstMessage, secondMessage) {
         inputName.classList.add('invalid-border');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        return false;
     }
     else {
         errorName.innerHTML = '';
@@ -266,7 +229,7 @@ function validation(inputName, errorName, firstMessage, secondMessage) {
         invalidIcon.classList.remove('not-success-icon');
         inputName.classList.remove('invalid-border');
         inputName.classList.add('valid-border');
-        return false;
+        return true
     }
 }
 
@@ -282,12 +245,14 @@ function creditScoreValidation() {
         creditScore.classList.add('invalid-border');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
+        return false;
     } else {
         errorCreditScore.innerHTML = '';
         validIcon.classList.add('success-icon');
         invalidIcon.classList.remove('not-success-icon');
         creditScore.classList.remove('invalid-border');
         creditScore.classList.add('valid-border');
+        return true;
     }
 }
 
@@ -301,12 +266,14 @@ function fileValidation() {
         file.classList.remove('valid-border');
         errorFile.innerHTML = 'upload a photo';
         errorFile.classList.add('invalid');
+        return false
     }  else if(file.value.length > 13) {
         errorFile.innerHTML = '';
         validIcon.classList.add('success-icon');
         invalidIcon.classList.remove('not-success-icon');
         file.classList.remove('invalid-border');
         file.classList.add('valid-border');
+        return true
     }
     else {
         errorFile.innerHTML = '';
@@ -314,6 +281,7 @@ function fileValidation() {
         invalidIcon.classList.remove('not-success-icon');
         file.classList.remove('invalid-border');
         file.classList.add('valid-border');
+        return true
     };
 };
 
@@ -325,7 +293,6 @@ function ageValidation() {
         errorAge.innerHTML = 'select a valid age';
         age.classList.add('invalid');
         errorAge.style.color = 'red';
-       
         return false ; 
     }
      else if(year > 2006) {
@@ -334,12 +301,14 @@ function ageValidation() {
         errorAge.innerHTML = 'you must be over 16 years to apply ';
         age.classList.add('invalid');
         errorAge.style.color = 'red';
+        return false
     } else if(year < 1922) {
         age.classList.add('invalid-border');
         age.classList.remove('valid-border');
         errorAge.innerHTML = 'you must be below 100 years to apply';
         age.classList.add('invalid');
         errorAge.style.color = 'red';
+        return false
     }
      else if(age.value.length > 1) {
         errorAge.innerHTML = '';
@@ -362,6 +331,8 @@ function mailingAddressValiddation(inputName, errorName, firstMessage) {
         errorName.classList.add('invalid');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
+        return false
+        
     } else {
         errorName.innerHTML = '';
         validIcon.classList.add('success-icon');
@@ -383,7 +354,7 @@ function incomeValidation(inputName, errorName, firstMessage,secondMessage){
         errorName.classList.add('invalid');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        return false;
     
     } 
     else if(inputName.value.length < 3) {
@@ -393,7 +364,7 @@ function incomeValidation(inputName, errorName, firstMessage,secondMessage){
         inputName.classList.add('invalid-border');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        return false;
     }
     else {
         errorName.innerHTML = '';
@@ -401,7 +372,7 @@ function incomeValidation(inputName, errorName, firstMessage,secondMessage){
         invalidIcon.classList.remove('not-success-icon');
         inputName.classList.remove('invalid-border');
         inputName.classList.add('valid-border');
-     return false;
+        return true;
     };
 };
 
@@ -459,7 +430,7 @@ function textAreaValidation() {
         errorTextArea.classList.add('invalid');
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon'); 
-        return true;
+        return false;
     } else if(reason < 40) {
         errorTextArea.innerHTML = `<p style="color:black"> reason must be greater <span style="color:green">40</span> letters, <span style="color:red">${remainder} </span>letters remaining </p>`;
         errorTextArea.classList.add('invalid');
@@ -467,7 +438,7 @@ function textAreaValidation() {
         textArea.classList.add('invalid-border'); 
         invalidIcon.classList.add('not-success-icon');
         validIcon.classList.remove('success-icon');
-        return true;
+        return false;
     }
     else {
         errorTextArea.innerHTML = '';
@@ -475,7 +446,7 @@ function textAreaValidation() {
         invalidIcon.classList.remove('not-success-icon');
         textArea.classList.remove('invalid-border');
         textArea.classList.add('valid-border');
-        return false;
+        return true;
     };
 };
 
@@ -485,15 +456,15 @@ function genderCheck () {
   const errorGender = document.querySelector('.error-gender')
 
     if(!male.checked && !female.checked)  {
-        
         errorGender.innerHTML = 'select a gender';
         errorGender.classList.add('invalid');
+        return false;
     } 
-    else {
+    else if(male.checked || female.checked){
         errorGender.innerHTML = '';
         gender.classList.add('valid-text')
         gender.classList.remove('invalid')
-
+        return true
     };
 
     male.addEventListener('click', function() {
@@ -510,8 +481,11 @@ function genderCheck () {
 
 
 loginPasswordOne.addEventListener('keyup', function() {
-    passwordValidation(loginPasswordOne, errorPasswordOne);
-    validatePasswordTwo();
+    errorPasswordOne.innerHTML = ''
+    loginPasswordOne.classList.remove('invalid-border')
+    
+    // passwordValidation(loginPasswordOne, errorPasswordOne);
+    // validatePasswordTwo();
 });
 
 function passwordOneInvalid() {
@@ -521,7 +495,7 @@ function passwordOneInvalid() {
     passwordType.classList.remove('valid-border');
     errorPasswordOne.innerHTML = 'password cannot be empty';
     passwordError.classList.add('invalid');
-    invalidIcon.classList.add('not-success-icon');
+     invalidIcon.classList.add('not-success-icon');
     validIcon.classList.remove('success-icon'); 
 }
 
@@ -540,8 +514,6 @@ function passwordTwoInvalid() {
 }
 
 function passwordValidation(passwordType, passwordError) {
-    // const invalidIcon = passwordType.parentElement.querySelector('.invalid-icon');
-    // const validIcon = passwordType.parentElement.querySelector('.valid-icon');
     const requiredPassword = 7;
     const password = passwordType.value;
 
@@ -550,78 +522,70 @@ function passwordValidation(passwordType, passwordError) {
     passwordType.classList.remove('valid-border');
     passwordError.innerHTML = 'password cannot be empty';
     passwordError.classList.add('invalid');
-    // invalidIcon.classList.add('not-success-icon');
-    // validIcon.classList.remove('success-icon'); 
-    return true;
+    return false;
     }  else if(password.length  < requiredPassword) {
     passwordType.classList.add('invalid-border');
     passwordType.classList.remove('valid-border');
     passwordError.innerHTML = 'password length must be more than 6';
     passwordError.classList.add('invalid');
-    // invalidIcon.classList.add('not-success-icon');
-    // validIcon.classList.remove('success-icon') ; 
+    return false
     }  else {
         passwordError.innerHTML = '';
-        // validIcon.classList.add('success-icon');
-        // invalidIcon.classList.remove('not-success-icon');
         passwordType.classList.remove('invalid-border');
         passwordType.classList.add('valid-border');
+        return true
     }   
 }
 
 
 function validatePasswordTwo() {
-    // const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
-    // const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
     if(!loginPasswordTwo.value.trim()) {
         loginPasswordTwo.classList.add('invalid-border');
         loginPasswordTwo.classList.remove('valid-border');
         errorPasswordTwo.innerHTML = 'password cannot be empty';
         errorPasswordTwo.classList.add('invalid');
-        // invalidIcon.classList.add('not-success-icon');
-        // validIcon.classList.remove('success-icon'); 
+        return false
     }
     else if(loginPasswordOne.value != loginPasswordTwo.value) {
         loginPasswordTwo.classList.add('invalid-border');
        loginPasswordTwo.classList.remove('valid-border');
        errorPasswordTwo.innerHTML = 'password does not match';
        errorPasswordTwo.classList.add('invalid');
-    //    invalidIcon.classList.add('not-success-icon');
-    //    validIcon.classList.remove('success-icon');
+       return false
        } else if(loginPasswordOne.classList.contains('invalid-border')) {
         loginPasswordTwo.value = ''
+        return false 
+       } else {
+        return true
        }
 };
 
 loginPasswordTwo.addEventListener('keyup', function() {
-    passwordMatch();
+    errorPasswordTwo.innerHTML = ''
+    loginPasswordTwo.classList.remove('invalid-border')
+    // errorPasswordTwo.innerHTML = '';
+    // passwordMatch();
 });
 
 function passwordMatch() {
-    // const invalidIcon = loginPasswordTwo.parentElement.querySelector('.invalid-icon');
-    // const validIcon = loginPasswordTwo.parentElement.querySelector('.valid-icon');
+  
     if(loginPasswordOne.value !== loginPasswordTwo.value){
         errorPasswordTwo.innerHTML = 'password does not match';
-        // invalidIcon.classList.add('not-success-icon');
-        // validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
+        loader.style.display = 'none'
         return false
        
        } else if(!loginPasswordOne.classList.contains('valid-border')) {
         errorPasswordTwo.innerHTML = 'password cannot be empty';
         loginPasswordTwo.value = ''
-        // invalidIcon.classList.add('not-success-icon');
-        // validIcon.classList.remove('success-icon');
         loginPasswordTwo.classList.remove('valid-border');
         loginPasswordTwo.classList.add('invalid-border');
-     
+        loader.style.display = 'none'
         return false
        }
         else {
         errorPasswordTwo.innerHTML = '';
-        // validIcon.classList.add('success-icon');
-        // invalidIcon.classList.remove('not-success-icon');
         loginPasswordTwo.classList.remove('invalid-border');
         loginPasswordTwo.classList.add('valid-border');
         return true
