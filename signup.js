@@ -36,11 +36,17 @@ const loader = document.querySelector('.loader')
 const file = document.querySelector('#image')
 const errorFile = document.querySelector('.error-file')
 
+loginEmail.addEventListener('keydown' ,function() { 
+    loginEmailValidation()
+});
+
 loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
 });
 
-
+loginEmail.addEventListener('keypress' ,function() { 
+    loginEmailValidation()
+});
 
 signUpForm.addEventListener('submit',async  function(e) {
   e.preventDefault(); 
@@ -52,10 +58,12 @@ signUpForm.addEventListener('submit',async  function(e) {
   validatePasswordTwo()
   loginEmailValidation()
   passwordMatch()
-//   if(!loginEmailValid) {
-//     loginPasswordOne.value = ''
-//     loginPasswordTwo.value = ''
-//   }
+  
+  
+  if(!loginEmailValid) {
+    loginPasswordOne.value = ''
+    loginPasswordTwo.value = ''
+  }
 
   if(!loginPasswordOne) {
     loginPasswordTwo.value = ''
@@ -63,23 +71,27 @@ signUpForm.addEventListener('submit',async  function(e) {
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
     try {
-        
         const url = 'https://grantb.onrender.com/register'
         const formData = new FormData(signUpForm);
-        signUpForm.append('image', file.files[0] || 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png')
-        console.log(formData)
+        if(file.files[0]) {
+            signUpForm.append('image', file.files[0])
+        } else {
+            signUpForm.append('image', 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png')
+        }
+     
         const res = await fetch(url, {
             method: 'POST',
             body: formData,
        
           })
+          
           const data2 = await res.json();
-          console.log(data2)
+    
           if(data2._id) {
             localStorage.setItem('userid', data2._id)
             signUpForm.submit()
             loader.style.display = 'none'
-            console.log('user registered')
+          
           } else {
             errorLoginEmail.innerHTML = 'a user with this email exists'
             loader.style.display = 'none'
@@ -123,8 +135,8 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
-    // if(!firstNameValid) {
+//   if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+    if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {
@@ -457,7 +469,6 @@ textArea.addEventListener('keyup', function() {
 function textAreaValidation() {
     const invalidIcon = textArea.parentElement.querySelector('.invalid-icon');
     const validIcon = textArea.parentElement.querySelector('.valid-icon');
-    const requiredReasonLength = 40;
     const reason = textArea.value.length;
     const remainder = 40-textArea.value.length;
 
