@@ -135,8 +135,8 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-//   if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
-    if(!firstNameValid) {
+  if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+    // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {
