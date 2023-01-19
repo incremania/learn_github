@@ -36,7 +36,7 @@ const loader = document.querySelector('.loader')
 const file = document.querySelector('#image')
 const errorFile = document.querySelector('.error-file')
 
-loginEmail.addEventListener('keypress' ,function() { 
+loginEmail.addEventListener('keyup' ,function() { 
     loginEmailValidation()
 });
 
@@ -52,10 +52,10 @@ signUpForm.addEventListener('submit',async  function(e) {
   validatePasswordTwo()
   loginEmailValidation()
   passwordMatch()
-  if(!loginEmailValid) {
-    loginPasswordOne.value = ''
-    loginPasswordTwo.value = ''
-  }
+//   if(!loginEmailValid) {
+//     loginPasswordOne.value = ''
+//     loginPasswordTwo.value = ''
+//   }
 
   if(!loginPasswordOne) {
     loginPasswordTwo.value = ''
