@@ -36,7 +36,7 @@ const loader = document.querySelector('.loader')
 const file = document.querySelector('#image')
 const errorFile = document.querySelector('.error-file')
 
-loginEmail.addEventListener('keyup' ,function() { 
+loginEmail.addEventListener('keypress' ,function() { 
     loginEmailValidation()
 });
 
@@ -121,7 +121,7 @@ continueBtn.addEventListener('click', function(e) {
 
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && fileValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
    firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');

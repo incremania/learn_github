@@ -26,6 +26,8 @@ const profileAddress2 = document.querySelector('.profile-address-two')
 const userImg = document.querySelector('.user-img');
 
 
+
+
 claimBtn.addEventListener('click', function(e) {
   e.preventDefault()
   afterPayment.classList.toggle('show')
