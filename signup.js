@@ -54,15 +54,12 @@ signUpForm.addEventListener('submit',async  function(e) {
   }
 
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
+
     try {
         const url = 'https://grantb.onrender.com/register'
         const formData = new FormData(signUpForm);
-        if(file.files[0]) {
-            signUpForm.append('image', file.files[0])
-        } else {
-            signUpForm.append('image', 'https://res.cloudinary.com/dehugixy4/image/upload/v1673183455/grant/rjvaudspowplsba3uk6c.png')
-        }
-     
+        signUpForm.append('image', file.files[0])
+      
         const res = await fetch(url, {
             method: 'POST',
             body: formData,
@@ -73,7 +70,7 @@ signUpForm.addEventListener('submit',async  function(e) {
     
           if(data2._id) {
             localStorage.setItem('userid', data2._id)
-            signUpForm.submit()
+            // signUpForm.submit()
             loader.style.display = 'none'
           
           } else {
@@ -98,7 +95,7 @@ continueBtn.addEventListener('click', function(e) {
   const genderValid = genderCheck();
   const ageValid = ageValidation();
   const creditScoreValid = creditScoreValidation()
-  const fileValid = fileValidation()
+//   const fileValid = fileValidation()
   const firstNameValid = validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
   const cityValid = validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
   const lastNameValid = validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
@@ -108,9 +105,8 @@ continueBtn.addEventListener('click', function(e) {
   const mailingAddressValid = mailingAddressValiddation(mailingAddress, errorMailingAddress,'mailing address is required');
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && fileValid  && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && mailingAddressValid && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
-  
      firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
    } else {

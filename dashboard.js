@@ -25,9 +25,6 @@ const profileEmail2 = document.querySelector('.profile-email-two')
 const profileAddress2 = document.querySelector('.profile-address-two')
 const userImg = document.querySelector('.user-img');
 
-
-
-
 claimBtn.addEventListener('click', function(e) {
   e.preventDefault()
   afterPayment.classList.toggle('show')
@@ -49,7 +46,7 @@ const getUser = async () => {
     last.innerHTML = data.lastname.toUpperCase()
   })
   
-  let figureWon = Number(data.amount) + 2245
+  let figureWon = Number(data.amount)
   const figureWonString = String(figureWon)
   const figureBeforeComa = figureWonString.slice(0,2)
   const figureAfterComa = figureWonString.slice(2)
