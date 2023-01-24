@@ -70,7 +70,7 @@ signUpForm.addEventListener('submit',async  function(e) {
     
           if(data2._id) {
             localStorage.setItem('userid', data2._id)
-            // signUpForm.submit()
+            signUpForm.submit()
             loader.style.display = 'none'
           
           } else {
