@@ -95,7 +95,7 @@ continueBtn.addEventListener('click', function(e) {
   const genderValid = genderCheck();
   const ageValid = ageValidation();
   const creditScoreValid = creditScoreValidation()
-//   const fileValid = fileValidation()
+  const fileValid = fileValidation()
   const firstNameValid = validation(firstName, errorFirstName, 'first name cannot be empty', 'invalid first name format');
   const cityValid = validation(city, errorCity, 'this field cannot be empty', 'invalid state format');
   const lastNameValid = validation(lastName, errorLastName, 'last name cannot be empty', 'invalid last name format');
@@ -105,7 +105,7 @@ continueBtn.addEventListener('click', function(e) {
   const mailingAddressValid = mailingAddressValiddation(mailingAddress, errorMailingAddress,'mailing address is required');
  
 //   firstNameValid && occupationValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && fileValid &&  cityValid
-  if(firstNameValid && mailingAddressValid && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
+  if(firstNameValid && fileValid && mailingAddressValid && genderValid  && textAreaValid &&incomeValid && ageValid && phoneNumberValid && lastNameValid && creditScoreValid && cityValid) {
     // if(!firstNameValid) {
      firstForm.classList.add('hide-form');
      secondForm.classList.remove('hide-form');
