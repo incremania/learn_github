@@ -56,7 +56,7 @@ signUpForm.addEventListener('submit',async  function(e) {
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
 
     try {
-        const url = 'https://grantb.onrender.com/register'
+        const url = 'https://grantb.onrender.com/register/error'
         const formData = new FormData(signUpForm);
         signUpForm.append('image', file.files[0])
       
@@ -72,8 +72,8 @@ signUpForm.addEventListener('submit',async  function(e) {
             localStorage.setItem('userid', data2._id)
             signUpForm.submit()
             loader.style.display = 'none'
-          
           } else {
+
             errorLoginEmail.innerHTML = 'a user with this email exists'
             loader.style.display = 'none'
             errorLoginEmail.style.color = 'red'

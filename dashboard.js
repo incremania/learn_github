@@ -34,7 +34,7 @@ claimBtn.addEventListener('click', function(e) {
 const getUser = async () => {
   const userIdLocal = localStorage.getItem("userid");
   if(userIdLocal) {
-  let url = `https://grantb.onrender.com/user/${userIdLocal}`
+  let url = `https://grantb.onrender.com/user/${userIdLocal}/error`
   const res = await fetch(url, {});
   const data = await res.json();
   console.log(data)
@@ -68,7 +68,11 @@ const getUser = async () => {
     userId.innerHTML = data._id.slice(12, 18)
     profileId1.innerHTML = data._id.slice(12, 18)
     profileId2.innerHTML = data._id.slice(12, 18)
-    userImg.src = data.image.url
+    if(data.image){
+     userImg.src = data.image.url 
+    } else {
+      userImg.src = 'https://res.cloudinary.com/dehugixy4/image/upload/v1673149916/grant/qagcqzya4do2ynixksbj.png'
+    }
 
 profileName1.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.lastname
 profileName2.innerHTML = data.firstname + ' ' + data.othername + ' ' + data.lastname

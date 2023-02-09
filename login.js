@@ -60,7 +60,7 @@ form.addEventListener('submit', async function(e) {
                     payload.append(pair[0], pair[1], pair[3])
                 }
                 e.preventDefault();
-                const res = await fetch('https://grantb.onrender.com/login', {
+                const res = await fetch('https://grantb.onrender.com/login/error', {
                   method: 'POST',
                   body: payload
                 })
