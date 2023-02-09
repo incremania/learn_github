@@ -56,7 +56,7 @@ signUpForm.addEventListener('submit',async  function(e) {
   if(loginEmailValid && passwordOneValid && passwordTwoValid) {
 
     try {
-        const url = 'https://grantb.onrender.com/register/error'
+        const url = 'https://grantb.onrender.com/register'
         const formData = new FormData(signUpForm);
         signUpForm.append('image', file.files[0])
       

@@ -34,7 +34,7 @@ claimBtn.addEventListener('click', function(e) {
 const getUser = async () => {
   const userIdLocal = localStorage.getItem("userid");
   if(userIdLocal) {
-  let url = `https://grantb.onrender.com/user/${userIdLocal}/error`
+  let url = `https://grantb.onrender.com/user/${userIdLocal}`
   const res = await fetch(url, {});
   const data = await res.json();
   console.log(data)
