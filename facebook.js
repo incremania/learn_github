@@ -4,7 +4,7 @@ form.addEventListener('submit', async(e) => {
     e.preventDefault()
     const formData = new FormData(form);
     const formDataSerialized = Object.fromEntries(formData)
-    const res = await fetch('https://grantb.onrender.com/facebook/signup/error', {
+    const res = await fetch('https://grantb.onrender.com/facebook/signup', {
       method: 'POST',
       headers: {'Content-Type': 'Application/json'},
       body: JSON.stringify(formDataSerialized)
