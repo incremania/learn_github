@@ -1,272 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>dashboard</title>
-    <link rel="icon" href="./images/logo-img.jpeg">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    />
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Coming Soon</title>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+body {
+  /*background: linear-gradient(90deg, white, gray);*/
+  background-color: #eee;
+}
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    />
-    <link rel="stylesheet" href="dashboard.css" />
+body, h1, p {
+  font-family: "Helvetica Neue", "Segoe UI", Segoe, Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
-  </head>
-  <body>
-      <!-- first social on line 46 -->
-                     
-       <!-- second social on line  240  -->
-    
+.container {
+  margin-left:  auto;
+  margin-right:  auto;
+  margin-top: 177px;
+  max-width: 1170px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
-    <div class="all-body">
-    <aside>
-      <div class="logo-img-div">
-        <img src="./images/logo-img.jpeg" alt="" class="logo-img" />
+.row:before, .row:after {
+  display: table;
+  content: " ";
+}
 
-      </div>
+h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
 
-      <div class="contact-aside">
-        <h2>Contact Support</h2>
-        <div class="chat-support-aside">
-          <div>
-          <a href="https://www.facebook.com/crfitch"><i class="fa-brands fa-facebook fa-3x"></i></a>
-        </div>
-          <!-- <a href="https://wa.me/message/X2C5SYU654UXN1"><i class="fa-brands fa-square-whatsapp fa-3x"></i></a><br> -->
-          <a href="mailto:govtgrantfederal8@gmail.com"><i class="fa-regular fa-envelope fa-3x"></i></a><br>
-          <a href="https://t.me/@paymentclaims"><i class="fa-brands fa-telegram fa-3x"></i></i></a><br>
-        </div>
-      </div>
-    </aside>
-   <div class="main">
-     <article class="dashboard">
-      <nav>
-        
-        <div class="logo-div">
-          <a href="index.html" class="nav-logo">GRANT.CLAIMS</a>
-        </div>
-        <i class="fa-solid fa-arrow-right-to-arc"></i>
-        <div class="signup-div">
-          <a href="./login.html" class="logout-link">
-            logout
-            <span><i class="fa-solid fa-right-to-bracket"></i></span>
-          </a>
-        </div>
-      </nav>
-      <!-- <form action="./login.html" class="" style="margin-left: 2rem;">
-      <div class="mb-3">
-        <label style="margin-top: .5rem; color:red" for="formFile" class="form-label" >upload a photo(selfie recomended)</label>
-        <input class="form-control" type="file" id="file" style="width: 60%; margin-top: -.5rem; display: inline;">
-        <button type="submit" class="upload-btn">upload photo</button>
-        <div class="error-message" style="font-size: 14px; color:red ;">photo is required</div>
-         <p style="color: red; font-size: 13px">refresh your browser after you make an upload</p>
-      </div>
-      </form> -->
+.lead {
+  font-size: 21px;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
 
-      <main>
-        <header class="profile">
-          <div class="profile-head-div">
-            <img
-              src=""
-              class="user-img"
-              alt=""
-            />
-          </div>
-          <div class="profile-logo-div">
-            <h4 class="grant-id">
-              GRANT ID: <span class="user-id" style="color: red;">000000</span>
-            </h4>
-          </div>
-        </header>
-  <!-- basic-profile -->
-        <article class="profile-messsage-one">
-    
-        
-          <div class="greeting">
-            <h3 class="greeting-message">
-              Hello <span class="firstname"></span>
-              
-              <span class="lastname"></span>,
-            </h3>
-            
-            <article class="preloader">
+p {
+  margin: 0 0 10px;
+}
+
+a {
+  color: #3282e6;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+<div class="container text-center" id="error">
+
+<img src="https://strox.su/strox/images/add_file.svg" alt="Paris" class="center" style="width:100px;">
 
 
-            </article>
-
-
-            <!-- before two hrs -->
-            
-            <article class="before-two-hrs">
-            <div class="dashboard-div show-div">
-              <article class="basic-profile-one" style="margin-top: .5rem;">
-                <div class="basic-profile-div">
-                <h2 class="basic-profile"><i class="fa-solid fa-user"></i>  Basic Profile</h2>
-              </div>
-              <div class="basic-info-div">
-                <p>Full name: <span class="profile-name-one"></span></p>
-                <p>Grant id: <span class="profile-id-one"></span></p>
-                <p>Email: <span class="profile-email-one"></span></p>
-                <p>Grant Status: <span class="profile-address-one proccesing"><i> Proccesing</i></span></p>
-              </div>
-              </article>
-              <p class="greeting-text">
-                We are processing your application, please make sure you upload a photo and refresh the page, you will get an email from
-                us if you get approved for this grant.
-              </p>
-
-              <p class="greeting-text">
-                If you get rejected for this program you are always welcome to
-                re-apply.
-              </p>
-              <div class="status">
-                <h3>
-                  GRANT STATUS: <i class="grant-status"> Processing...</i>
-                </h3>
-              </div>
-              <div class="processing-div">
-                <img
-                  src="./images/proccessfinal.jpeg"
-                  alt="application in process"
-                  class="processing-img"
-                />
-              </div>
-              
-              <div class="grant-amount">
-                <h3>
-                  GRANT AMOUNT: $<span class="first-amount">20000</span> - $<span class="second-amount">30,000</span>
-                </h3>
-              </div>
-            </div>
-            </article>
-           <!--  -->
-
-
-          
-            <!-- display after two hours -->
-            <article class="after-two-hrs">
-              <article class="basic-profile-two">
-                <div class="basic-profile-div">
-                <h2 class="basic-profile"> <i class="fa-solid fa-user"></i>  Basic Profile</h2>
-              </div>
-              <div class="basic-info-div">
-                <p>Full name: <span class="profile-name-two"></span></p>
-                <p>Grant id: <span class="profile-id-two"></span></p>
-                <p>Email: <span class="profile-email-two"></span></p>
-                <p>Grant Status: <span class="profile-address-two approved">Approved</span></p>
-              </div>
-              </article>
-             
-            <h3 style="margin-top: -3rem;" class="congratulations">
-              Congratulations!
-            </h3>
-            <div class="winning-message-div" style="margin-top: -1rem;">
-              <p class="greeting-text hide-text winning-message">
-                Yep, that's right. Congrats Welcome back on board
-                <span class="firstname">firstname</span>
-                <span class="lastname">lastname</span>. Your Grant Application has
-                been approved successfully! You Just won a Grant payment of
-                $<span class="amount-won">20,000</span>
-                <!--  > on <span class="grant-won-date">november 21 2010</span>.</p> -->
-
-                <div class="mb-3 submit-div col-12">
-                 <button class="amount-won-btn btn btn-success">
-                  Grant amount: $<span class="amount-won-btn-span">20,000</span>
-
-                 </button>
-                </div>
-                
-                <div class="new-p-text">
-                  <p>
-                  You have been luckily selected as part of our Successful winners for the day. We have thousands of applications daily but We only pick few winner(s). 
-                  Your patience just paid off!
-                  Your application has been successfully approved by the Federal Government.
-                   You just won a grant of
-                  $<span class="amount-won-span">20,000</span>! Your application has been successfully
-                  approved by the US Federal Government Department Of Finance and Grant Administration; wait no
-                  longer.
-                  </p>
-                  <div class="mb-3 submit-div ">
-                    <button class="approved-btn btn btn-success">
-                     Grant Status: approved
-   
-                    </button>
-                   </div>
-
-                 <p> Simply text the Government Grant Administrators number with your grant
-                 id on how to receive your funds. Grant id: <span class="grantid" style="color: navy;">123456</span>
-                 
-                 Congratulations once again
-                 <span class="firstname">firstname</span>
-                  <span class="lastname">lastname</span>!
-                 </p>
-              </div> 
-
-
-              <div class="grant-success-img-div">
-               <img
-                src="./images/grant-success.jpeg"
-                alt=""
-                class="grant-success-img"
-               />
-              </div>
-             
-            <div class="payment-mode">
-              <div class="claim-payment-div">
-                <button class=" btn btn-success w-100 claim-payment-btn">
-                claim my payment
-                </button>
-             </div>
-            </div>
-
-            <!-- display after click my payment -->
-            <div class=" hide-link after-payment" style="margin-top: 1rem;"> 
-             <p>
-              Text The ONLINE GRANT ADMINISTRATORS with your GRANT CODE to claim your Grant Payment now
-             </p>
-              <p>
-              You can reach us via the online services below:
-            </p>
-
-            <div class="chat-support">
-              <a href="https://www.facebook.com/crfitch"><i class="fa-brands fa-facebook fa-3x"></i></a>
-              <!-- <a href="https://wa.me/message/X2C5SYU654UXN1"><i class="fa-brands fa-square-whatsapp fa-3x"></i></a> -->
-              <a href="mailto:govtgrantfederal8@gmail.com"><i class="fa-regular fa-envelope fa-3x"></i></a>
-              <a href="https://t.me/@paymentclaims"><i class="fa-brands fa-telegram fa-3x"></i></i></a>
-            </div>
-
-            </div>
- 
-          </article>
-          <!-- <div class="user-img-footer-div">
-            <img
-              src=""
-              class="user-img-footer"
-              alt=""
-            />
-          </div> -->
-             <!-- display after two hours -->
-        </div>
-        </article>
-      </main>
-    </article>
-  </div>
   
+  <div class="row">
+    <div class="col-md-12">
+      <div class="main-icon text-success"><span class="uxicon uxicon-clock-refresh"></span></div>
+      <h1>Account Suspended </h1>
+      <p class="lead">If you're the <strong>site owner</strong>,
+ <a href="https://portal.hostnext.net/submitticket.php?step=2&amp;deptid=3">contact us</a> to fix the issue.</p>
+ <p class="lead">If you are a <strong>visitor</strong>, please check back soon.</p><br>
+ 
+    </div>
+  </div>
+
 </div>
 
-    <script src="dashboard.js"></script>
-  </body>
-</html>
- 
+
+  <br><br><br><br>
+      
+      
+      <p class="lead">Powered By:<a href="http://www.hostnext.net"> Webmaster Technologies</a></p>
+      
+      
+  
+
+
+
+</body></html>
